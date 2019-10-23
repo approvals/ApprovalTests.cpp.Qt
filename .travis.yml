@@ -140,7 +140,6 @@ matrix:
 
     - env: CLANG_VERSION=8
       os: linux
-      #dist: trusty
       services: xvfb
       addons: *clang8
 
