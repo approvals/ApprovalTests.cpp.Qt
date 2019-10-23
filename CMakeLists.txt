@@ -11,5 +11,6 @@ set(CMAKE_VERBOSE_MAKEFILE off)
 
 if (NOT_SUBPROJECT)
     enable_testing()
+    add_subdirectory(third_party)
     add_subdirectory(tests)
 endif()

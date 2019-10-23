@@ -1,0 +1,2 @@
+add_subdirectory(approval_tests_cpp)
+add_subdirectory(doctest)
