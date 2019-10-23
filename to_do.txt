@@ -1,6 +1,6 @@
-. Set up directory structure - library and tests
+. Set up directory structure - library ApprovalTestsQt
 . Mirror sub-directory of main project
-. Decide on namespace to use
+. Decide on namespace to use - ApprovalTestsQt
 . Create QImageWriter class - takes const QImage& - actually, need to avoid nameclass - see https://doc.qt.io/qt-5/qimagewriter.html
     . Maybe use QImageApprovalWriter
 . Create QImageApprovalComparator - and make it compare images optionally ignoring tiny differences
