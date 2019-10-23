@@ -114,11 +114,9 @@ matrix:
 #      os: linux
 #      addons: *gcc8
 
-# QXcbConnection: Could not connect to display
-# e.g. https://travis-ci.com/claremacrae/ApprovalTests:
-#    - env: GCC_VERSION=9
-#      os: linux
-#      addons: *gcc9
+    - env: GCC_VERSION=9
+      os: linux
+      addons: *gcc9
 
     # -------------------------------------------------------------------------
     # Linux clang
@@ -139,12 +137,10 @@ matrix:
 #      dist: trusty
 #      addons: *clang7
 
-# QXcbConnection: Could not connect to display
-# e.g. https://travis-ci.com/claremacrae/ApprovalTests:
-#    - env: CLANG_VERSION=8
-#      os: linux
-#      dist: trusty
-#      addons: *clang8
+    - env: CLANG_VERSION=8
+      os: linux
+      dist: trusty
+      addons: *clang8
 
     # -------------------------------------------------------------------------
     # Mac clang
