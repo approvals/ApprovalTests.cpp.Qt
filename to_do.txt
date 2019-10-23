@@ -1,4 +1,6 @@
 . Set up directory structure - library and tests
+. Work out to get GUI environment and display on Travis CI builds on Linux
+    . https://docs.travis-ci.com/user/gui-and-headless-browsers/#using-xvfb-to-run-tests-that-require-a-gui
 . Mirror sub-directory of main project
 . Decide on namespace to use
 . Create QImageWriter class - takes const QImage& - actually, need to avoid nameclass - see https://doc.qt.io/qt-5/qimagewriter.html
