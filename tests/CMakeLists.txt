@@ -1,1 +1,2 @@
+add_subdirectory(Catch2_Tests)
 add_subdirectory(DocTest_Tests)
