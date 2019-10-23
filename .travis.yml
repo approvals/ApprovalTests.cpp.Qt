@@ -127,15 +127,23 @@ matrix:
     # Linux clang
     # -------------------------------------------------------------------------
 
-    - env: CLANG_VERSION=5.0
-      os: linux
-      services: xvfb
-      addons: *clang5
+# https://travis-ci.com/claremacrae/ApprovalTests.cpp.Qt/jobs/248843557
+# The following packages have unmet dependencies:
+# clang-5.0: Depends: libjsoncpp0 (>= 0.6.0~rc2) but it is not installable
+# E: Unable to correct problems, you have held broken packages.
+#    - env: CLANG_VERSION=5.0
+#      os: linux
+#      services: xvfb
+#      addons: *clang5
 
-    - env: CLANG_VERSION=6.0
-      os: linux
-      services: xvfb
-      addons: *clang6
+# https://travis-ci.com/claremacrae/ApprovalTests.cpp.Qt/jobs/248843558
+# The following packages have unmet dependencies:
+# clang-6.0 : Depends: libjsoncpp0 (>= 0.6.0~rc2) but it is not installable
+# E: Unable to correct problems, you have held broken packages.
+#    - env: CLANG_VERSION=6.0
+#      os: linux
+#      services: xvfb
+#      addons: *clang6
 
     - env: CLANG_VERSION=7
       os: linux
