@@ -11,3 +11,4 @@
 . Think about how to compare QWidget objects
 . Think about integration with Qt Test framework
 . Set up CI builds
+. Try working on my fork then pushing to main project without PRs
