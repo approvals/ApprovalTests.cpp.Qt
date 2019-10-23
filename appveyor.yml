@@ -3,18 +3,19 @@ environment:
     - TARGET: vs2017
       APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
       GENERATOR: '"Visual Studio 15 2017"'
+      # https://www.appveyor.com/docs/windows-images-software/#qt
+      QTDIR: C:\Qt\5.12.4\msvc2017
 
     - TARGET: vs2019
       APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
       GENERATOR: '"Visual Studio 16 2019"'
+      QTDIR: C:\Qt\5.12.5\msvc2017
 
 #branches:
 #  except:
 #    - more_travis_builds
 
 install:
-  # https://www.appveyor.com/docs/windows-images-software/#qt
-  - set QTDIR=C:\Qt\5.12.5\msvc2017
   - set PATH=%PATH%;%QTDIR%\bin
 
 before_build:
