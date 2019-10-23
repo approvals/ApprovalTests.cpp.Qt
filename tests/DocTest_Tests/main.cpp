@@ -1,4 +1,4 @@
-#define APPROVALS_DOCTEST // This tells Approval Tests to provide a main() - only do this in one cpp file
+#define APPROVALS_DOCTEST
 #include "ApprovalTests.hpp"
 
 using namespace ApprovalTests;
