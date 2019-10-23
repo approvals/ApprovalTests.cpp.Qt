@@ -155,6 +155,13 @@ matrix:
     - os: osx
       osx_image: xcode10.2
 
+before_install:
+  # https://marclandolt.ch/ml_buzzernet/wp-content/uploads/2019/06/travis-ci-config-file-1.txt
+  # # https://stackoverflow.com/questions/25737062/travis-ci-for-a-qt5-project
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install qt5-default; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install qt5; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew link qt5 --force; fi
+
 before_script:
   - if [ -n "$GCC_VERSION" ]; then export CXX="g++-${GCC_VERSION}" CC="gcc-${GCC_VERSION}"; fi
   - if [ -n "$CLANG_VERSION" ]; then export CXX="clang++-${CLANG_VERSION}" CC="clang-${CLANG_VERSION}"; fi
