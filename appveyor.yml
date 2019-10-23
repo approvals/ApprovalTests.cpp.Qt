@@ -12,6 +12,11 @@ environment:
 #  except:
 #    - more_travis_builds
 
+install:
+  # https://www.appveyor.com/docs/windows-images-software/#qt
+  - set QTDIR=C:\Qt\5.12.5\msvc2017
+  - set PATH=%PATH%;%QTDIR%\bin
+
 before_build:
 - cmd: cmake -G %GENERATOR% .
 
