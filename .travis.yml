@@ -180,10 +180,7 @@ script:
   - cd .build
   - cmake ..
   - cmake --build .
-# Tests disabled due to absence of display (on Linux, at least):
-# QXcbConnection: Could not connect to display
-# e.g. https://travis-ci.com/claremacrae/ApprovalTests:
-#  - ctest --verbose
+  - ctest --verbose
 
 notifications:
   email: true
