@@ -1,7 +1,6 @@
 #define APPROVALS_CATCH_EXISTING_MAIN
 #include "ApprovalTests.hpp"
 
-// Unused for now - just test that Qt is found by builds
 #include <QApplication>
 
 using namespace ApprovalTests;
