@@ -98,21 +98,25 @@ matrix:
     # Linux gcc
     # -------------------------------------------------------------------------
 
-#    - env: GCC_VERSION=5
-#      os: linux
-#      addons: *gcc5
-#
-#    - env: GCC_VERSION=6
-#      os: linux
-#      addons: *gcc6
-#
-#    - env: GCC_VERSION=7
-#      os: linux
-#      addons: *gcc7
-#
-#    - env: GCC_VERSION=8
-#      os: linux
-#      addons: *gcc8
+    - env: GCC_VERSION=5
+      os: linux
+      services: xvfb
+      addons: *gcc5
+
+    - env: GCC_VERSION=6
+      os: linux
+      services: xvfb
+      addons: *gcc6
+
+    - env: GCC_VERSION=7
+      os: linux
+      services: xvfb
+      addons: *gcc7
+
+    - env: GCC_VERSION=8
+      os: linux
+      services: xvfb
+      addons: *gcc8
 
     - env: GCC_VERSION=9
       os: linux
@@ -123,20 +127,20 @@ matrix:
     # Linux clang
     # -------------------------------------------------------------------------
 
-#    - env: CLANG_VERSION=5.0
-#      os: linux
-#      dist: trusty
-#      addons: *clang5
-#
-#    - env: CLANG_VERSION=6.0
-#      os: linux
-#      dist: trusty
-#      addons: *clang6
-#
-#    - env: CLANG_VERSION=7
-#      os: linux
-#      dist: trusty
-#      addons: *clang7
+    - env: CLANG_VERSION=5.0
+      os: linux
+      services: xvfb
+      addons: *clang5
+
+    - env: CLANG_VERSION=6.0
+      os: linux
+      services: xvfb
+      addons: *clang6
+
+    - env: CLANG_VERSION=7
+      os: linux
+      services: xvfb
+      addons: *clang7
 
     - env: CLANG_VERSION=8
       os: linux
