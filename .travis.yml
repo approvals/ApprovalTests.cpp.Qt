@@ -87,6 +87,7 @@ language: cpp
     packages:
       - clang-8
       - libstdc++-8-dev
+      - xvfb
     sources:
       - ubuntu-toolchain-r-test
       - llvm-toolchain-trusty-8
