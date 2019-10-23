@@ -116,6 +116,7 @@ matrix:
 
     - env: GCC_VERSION=9
       os: linux
+      services: xvfb
       addons: *gcc9
 
     # -------------------------------------------------------------------------
@@ -140,6 +141,7 @@ matrix:
     - env: CLANG_VERSION=8
       os: linux
       dist: trusty
+      services: xvfb
       addons: *clang8
 
     # -------------------------------------------------------------------------
