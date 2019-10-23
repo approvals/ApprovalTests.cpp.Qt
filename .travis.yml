@@ -152,8 +152,10 @@ matrix:
 #    - os: osx
 #      osx_image: xcode9.4
 
-    - os: osx
-      osx_image: xcode10.2
+# Disabled, as Qt does not work after installation from brew:
+# Example failed build: https://travis-ci.com/claremacrae/ApprovalTests.cpp.Qt/jobs/248795731
+#    - os: osx
+#      osx_image: xcode10.2
 
 before_install:
   # https://marclandolt.ch/ml_buzzernet/wp-content/uploads/2019/06/travis-ci-config-file-1.txt
