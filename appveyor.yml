@@ -18,7 +18,7 @@ install:
   - set PATH=%PATH%;%QTDIR%\bin
 
 before_build:
-- cmd: cmake -G %GENERATOR% .
+- cmd: cmake -DCMAKE_PREFIX_PATH=%QTDIR%\lib\cmake\Qt5 -G %GENERATOR% .
 
 build_script:
 - cmd: cmake --build .
