@@ -1,6 +1,4 @@
 . Set up directory structure - library and tests
-. Work out to get GUI environment and display on Travis CI builds on Linux
-    . https://docs.travis-ci.com/user/gui-and-headless-browsers/#using-xvfb-to-run-tests-that-require-a-gui
 . Mirror sub-directory of main project
 . Decide on namespace to use
 . Create QImageWriter class - takes const QImage& - actually, need to avoid nameclass - see https://doc.qt.io/qt-5/qimagewriter.html
@@ -9,5 +7,9 @@
 . Set up documentation
 . Think about how to compare QWidget objects
 . Think about integration with Qt Test framework
+
+Later/low priority
 . Find a better way to incorporate 3rd-party dependencies than duplicating them:
     . Possible example: https://gitlab.rotate-it.be/tripled/guilded-rose-kata/commit/c503bf8a2b772881184b6ddbb3cd660b1e1be2ea
+. Work out to get GUI environment and display on Travis CI builds on Linux for Clang 5 and 6
+    . https://docs.travis-ci.com/user/gui-and-headless-browsers/#using-xvfb-to-run-tests-that-require-a-gui
