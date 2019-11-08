@@ -2,6 +2,7 @@ project(Catch2_Tests)
 set(CMAKE_CXX_STANDARD 11)
 add_executable(${PROJECT_NAME}
         main.cpp
+        ApprovalsQtTests.cpp
         integrations/catch/Catch2QtStringMakerTests.cpp
     )
 target_link_libraries(${PROJECT_NAME} ApprovalTestsQt catch2)
