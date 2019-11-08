@@ -3,6 +3,7 @@
 
 #include "ApprovalTests.hpp"
 #include "ApprovalTestsQt/writers/QImageApprovalWriter.h"
+#include "ApprovalTestsQt/writers/QTableWidgetWriter.h"
 
 namespace ApprovalTestsQt
 {
@@ -11,6 +12,13 @@ namespace ApprovalTestsQt
     {
         QImageApprovalWriter image_writer(image);
         ApprovalTests::Approvals::verify(image_writer, reporter);
+    }
+
+    void verifyQTableWidget(const QTableWidget& tableWidget,
+        const ApprovalTests::Reporter& reporter = ApprovalTests::DiffReporter())
+    {
+        QTableWidgetWriter table_writer(tableWidget);
+        ApprovalTests::Approvals::verify(table_writer, reporter);
     }
 } // namespace ApprovalTestsQt
 
