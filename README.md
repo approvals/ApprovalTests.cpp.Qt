@@ -16,6 +16,7 @@ To change this file edit the source file and then execute ./run_markdown_templat
   * [Reference](#reference)
     * [Setting up your main](#setting-up-your-main)
     * [Verifying a QImage](#verifying-a-qimage)
+    * [Verifying a QTableView, e.g. QTableWidget](#verifying-a-qtableview-eg-qtablewidget)
 <!-- endtoc -->
 
 
@@ -60,5 +61,17 @@ QImage image(10, 20, QImage::Format_RGB32);
 image.fill(Qt::red);
 ApprovalTestsQt::verifyQImage(image);
 ```
-<sup>[snippet source](/tests/Catch2_Tests/ApprovalsQtTests.cpp#L7-L11) / [anchor](#snippet-verify_qimage)</sup>
+<sup>[snippet source](/tests/Catch2_Tests/ApprovalsQtTests.cpp#L31-L35) / [anchor](#snippet-verify_qimage)</sup>
+<!-- endsnippet -->
+
+### Verifying a QTableView, e.g. QTableWidget
+
+<!-- snippet: verify_table_view -->
+<a id='snippet-verify_table_view'/></a>
+```cpp
+QTableWidget tableWidget;
+populateTable(tableWidget);
+ApprovalTestsQt::verifyQTableView(tableWidget);
+```
+<sup>[snippet source](/tests/Catch2_Tests/ApprovalsQtTests.cpp#L44-L48) / [anchor](#snippet-verify_table_view)</sup>
 <!-- endsnippet -->

@@ -29,3 +29,7 @@ snippet: catch_2_qt_main
 ### Verifying a QImage
 
 snippet: verify_qimage
+
+### Verifying a QTableView, e.g. QTableWidget
+
+snippet: verify_table_view

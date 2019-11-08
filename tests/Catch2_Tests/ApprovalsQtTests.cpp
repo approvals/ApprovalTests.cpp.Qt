@@ -37,7 +37,13 @@ TEST_CASE("It approves a QImage")
 
 TEST_CASE("It approves a QTableWidget")
 {
+    // A note on naming: QTableWidget is a concrete class that implements
+    // the more general QTableView. Here we create a QTableWidget,
+    // for convenience.
+
+    // begin-snippet: verify_table_view
     QTableWidget tableWidget;
     populateTable(tableWidget);
     ApprovalTestsQt::verifyQTableView(tableWidget);
+    // end-snippet
 }
