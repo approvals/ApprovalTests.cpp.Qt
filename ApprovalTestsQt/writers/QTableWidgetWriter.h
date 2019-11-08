@@ -39,10 +39,7 @@ namespace ApprovalTestsQt
                 {
                     QVariant data =
                         model->headerData(i, Qt::Horizontal, Qt::DisplayRole);
-                    if (data.toString().length() > 0)
-                        strList.append("\"" + data.toString() + "\"");
-                    else
-                        strList.append("");
+                    strList.append(quoteString(data));
                 }
                 data << strList.join(separator) << "\n";
                 for (int i = 0; i < model->rowCount(); i++)
@@ -51,10 +48,7 @@ namespace ApprovalTestsQt
                     for (int j = 0; j < model->columnCount(); j++)
                     {
                         QVariant data = model->data(model->index(i, j));
-                        if (data.toString().length() > 0)
-                            strList.append("\"" + data.toString() + "\"");
-                        else
-                            strList.append("");
+                        strList.append(quoteString(data));
                     }
                     data << strList.join(separator) + "\n";
                 }
@@ -65,6 +59,17 @@ namespace ApprovalTestsQt
         void cleanUpReceived(std::string receivedPath) const override
         {
             remove(receivedPath.c_str());
+        }
+
+    private:
+        QString quoteString(const QVariant& data) const
+        {
+            QString dataAsString;
+            if (data.toString().length() > 0)
+                dataAsString = ("\"" + data.toString() + "\"");
+            else
+                dataAsString = ("");
+            return dataAsString;
         }
 
     private:
