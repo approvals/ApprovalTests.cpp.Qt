@@ -3,7 +3,7 @@
 
 #include "ApprovalTests.hpp"
 #include "ApprovalTestsQt/writers/QImageApprovalWriter.h"
-#include "ApprovalTestsQt/writers/QTableWidgetWriter.h"
+#include "ApprovalTestsQt/writers/QTableViewWriter.h"
 
 namespace ApprovalTestsQt
 {
