@@ -4,7 +4,7 @@ add_executable(${PROJECT_NAME}
         main.cpp
         ApprovalsQtTests.cpp
         integrations/catch/Catch2QtStringMakerTests.cpp
-    )
+        )
 target_link_libraries(${PROJECT_NAME} ApprovalTestsQt catch2)
 target_compile_definitions(${PROJECT_NAME} PRIVATE CATCH_CONFIG_FAST_COMPILE)
 

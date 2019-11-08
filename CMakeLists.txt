@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.8)
 
 # disable testsuite if used via add_subdirectory()
-if(NOT DEFINED PROJECT_NAME)
+if (NOT DEFINED PROJECT_NAME)
     set(NOT_SUBPROJECT ON)
-endif()
+endif ()
 
 project(ApprovalTests.cpp.Qt)
 add_subdirectory(ApprovalTestsQt)
@@ -14,4 +14,4 @@ if (NOT_SUBPROJECT)
     enable_testing()
     add_subdirectory(third_party)
     add_subdirectory(tests)
-endif()
+endif ()
