@@ -2,7 +2,11 @@
 
 toc
 
-Coming soon...
+## Purpose
+
+To enable easy, convenient testing and [Approval Testing](https://github.com/approvals/ApprovalTests.cpp.Qt) of [Qt](https://www.qt.io)-based C++ code by using modern test frameworks.
+
+Currently only [Catch](https://github.com/catchorg/Catch2) is supported.
 
 ## Usage
 
