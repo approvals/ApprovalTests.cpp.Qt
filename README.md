@@ -35,6 +35,7 @@ Currently [Catch](https://github.com/catchorg/Catch2) is supported.
 
 * There is not yet a single-header release mechanism, so the individual headers in the ApprovalTestsQt directory need to be included.
 * **IMPORTANT:** Do not use the [Qt Test macros](https://doc.qt.io/qt-5/qtest.html#macros), such as `QCOMPARE`, `QVERIFY`, `QTRY_COMPARE` and so on. **Currently, any test failures of all any of the Qt Test macros will be silently swallowed, and tests will spuriously pass.**
+* Please note that this is a very early implementation, and there is not yet any promise of a stable interface.
 
 ## Reference
 
