@@ -37,13 +37,13 @@ namespace ApprovalTestsQt
                 QStringList strList;
                 for (int i = 0; i < model->columnCount(); i++)
                 {
-                    if (model->headerData(i, Qt::Horizontal, Qt::DisplayRole)
+                    QVariant data = model->headerData(i, Qt::Horizontal, Qt::DisplayRole);
+                    if (data
                             .toString()
                             .length() > 0)
                         strList.append(
                             "\"" +
-                            model->headerData(
-                                     i, Qt::Horizontal, Qt::DisplayRole)
+                            data
                                 .toString() +
                             "\"");
                     else
@@ -55,13 +55,13 @@ namespace ApprovalTestsQt
                     strList.clear();
                     for (int j = 0; j < model->columnCount(); j++)
                     {
-
-                        if (model->data(model->index(i, j))
+                        QVariant data = model->data(model->index(i, j));
+                        if (data
                                 .toString()
                                 .length() > 0)
                             strList.append(
                                 "\"" +
-                                model->data(model->index(i, j)).toString() +
+                                    data.toString() +
                                 "\"");
                         else
                             strList.append("");
