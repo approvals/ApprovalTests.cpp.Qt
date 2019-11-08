@@ -4,12 +4,14 @@
 #include "ApprovalTests.hpp"
 #include "ApprovalTestsQt/writers/QImageApprovalWriter.h"
 
-namespace ApprovalTestsQt {
-void verifyQImage(
-        const QImage &image, const ApprovalTests::Reporter &reporter = ApprovalTests::DiffReporter()) {
-    QImageApprovalWriter image_writer(image);
-    ApprovalTests::Approvals::verify(image_writer, reporter);
-}
+namespace ApprovalTestsQt
+{
+    void verifyQImage(const QImage& image,
+        const ApprovalTests::Reporter& reporter = ApprovalTests::DiffReporter())
+    {
+        QImageApprovalWriter image_writer(image);
+        ApprovalTests::Approvals::verify(image_writer, reporter);
+    }
 } // namespace ApprovalTestsQt
 
 #endif //APPROVALTESTS_CPP_QT_APPROVALSQT_H

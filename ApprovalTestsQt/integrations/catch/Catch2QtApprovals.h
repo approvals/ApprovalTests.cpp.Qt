@@ -9,7 +9,7 @@
 #include <QApplication>
 #include "ApprovalTestsQt/comparators/QImageApprovalComparator.h"
 
-int main( int argc, char* argv[] )
+int main(int argc, char* argv[])
 {
     // Any tests that creation of Qt widgets requires a QApplication
     // to already have been created, so we follow the lead of the
@@ -21,12 +21,11 @@ int main( int argc, char* argv[] )
     // character-based file comparison, which may fail for two
     // exactly equivalent .png files.
     auto pngComparatorDisposer =
-            ApprovalTests::FileApprover::registerComparatorForExtension(
-                    ".png",
-                    std::make_shared<ApprovalTestsQt::QImageApprovalComparator>());
+        ApprovalTests::FileApprover::registerComparatorForExtension(".png",
+            std::make_shared<ApprovalTestsQt::QImageApprovalComparator>());
 
     // your existing setup...
-    int result = Catch::Session().run( argc, argv );
+    int result = Catch::Session().run(argc, argv);
 
     // your existing clean-up...
     return result;
