@@ -12,7 +12,7 @@ To change this file edit the source file and then execute ./run_markdown_templat
 
   * [Purpose](#purpose)
   * [Usage](#usage)
-  * [Benefits](#benefits)
+  * [Features](#features)
   * [Reference](#reference)
     * [Setting up your main](#setting-up-your-main)
     * [Verifying a QImage](#verifying-a-qimage)
@@ -29,10 +29,11 @@ Currently only [Catch](https://github.com/catchorg/Catch2) is supported.
 
 There is not yet a single-header release mechanism, so the individual headers in the ApprovalTestsQt directory need to be included.
 
-## Benefits
+## Features
 
-* The Catch integration creates a QApplication automatically, so that GUI tests can run.
-* The Catch integration also augments ApprovalTests so that .png files are read in to QImage objects which are then compared - this is more reliable and portable than the default behaviour of doing character-by-character comparison of .png files on disk.
+* Creates a QApplication automatically, so that tests that create Qt widgets can run.
+* Augments ApprovalTests so that .png files are read in to QImage objects which are then compared - this is more reliable and portable than the default behaviour of doing character-by-character comparison of .png files on disk.
+* Provides nicely-readable string representations of [a growing range of Qt classes](https://github.com/approvals/ApprovalTests.cpp.Qt/blob/master/ApprovalTestsQt/integrations/catch/Catch2QtStringMaker.h).
 
 ## Reference
 
