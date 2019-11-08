@@ -14,10 +14,10 @@ namespace ApprovalTestsQt
         ApprovalTests::Approvals::verify(image_writer, reporter);
     }
 
-    void verifyQTableWidget(const QTableWidget& tableWidget,
+    void verifyQTableView(const QTableView& tableWidget,
         const ApprovalTests::Reporter& reporter = ApprovalTests::DiffReporter())
     {
-        QTableWidgetWriter table_writer(tableWidget);
+        QTableViewWriter table_writer(tableWidget);
         ApprovalTests::Approvals::verify(table_writer, reporter);
     }
 } // namespace ApprovalTestsQt

@@ -30,5 +30,5 @@ TEST_CASE("It approves a QTableWidget")
                 i, j, new QTableWidgetItem(QString::number((i + 1) * (j + 1))));
         }
     }
-    ApprovalTestsQt::verifyQTableWidget(tableWidget);
+    ApprovalTestsQt::verifyQTableView(tableWidget);
 }

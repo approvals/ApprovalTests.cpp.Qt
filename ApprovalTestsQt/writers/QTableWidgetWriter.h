@@ -3,16 +3,16 @@
 
 #include "ApprovalTests.hpp"
 
-#include <QTableWidget>
+#include <QTableView>
 #include <QFile>
 #include <QTextStream>
 
 namespace ApprovalTestsQt
 {
-    class QTableWidgetWriter : public ApprovalTests::ApprovalWriter
+    class QTableViewWriter : public ApprovalTests::ApprovalWriter
     {
     public:
-        explicit QTableWidgetWriter(const QTableWidget& tableWidget,
+        explicit QTableViewWriter(const QTableView& tableWidget,
             std::string fileExtensionWithDot = ".tsv")
             : tableWidget_(tableWidget),
               fileExtensionWithDot_(fileExtensionWithDot)
@@ -75,7 +75,7 @@ namespace ApprovalTestsQt
         }
 
     private:
-        const QTableWidget& tableWidget_;
+        const QTableView& tableWidget_;
         std::string fileExtensionWithDot_;
     };
 } // namespace ApprovalTestsQt
