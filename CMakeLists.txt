@@ -6,6 +6,7 @@ if(NOT DEFINED PROJECT_NAME)
 endif()
 
 project(ApprovalTests.cpp.Qt)
+add_subdirectory(ApprovalTestsQt)
 
 set(CMAKE_VERBOSE_MAKEFILE off)
 

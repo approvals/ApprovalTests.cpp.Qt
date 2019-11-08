@@ -1,19 +1,6 @@
-#define APPROVALS_CATCH_EXISTING_MAIN
-#include "ApprovalTests.hpp"
-
-#include <QApplication>
+#define APPROVALS_CATCH_QT
+#include "ApprovalTestsQt/integrations/catch/Catch2QtApprovals.h"
 
 using namespace ApprovalTests;
 
 auto directory = Approvals::useApprovalsSubdirectory("approval_tests");
-
-int main( int argc, char* argv[] )
-{
-    QApplication app(argc, argv);
-
-    // your existing setup...
-    int result = Catch::Session().run( argc, argv );
-
-    // your existing clean-up...
-    return result;
-}
