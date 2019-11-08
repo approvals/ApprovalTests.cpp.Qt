@@ -21,6 +21,14 @@ namespace Catch
             return result.toStdString();
         }
     };
+
+    template <> struct StringMaker<QString>
+    {
+        static std::string convert(QString const& string)
+        {
+            return string.toStdString();
+        }
+    };
 } // namespace Catch
 #endif // CATCH_VERSION_MAJOR
 
