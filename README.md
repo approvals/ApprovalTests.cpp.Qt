@@ -13,3 +13,20 @@ Coming soon...
 
 There is not yet a single-header release mechanism, so the individual headers in the ApprovalTestsQt directory need to be included.
 
+## Benefits
+
+* The Catch integration creates a QApplication automatically, so that GUI tests can run.
+
+## Reference
+
+### Setting up your main
+
+<!-- snippet: catch_2_qt_main -->
+<a id='snippet-catch_2_qt_main'/></a>
+```cpp
+// main.cpp:
+#define APPROVALS_CATCH_QT
+#include "ApprovalTestsQt/integrations/catch/Catch2QtApprovals.h"
+```
+<sup>[snippet source](/tests/Catch2_Tests/main.cpp#L1-L5) / [anchor](#snippet-catch_2_qt_main)</sup>
+<!-- endsnippet -->
