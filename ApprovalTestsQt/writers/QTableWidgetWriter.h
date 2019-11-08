@@ -54,6 +54,10 @@ namespace ApprovalTestsQt
                 }
                 file.close();
             }
+            else
+            {
+                throw std::runtime_error("Unable to table write to file " + path);
+            }
         }
 
         void cleanUpReceived(std::string receivedPath) const override
