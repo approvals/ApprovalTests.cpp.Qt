@@ -64,12 +64,10 @@ namespace ApprovalTestsQt
     private:
         QString quoteString(const QVariant& data) const
         {
-            QString dataAsString;
             if (data.toString().length() > 0)
-                dataAsString = ("\"" + data.toString() + "\"");
+                return "\"" + data.toString() + "\"";
             else
-                dataAsString = ("");
-            return dataAsString;
+                return "";
         }
 
     private:
