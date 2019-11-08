@@ -37,9 +37,9 @@ namespace ApprovalTestsQt
                 QStringList strList;
                 for (int i = 0; i < model->columnCount(); i++)
                 {
-                    QVariant data =
+                    QVariant variant =
                         model->headerData(i, Qt::Horizontal, Qt::DisplayRole);
-                    strList.append(quoteString(data));
+                    strList.append(quoteString(variant));
                 }
                 data << strList.join(separator) << "\n";
                 for (int i = 0; i < model->rowCount(); i++)
@@ -47,8 +47,8 @@ namespace ApprovalTestsQt
                     strList.clear();
                     for (int j = 0; j < model->columnCount(); j++)
                     {
-                        QVariant data = model->data(model->index(i, j));
-                        strList.append(quoteString(data));
+                        QVariant variant = model->data(model->index(i, j));
+                        strList.append(quoteString(variant));
                     }
                     data << strList.join(separator) + "\n";
                 }
