@@ -15,3 +15,7 @@ There is not yet a single-header release mechanism, so the individual headers in
 ### Setting up your main
 
 snippet: catch_2_qt_main
+
+### Verifying a QImage
+
+snippet: verify_qimage

@@ -30,3 +30,15 @@ There is not yet a single-header release mechanism, so the individual headers in
 ```
 <sup>[snippet source](/tests/Catch2_Tests/main.cpp#L1-L5) / [anchor](#snippet-catch_2_qt_main)</sup>
 <!-- endsnippet -->
+
+### Verifying a QImage
+
+<!-- snippet: verify_qimage -->
+<a id='snippet-verify_qimage'/></a>
+```cpp
+QImage image(10, 20, QImage::Format_RGB32);
+image.fill(Qt::red);
+ApprovalTestsQt::verifyQImage(image);
+```
+<sup>[snippet source](/tests/Catch2_Tests/ApprovalsQtTests.cpp#L6-L10) / [anchor](#snippet-verify_qimage)</sup>
+<!-- endsnippet -->
