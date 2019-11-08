@@ -51,5 +51,5 @@ QImage image(10, 20, QImage::Format_RGB32);
 image.fill(Qt::red);
 ApprovalTestsQt::verifyQImage(image);
 ```
-<sup>[snippet source](/tests/Catch2_Tests/ApprovalsQtTests.cpp#L6-L10) / [anchor](#snippet-verify_qimage)</sup>
+<sup>[snippet source](/tests/Catch2_Tests/ApprovalsQtTests.cpp#L7-L11) / [anchor](#snippet-verify_qimage)</sup>
 <!-- endsnippet -->
