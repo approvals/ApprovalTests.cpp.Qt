@@ -7,7 +7,4 @@ add_executable(${PROJECT_NAME}
 target_link_libraries(${PROJECT_NAME} ApprovalTests ApprovalTestsQt catch2)
 target_compile_definitions(${PROJECT_NAME} PRIVATE CATCH_CONFIG_FAST_COMPILE)
 
-find_package(Qt5 COMPONENTS Widgets REQUIRED)
-target_link_libraries(${PROJECT_NAME} Qt5::Widgets)
-
 add_test(NAME ${PROJECT_NAME} COMMAND ${PROJECT_NAME})
