@@ -1,6 +1,6 @@
 #include <QColor>
 #include <Catch.hpp>
-#include "ApprovalTestsQt/integrations/catch/Catch2QtApprovals.h"
+#include "ApprovalTestsQt/integrations/catch/Catch2QtStringMaker.h"
 
 TEST_CASE("StringMaker pretty-prints QColor")
 {
