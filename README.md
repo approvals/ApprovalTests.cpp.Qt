@@ -7,6 +7,17 @@ To change this file edit the source file and then execute ./run_markdown_templat
 
 # ApprovalTests.cpp.Qt
 
+<!-- toc -->
+## Contents
+
+  * [Usage](#usage)
+  * [Benefits](#benefits)
+  * [Reference](#reference)
+    * [Setting up your main](#setting-up-your-main)
+    * [Verifying a QImage](#verifying-a-qimage)
+<!-- endtoc -->
+
+
 Coming soon...
 
 ## Usage

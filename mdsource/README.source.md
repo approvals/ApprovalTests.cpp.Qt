@@ -1,5 +1,7 @@
 # ApprovalTests.cpp.Qt
 
+toc
+
 Coming soon...
 
 ## Usage
