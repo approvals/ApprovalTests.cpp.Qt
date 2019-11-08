@@ -3,7 +3,9 @@
 
 #ifdef CATCH_VERSION_MAJOR
 #include <QColor>
+#include <QTest>
 #include <QStringBuilder>
+
 namespace Catch
 {
     template <> struct StringMaker<QColor>
@@ -19,6 +21,16 @@ namespace Catch
                                    QString::number(color.alphaF(), 'g', 20);
             // clang-format on
             return result.toStdString();
+        }
+    };
+
+    // This adds support for all the types that can be stringified with Qt Test:
+    // https://doc.qt.io/qt-5/qtest.html#toString
+    template <class QtCoreType> struct StringMaker<QtCoreType>
+    {
+        static std::string convert(QtCoreType const& object)
+        {
+            return QTest::toString(object);
         }
     };
 
