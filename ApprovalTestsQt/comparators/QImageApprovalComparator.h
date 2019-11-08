@@ -2,6 +2,7 @@
 #define APPROVALTESTS_CPP_QT_QIMAGEAPPROVALCOMPARATOR_H
 
 #include "ApprovalTests.hpp"
+#include <QImage>
 
 namespace ApprovalTestsQt {
 class QImageApprovalComparator : public ApprovalTests::ApprovalComparator {
