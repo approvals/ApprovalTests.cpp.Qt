@@ -11,9 +11,10 @@
 
 int main(int argc, char* argv[])
 {
-    // Any tests that creation of Qt widgets requires a QApplication
-    // to already have been created, so we follow the lead of the
-    // Qt Test framework and create it in main().
+    // Any tests that create Qt widgets require a QApplication
+    // to already have been created, to avoid the following message:
+    //  QWidget: Must construct a QApplication before a QWidget
+    // So we follow the lead of the Qt Test framework and create it in main().
     QApplication app(argc, argv);
 
     // When comparing PNG files, get Qt to read the two image files and
