@@ -5,6 +5,8 @@ Source File: /mdsource/README.source.md
 To change this file edit the source file and then execute ./run_markdown_templates.sh.
 -->
 
+<a id="top"></a>
+
 # ApprovalTests.cpp.Qt
 
 <a href="https://github.com/approvals/ApprovalTests.cpp.Qt/releases/download/v.0.0.1/ApprovalTestsQt.v.0.0.1.hpp">Download the latest version (v.0.0.1) of the **single header file** here.</a>
@@ -66,6 +68,8 @@ You can download the [Starter Project](https://github.com/approvals/ApprovalTest
 <!-- endsnippet -->
 
 ### Verifying a QImage
+
+In general, it's better to verify behaviour of objects rather than their appearance. However, if you do wish to test the contents of a QImage, this will work well.
 
 <!-- snippet: verify_qimage -->
 <a id='snippet-verify_qimage'/></a>
