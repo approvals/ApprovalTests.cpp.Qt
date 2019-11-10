@@ -7,8 +7,8 @@ set -o pipefail
 # Constants
 UNSET_VERSION="v.X.X.X"
 
-LAST_VERSION="v.0.0.0"
-VERSION="v.0.0.1"
+LAST_VERSION="v.0.0.1"
+VERSION="v.0.0.2"
 
 PUSH_TO_PRODUCTION="false"
 # Note that we won't push if the version number is unset
