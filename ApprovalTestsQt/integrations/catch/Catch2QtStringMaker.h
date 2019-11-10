@@ -1,6 +1,7 @@
 #ifndef APPROVALTESTS_CPP_QT_CATCH2QTSTRINGMAKER_H
 #define APPROVALTESTS_CPP_QT_CATCH2QTSTRINGMAKER_H
 
+// Only compile this if Catch header has been included
 #ifdef CATCH_VERSION_MAJOR
 #include <QColor>
 #include <QTest>
