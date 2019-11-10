@@ -7,14 +7,14 @@
 
 namespace ApprovalTestsQt
 {
-    void verifyQImage(const QImage& image,
+    inline void verifyQImage(const QImage& image,
         const ApprovalTests::Reporter& reporter = ApprovalTests::DiffReporter())
     {
         QImageApprovalWriter image_writer(image);
         ApprovalTests::Approvals::verify(image_writer, reporter);
     }
 
-    void verifyQTableView(const QTableView& tableWidget,
+    inline void verifyQTableView(const QTableView& tableWidget,
         const ApprovalTests::Reporter& reporter = ApprovalTests::DiffReporter())
     {
         QTableViewWriter table_writer(tableWidget);
