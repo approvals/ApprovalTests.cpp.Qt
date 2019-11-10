@@ -37,7 +37,7 @@ java -jar ../build/SingleHpp.v.0.0.2.jar $RELEASE_NEW_SINGLE_HEADER_TEMP
 # https://stackoverflow.com/a/22084103/104370
 
 cat << EOF > $RELEASE_NEW_SINGLE_HEADER
-// Approval Tests version $VERSION
+// ApprovalTestsQt version $VERSION
 // More information at: https://github.com/approvals/ApprovalTests.cpp.Qt
 EOF
 cat $RELEASE_NEW_SINGLE_HEADER_TEMP >> $RELEASE_NEW_SINGLE_HEADER
