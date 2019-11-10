@@ -1,6 +1,7 @@
 #ifndef APPROVALTESTS_CPP_QT_CATCH2QTAPPROVALS_H
 #define APPROVALTESTS_CPP_QT_CATCH2QTAPPROVALS_H
 
+// <SingleHpp unalterable>
 #if defined(APPROVALS_CATCH_QT)
 
 #define APPROVALS_CATCH_EXISTING_MAIN
@@ -32,5 +33,7 @@ int main(int argc, char* argv[])
     return result;
 }
 #endif // APPROVALS_CATCH_QT
+
+// </SingleHpp>
 
 #endif //APPROVALTESTS_CPP_QT_CATCH2QTAPPROVALS_H
