@@ -1,6 +1,8 @@
 #ifndef APPROVALTESTS_CPP_QT_CATCH2QTAPPROVALS_H
 #define APPROVALTESTS_CPP_QT_CATCH2QTAPPROVALS_H
 
+#include "ApprovalTestsQt/comparators/QImageApprovalComparator.h"
+
 // <SingleHpp unalterable>
 #if defined(APPROVALS_CATCH_QT)
 
@@ -8,7 +10,6 @@
 #include "ApprovalTests.hpp"
 #include <QApplication>
 #include <QApplication>
-#include "ApprovalTestsQt/comparators/QImageApprovalComparator.h"
 
 int main(int argc, char* argv[])
 {
