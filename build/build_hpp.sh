@@ -7,10 +7,10 @@ set -o pipefail
 # Constants
 UNSET_VERSION="v.X.X.X"
 
-LAST_VERSION="v.0.0.1"
-VERSION="v.0.0.2"
+LAST_VERSION="v.0.0.2"
+VERSION="v.0.0.1"
 
-PUSH_TO_PRODUCTION="false"
+PUSH_TO_PRODUCTION="true"
 # Note that we won't push if the version number is unset
 
 OLD_SINGLE_HEADER=ApprovalTestsQt.$LAST_VERSION.hpp
