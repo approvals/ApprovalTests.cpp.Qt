@@ -1,7 +1,7 @@
 #ifndef APPROVALTESTS_CPP_QT_APPROVALSQT_H
 #define APPROVALTESTS_CPP_QT_APPROVALSQT_H
 
-#include "ApprovalTestsQt/integrations/catch/LoadApprovals.h"
+#include "ApprovalTestsQt/integrations/LoadApprovals.h"
 #include "ApprovalTestsQt/writers/QImageApprovalWriter.h"
 #include "ApprovalTestsQt/writers/QTableViewWriter.h"
 

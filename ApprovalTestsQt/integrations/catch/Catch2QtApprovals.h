@@ -3,7 +3,7 @@
 
 #if defined(APPROVALS_CATCH_QT)
 
-#include "ApprovalTestsQt/integrations/catch/LoadApprovals.h"
+#include "ApprovalTestsQt/integrations/LoadApprovals.h"
 #include <QApplication>
 #include <QApplication>
 #include "ApprovalTestsQt/comparators/QImageApprovalComparator.h"

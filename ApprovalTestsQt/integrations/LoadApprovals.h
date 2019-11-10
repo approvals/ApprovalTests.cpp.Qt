@@ -2,7 +2,7 @@
 #define APPROVALTESTS_CPP_QT_LOADAPPROVALS_H
 
 // Never #include "ApprovalTests.hpp" directly in this project:
-// #include "ApprovalTestsQt/integrations/catch/LoadApprovals.h" instead
+// #include "ApprovalTestsQt/integrations/LoadApprovals.h" instead
 
 // <SingleHpp unalterable>
 #if defined(APPROVALS_CATCH_QT)

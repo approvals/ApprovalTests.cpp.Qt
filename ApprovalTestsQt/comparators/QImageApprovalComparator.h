@@ -1,7 +1,7 @@
 #ifndef APPROVALTESTS_CPP_QT_QIMAGEAPPROVALCOMPARATOR_H
 #define APPROVALTESTS_CPP_QT_QIMAGEAPPROVALCOMPARATOR_H
 
-#include "ApprovalTestsQt/integrations/catch/LoadApprovals.h"
+#include "ApprovalTestsQt/integrations/LoadApprovals.h"
 #include <QImage>
 
 namespace ApprovalTestsQt
