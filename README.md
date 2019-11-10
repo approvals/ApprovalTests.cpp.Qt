@@ -7,7 +7,7 @@ To change this file edit the source file and then execute ./run_markdown_templat
 
 # ApprovalTests.cpp.Qt
 
-<a href="https://github.com/approvals/ApprovalTests.cpp.Qt/releases/download/v.0.0.0/ApprovalTests.v.0.0.0.hpp">Download the latest version (v.0.0.0) of the **single header file** here.</a>
+<a href="https://github.com/approvals/ApprovalTests.cpp.Qt/releases/download/v.0.0.1/ApprovalTestsQt.v.0.0.1.hpp">Download the latest version (v.0.0.1) of the **single header file** here.</a>
 
 <!-- toc -->
 ## Contents
