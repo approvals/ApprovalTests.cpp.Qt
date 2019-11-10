@@ -1,0 +1,1 @@
+add_subdirectory(vanilla_catch_qt_tests)
