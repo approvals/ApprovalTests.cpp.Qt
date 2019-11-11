@@ -4,10 +4,10 @@
 #include <QGroupBox>
 
 namespace Ui {
-class SampleWidgets01;
+class SampleWidgets;
 }
 
-//! Ui::SampleWidgets01 is a private data member - tests will use findChild*()
+//! Ui::SampleWidgets is a private data member - tests will use findChild*()
 class SampleWidgets01 : public QGroupBox
 {
     Q_OBJECT
@@ -17,7 +17,7 @@ public:
     ~SampleWidgets01();
 
 private:
-    Ui::SampleWidgets01 *ui;
+    Ui::SampleWidgets *ui;
 };
 
 #endif // SAMPLEWIDGETS_H

@@ -3,7 +3,7 @@
 
 SampleWidgets01::SampleWidgets01(QWidget *parent) :
     QGroupBox(parent),
-    ui(new Ui::SampleWidgets01)
+    ui(new Ui::SampleWidgets)
 {
     ui->setupUi(this);
 }
