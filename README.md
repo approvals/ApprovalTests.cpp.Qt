@@ -62,7 +62,7 @@ You can download the [Starter Project](https://github.com/approvals/ApprovalTest
 ```cpp
 // main.cpp:
 #define APPROVALS_CATCH_QT
-#include "ApprovalTestsQt/integrations/catch/Catch2QtApprovals.h"
+#include "ApprovalTestsQt.hpp"
 ```
 <sup>[snippet source](/tests/Catch2_Tests/main.cpp#L1-L5) / [anchor](#snippet-catch_2_qt_main)</sup>
 <!-- endsnippet -->
