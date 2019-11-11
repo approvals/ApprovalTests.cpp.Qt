@@ -7,6 +7,7 @@ namespace Ui {
 class SampleWidgets01;
 }
 
+//! Ui::SampleWidgets01 is a private data member - tests will use findChild*()
 class SampleWidgets01 : public QGroupBox
 {
     Q_OBJECT
