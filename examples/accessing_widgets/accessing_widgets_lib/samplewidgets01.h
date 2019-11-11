@@ -1,5 +1,5 @@
-#ifndef SAMPLEWIDGETS_H
-#define SAMPLEWIDGETS_H
+#ifndef APPROVALTESTS_CPP_QT_SAMPLEWIDGETS01_H
+#define APPROVALTESTS_CPP_QT_SAMPLEWIDGETS01_H
 
 #include <QGroupBox>
 
@@ -20,4 +20,4 @@ private:
     Ui::SampleWidgets *ui;
 };
 
-#endif // SAMPLEWIDGETS_H
+#endif //APPROVALTESTS_CPP_QT_SAMPLEWIDGETS01_H
