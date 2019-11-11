@@ -1,6 +1,6 @@
 #include "Catch.hpp"
 
-#include "samplewidgets.h"
+#include "samplewidgets01.h"
 
 #include <QCheckBox>
 

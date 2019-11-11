@@ -7,8 +7,8 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 add_library(
         ${PROJECT_NAME}
-        samplewidgets.cpp
-        samplewidgets.h
+        samplewidgets01.cpp
+        samplewidgets01.h
         samplewidgets.ui
 )
 

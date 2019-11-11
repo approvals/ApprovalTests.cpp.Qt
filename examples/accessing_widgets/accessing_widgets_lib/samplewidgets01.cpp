@@ -1,4 +1,4 @@
-#include "samplewidgets.h"
+#include "samplewidgets01.h"
 #include "ui_samplewidgets.h"
 
 SampleWidgets01::SampleWidgets01(QWidget *parent) :
