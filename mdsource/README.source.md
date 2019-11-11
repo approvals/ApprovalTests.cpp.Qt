@@ -41,10 +41,14 @@ snippet: catch_2_qt_main
 
 ### Verifying a QImage
 
+This takes a QImage, and saves this as a .png, and then verifies it by reading it back in.
+
 In general, it's better to verify behaviour of objects rather than their appearance. However, if you do wish to test the contents of a QImage, this will work well.
 
 snippet: verify_qimage
 
 ### Verifying a QTableView, e.g. QTableWidget
+
+This takes QTableView, and saves its text contents in a tab-separated .tsv, for verification.
 
 snippet: verify_table_view
