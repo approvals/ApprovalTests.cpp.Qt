@@ -4,9 +4,9 @@
 
 #include <QCheckBox>
 
-TEST_CASE( "SampleWidgets checkbox is initially unchecked")
+TEST_CASE( "SampleWidgets01 checkbox is initially unchecked")
 {
-    SampleWidgets sampleWidgets;
+    SampleWidgets01 sampleWidgets;
 
     // The Ui is private, so we have to "cheat" and search for the contained
     // widgets ourselves.

@@ -4,19 +4,19 @@
 #include <QGroupBox>
 
 namespace Ui {
-class SampleWidgets;
+class SampleWidgets01;
 }
 
-class SampleWidgets : public QGroupBox
+class SampleWidgets01 : public QGroupBox
 {
     Q_OBJECT
 
 public:
-    explicit SampleWidgets(QWidget *parent = nullptr);
-    ~SampleWidgets();
+    explicit SampleWidgets01(QWidget *parent = nullptr);
+    ~SampleWidgets01();
 
 private:
-    Ui::SampleWidgets *ui;
+    Ui::SampleWidgets01 *ui;
 };
 
 #endif // SAMPLEWIDGETS_H

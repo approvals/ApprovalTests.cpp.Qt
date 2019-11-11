@@ -4,7 +4,7 @@ int main(int argc, char **argv)
 {
     QApplication app (argc, argv);
 
-    SampleWidgets sampleWidgets;
+    SampleWidgets01 sampleWidgets;
     sampleWidgets.show();
     sampleWidgets.raise();
 
