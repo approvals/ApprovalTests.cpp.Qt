@@ -9,6 +9,8 @@ add_library(
         ${PROJECT_NAME}
         samplewidgets01.cpp
         samplewidgets01.h
+        samplewidgets02.cpp
+        samplewidgets02.h
         samplewidgets.ui
 )
 
