@@ -1,5 +1,5 @@
-#ifndef APPROVALTESTS_CPP_QT_samplewidgets02_H
-#define APPROVALTESTS_CPP_QT_samplewidgets02_H
+#ifndef APPROVALTESTS_CPP_QT_SAMPLEWIDGETS02_H
+#define APPROVALTESTS_CPP_QT_SAMPLEWIDGETS02_H
 
 #include <QGroupBox>
 class QCheckBox;
@@ -24,4 +24,4 @@ private:
     Ui::SampleWidgets *ui;
 };
 
-#endif //APPROVALTESTS_CPP_QT_samplewidgets02_H
+#endif //APPROVALTESTS_CPP_QT_SAMPLEWIDGETS02_H
