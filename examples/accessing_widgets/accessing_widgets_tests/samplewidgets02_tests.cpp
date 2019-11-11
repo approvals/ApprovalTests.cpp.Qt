@@ -8,14 +8,15 @@
 class SampleWidgets02Fixture : public SampleWidgets02
 {
 public:
-    QCheckBox* getCheckBox() { return checkBox(); }
+    // Bump visibility from protected to public, for testing
+    using SampleWidgets02::checkBox;
 };
 
 TEST_CASE_METHOD(
     SampleWidgets02Fixture,
     "SampleWidgets02 checkbox is initially unchecked")
 {
-    auto checkbox = getCheckBox();
+    auto checkbox = checkBox();
     REQUIRE(checkbox != nullptr);
     CHECK(! checkbox->isChecked());
 }
