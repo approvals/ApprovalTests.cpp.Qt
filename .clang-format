@@ -2,6 +2,7 @@
 Language: Cpp
 AccessModifierOffset: -4
 AlignAfterOpenBracket: DontAlign
+AllowShortFunctionsOnASingleLine: 'false'
 AlwaysBreakAfterReturnType: None
 BinPackArguments: 'false'
 BinPackParameters: 'false'
