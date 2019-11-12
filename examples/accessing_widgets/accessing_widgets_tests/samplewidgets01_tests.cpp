@@ -2,7 +2,7 @@
 
 #include "samplewidgets01.h"
 
-#include <QCheckBox>
+#include <QToolButton>
 
 // By inheriting SampleWidgets02, we can expose access to its protected interface
 class SampleWidgets01Fixture : public SampleWidgets01
@@ -12,21 +12,21 @@ public:
     // widgets ourselves.
     // This makes for potential maintenance pain in future, if the widget
     // internals are modified
-    QCheckBox* checkBox()
+    QToolButton* goButton()
     {
-        auto checkbox = findChild<QCheckBox*>();
+        auto gobutton = findChild<QToolButton*>();
         // Will give a run-time test failure if SampleWidgets01 no longer has
-        // a QCheckBox
-        // But won't detect a change to use a QCheckBox for a totally different
+        // a QToolButton
+        // But won't detect a change to use a QToolButton for a totally different
         // purpose
-        REQUIRE(checkbox != nullptr);
-        return checkbox;
+        REQUIRE(gobutton != nullptr);
+        return gobutton;
     }
 };
 
 TEST_CASE_METHOD(
-    SampleWidgets01Fixture, "SampleWidgets01 checkbox is initially unchecked")
+    SampleWidgets01Fixture, "SampleWidgets01 gobutton is initially unchecked")
 {
-    auto checkbox = checkBox();
-    CHECK(!checkbox->isChecked());
+    auto gobutton = goButton();
+    CHECK(!gobutton->isChecked());
 }

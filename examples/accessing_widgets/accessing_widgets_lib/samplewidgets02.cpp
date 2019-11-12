@@ -12,7 +12,7 @@ SampleWidgets02::~SampleWidgets02()
     delete ui;
 }
 
-QCheckBox* SampleWidgets02::checkBox()
+QToolButton* SampleWidgets02::goButton()
 {
-    return ui->checkBox1;
+    return ui->goButton_;
 }

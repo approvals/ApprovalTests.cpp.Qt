@@ -2,7 +2,7 @@
 #define APPROVALTESTS_CPP_QT_SAMPLEWIDGETS02_H
 
 #include <QGroupBox>
-class QCheckBox;
+class QToolButton;
 
 namespace Ui
 {
@@ -19,7 +19,7 @@ public:
     ~SampleWidgets02();
 
 protected:
-    QCheckBox* checkBox();
+    QToolButton* goButton();
 
 private:
     Ui::SampleWidgets* ui;
