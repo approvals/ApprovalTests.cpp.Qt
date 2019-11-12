@@ -4,7 +4,7 @@
 
 #include <QCheckBox>
 
-TEST_CASE( "SampleWidgets01 checkbox is initially unchecked")
+TEST_CASE("SampleWidgets01 checkbox is initially unchecked")
 {
     SampleWidgets01 sampleWidgets;
 
@@ -14,5 +14,5 @@ TEST_CASE( "SampleWidgets01 checkbox is initially unchecked")
     // internals are modified
     auto checkbox = sampleWidgets.findChild<QCheckBox*>();
     REQUIRE(checkbox != nullptr);
-    CHECK(! checkbox->isChecked());
+    CHECK(!checkbox->isChecked());
 }

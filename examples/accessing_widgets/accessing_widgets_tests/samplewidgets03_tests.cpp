@@ -15,10 +15,9 @@ public:
 };
 
 TEST_CASE_METHOD(
-    SampleWidgets03Fixture,
-    "SampleWidgets03 checkbox is initially unchecked")
+    SampleWidgets03Fixture, "SampleWidgets03 checkbox is initially unchecked")
 {
     auto checkbox = checkBox();
     REQUIRE(checkbox != nullptr);
-    CHECK(! checkbox->isChecked());
+    CHECK(!checkbox->isChecked());
 }
