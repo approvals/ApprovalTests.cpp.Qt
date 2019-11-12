@@ -8,7 +8,9 @@
 class SampleWidgets03Fixture : public SampleWidgets03
 {
 public:
-    // Bump visibility from protected to public, for testing
+    // Bump visibility from private to public, for testing (via friendship)
+    // We need to do this because friendship isn't inherited, and any tests
+    // that use this fixture do so by Catch generating code that inherits it.
     using SampleWidgets03::checkBox;
 };
 

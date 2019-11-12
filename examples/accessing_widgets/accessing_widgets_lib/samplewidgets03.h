@@ -8,7 +8,7 @@ namespace Ui {
 class SampleWidgets;
 }
 
-//! Ui::SampleWidgets is a private data member - but we provide protected accessors to widgets that we want to be tested
+//! Ui::SampleWidgets is a private data member - but we provide private accessors to widgets that we want to be tested, and make the test fixture a friend
 class SampleWidgets03 : public QGroupBox
 {
     Q_OBJECT
@@ -17,7 +17,8 @@ public:
     explicit SampleWidgets03(QWidget *parent = nullptr);
     ~SampleWidgets03();
 
-protected:
+private:
+    friend class SampleWidgets03Fixture;
     QCheckBox* checkBox();
 
 private:
