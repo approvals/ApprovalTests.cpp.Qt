@@ -4,15 +4,29 @@
 
 #include <QCheckBox>
 
-TEST_CASE("SampleWidgets01 checkbox is initially unchecked")
+// By inheriting SampleWidgets02, we can expose access to its protected interface
+class SampleWidgets01Fixture : public SampleWidgets01
 {
-    SampleWidgets01 sampleWidgets;
-
+public:
     // The Ui is private, so we have to "cheat" and search for the contained
     // widgets ourselves.
     // This makes for potential maintenance pain in future, if the widget
     // internals are modified
-    auto checkbox = sampleWidgets.findChild<QCheckBox*>();
-    REQUIRE(checkbox != nullptr);
+    QCheckBox* checkBox()
+    {
+        auto checkbox = findChild<QCheckBox*>();
+        // Will give a run-time test failure if SampleWidgets01 no longer has
+        // a QCheckBox
+        // But won't detect a change to use a QCheckBox for a totally different
+        // purpose
+        REQUIRE(checkbox != nullptr);
+        return checkbox;
+    }
+};
+
+TEST_CASE_METHOD(
+    SampleWidgets01Fixture, "SampleWidgets01 checkbox is initially unchecked")
+{
+    auto checkbox = checkBox();
     CHECK(!checkbox->isChecked());
 }
