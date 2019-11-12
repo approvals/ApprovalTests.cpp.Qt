@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Example:
-#   ./duplicate.sh 02 03 | sh
+#   ./duplicate.sh 02 03
 
 # Force execution to halt if there are any errors in this script:
 set -e
@@ -20,5 +20,5 @@ files="
   accessing_widgets_tests/samplewidgetsXXX_tests.cpp"
 
 for file in $files; do
-  echo cp "${file//XXX/$old}" "${file//XXX/$new}"
+  cat "${file//XXX/$old}" | sed -e "s|$old|$new|g" > "${file//XXX/$new}"
 done

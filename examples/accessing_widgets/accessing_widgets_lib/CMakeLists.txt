@@ -14,6 +14,8 @@ add_library(
         samplewidgets01.h
         samplewidgets02.cpp
         samplewidgets02.h
+        samplewidgets03.cpp
+        samplewidgets03.h
         samplewidgets.ui
 )
 

@@ -5,6 +5,7 @@ add_executable(
         main.cpp
         samplewidgets01_tests.cpp
         samplewidgets02_tests.cpp
+        samplewidgets03_tests.cpp
 )
 target_link_libraries(${PROJECT_NAME} ApprovalTestsQt catch2 accessing_widgets_lib)
 
