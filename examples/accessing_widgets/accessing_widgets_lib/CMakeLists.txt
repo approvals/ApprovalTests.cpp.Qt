@@ -5,6 +5,9 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
+# TODO add version which exposes the ui object in the public interface...
+# TODO add version which exposes via friendship...
+
 add_library(
         ${PROJECT_NAME}
         samplewidgets01.cpp
