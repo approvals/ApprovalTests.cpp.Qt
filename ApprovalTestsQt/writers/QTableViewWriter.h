@@ -12,9 +12,9 @@ namespace ApprovalTestsQt
     class QTableViewWriter : public ApprovalTests::ApprovalWriter
     {
     public:
-        explicit QTableViewWriter(const QTableView& tableWidget,
+        explicit QTableViewWriter(const QTableView& tableView,
             std::string fileExtensionWithDot = ".tsv")
-            : tableWidget_(tableWidget),
+            : tableView_(tableView),
               fileExtensionWithDot_(fileExtensionWithDot)
         {
         }
@@ -30,7 +30,7 @@ namespace ApprovalTestsQt
             QFile file(QString::fromStdString(path));
 
             QString separator("\t");
-            QAbstractItemModel* model = tableWidget_.model();
+            QAbstractItemModel* model = tableView_.model();
             if (file.open(QFile::WriteOnly | QFile::Truncate))
             {
                 QTextStream data(&file);
@@ -76,7 +76,7 @@ namespace ApprovalTestsQt
         }
 
     private:
-        const QTableView& tableWidget_;
+        const QTableView& tableView_;
         std::string fileExtensionWithDot_;
     };
 } // namespace ApprovalTestsQt
