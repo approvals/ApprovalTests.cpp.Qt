@@ -4,17 +4,20 @@
 
 #include <QToolButton>
 
-// By inheriting SampleWidgets02, we can expose access to its protected interface
-class SampleWidgets01Fixture : public SampleWidgets01
+//! Ui::SampleWidgets is a private data member - tests will use findChild*()
+class SampleWidgets01Fixture
 {
 public:
-    // The Ui is private, so we have to "cheat" and search for the contained
-    // widgets ourselves.
+    SampleWidgets01 widget;
+
+    // The Ui is private, and the Go button is not in the public interface,
+    // so we"cheat" and search for the contained widgets ourselves.
+    // NOT A RECOMMENDED PRACTICE!!
     // This makes for potential maintenance pain in future, if the widget
-    // internals are modified
+    // internals are modified.
     QToolButton* goButton()
     {
-        auto gobutton = findChild<QToolButton*>();
+        auto gobutton = widget.findChild<QToolButton*>();
         // Will give a run-time test failure if SampleWidgets01 no longer has
         // a QToolButton
         // But won't detect a change to use a QToolButton for a totally different
