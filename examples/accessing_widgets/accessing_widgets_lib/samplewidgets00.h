@@ -17,6 +17,11 @@ public:
     explicit SampleWidgets00(QWidget* parent = nullptr);
     ~SampleWidgets00();
 
+    int answer()
+    {
+        return 42;
+    }
+
 private:
     Ui::SampleWidgets* ui;
 };

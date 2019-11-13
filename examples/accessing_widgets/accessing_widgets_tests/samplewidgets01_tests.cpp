@@ -32,4 +32,5 @@ TEST_CASE_METHOD(
 {
     auto gobutton = goButton();
     CHECK(!gobutton->isChecked());
+    CHECK(widget.answer() == 42);
 }

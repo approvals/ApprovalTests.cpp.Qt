@@ -18,6 +18,11 @@ public:
     explicit SampleWidgets02(QWidget* parent = nullptr);
     ~SampleWidgets02();
 
+    int answer()
+    {
+        return 42;
+    }
+
 protected:
     QToolButton* goButton();
 

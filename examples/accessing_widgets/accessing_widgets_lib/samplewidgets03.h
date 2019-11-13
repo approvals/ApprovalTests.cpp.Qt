@@ -18,6 +18,11 @@ public:
     explicit SampleWidgets03(QWidget* parent = nullptr);
     ~SampleWidgets03();
 
+    int answer()
+    {
+        return 42;
+    }
+
 private:
     friend class SampleWidgets03Fixture;
     QToolButton* goButton();

@@ -23,4 +23,5 @@ TEST_CASE("SampleWidgets00 gobutton is initially unchecked")
     REQUIRE(gobutton != nullptr);
 
     CHECK(!gobutton->isChecked());
+    CHECK(widget.answer() == 42);
 }
