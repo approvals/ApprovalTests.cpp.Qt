@@ -5,9 +5,8 @@
 #include <QToolButton>
 
 //! Ui::SampleWidgets is a private data member - tests will use findChild*()
-class SampleWidgets00Fixture
+TEST_CASE("SampleWidgets00 gobutton is initially unchecked")
 {
-public:
     SampleWidgets00 widget;
 
     // The Ui is private, and the Go button is not in the public interface,
@@ -15,21 +14,13 @@ public:
     // NOT A RECOMMENDED PRACTICE!!
     // This makes for potential maintenance pain in future, if the widget
     // internals are modified.
-    QToolButton* goButton()
-    {
-        auto gobutton = widget.findChild<QToolButton*>();
-        // Will give a run-time test failure if SampleWidgets00 no longer has
-        // a QToolButton
-        // But won't detect a change to use a QToolButton for a totally different
-        // purpose
-        REQUIRE(gobutton != nullptr);
-        return gobutton;
-    }
-};
+    auto gobutton = widget.findChild<QToolButton*>();
 
-TEST_CASE_METHOD(
-    SampleWidgets00Fixture, "SampleWidgets00 gobutton is initially unchecked")
-{
-    auto gobutton = goButton();
+    // Will give a run-time test failure if SampleWidgets00 no longer has
+    // a QToolButton
+    // But won't detect a change to use a QToolButton for a totally different
+    // purpose
+    REQUIRE(gobutton != nullptr);
+
     CHECK(!gobutton->isChecked());
 }
