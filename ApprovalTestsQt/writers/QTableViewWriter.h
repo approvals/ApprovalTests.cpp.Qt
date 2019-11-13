@@ -14,8 +14,7 @@ namespace ApprovalTestsQt
     public:
         explicit QTableViewWriter(const QTableView& tableView,
             std::string fileExtensionWithDot = ".tsv")
-            : tableView_(tableView),
-              fileExtensionWithDot_(fileExtensionWithDot)
+            : tableView_(tableView), fileExtensionWithDot_(fileExtensionWithDot)
         {
         }
 
