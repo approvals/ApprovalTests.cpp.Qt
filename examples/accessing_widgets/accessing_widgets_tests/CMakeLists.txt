@@ -7,7 +7,7 @@ add_executable(
         samplewidgets01_tests.cpp
         samplewidgets02_tests.cpp
         samplewidgets03_tests_inheritance.cpp
-        samplewidgets04_tests.cpp
+        samplewidgets03_tests_non_inheritance.cpp
 )
 target_link_libraries(${PROJECT_NAME} ApprovalTestsQt catch2 accessing_widgets_lib)
 
