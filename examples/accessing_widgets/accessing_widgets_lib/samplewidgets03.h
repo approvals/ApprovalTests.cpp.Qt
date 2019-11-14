@@ -24,7 +24,7 @@ public:
     }
 
 private:
-    friend class SampleWidgets03Fixture;
+    friend class SampleWidgets03FixtureInheritance;
     QToolButton* goButton();
 
 private:

@@ -17,7 +17,7 @@
 // SampleWidgets03 instance visible for calling.
 
 // By inheriting SampleWidgets03, we can expose access to its protected interface
-class SampleWidgets03Fixture : public SampleWidgets03
+class SampleWidgets03FixtureInheritance : public SampleWidgets03
 {
 public:
     // Bump visibility from private to public, for testing (via friendship)
@@ -26,8 +26,7 @@ public:
     using SampleWidgets03::goButton;
 };
 
-TEST_CASE_METHOD(
-    SampleWidgets03Fixture, "SampleWidgets03 gobutton is initially unchecked")
+TEST_CASE_METHOD(SampleWidgets03FixtureInheritance, "SampleWidgets03 gobutton is initially unchecked")
 {
     auto gobutton = goButton();
     CHECK(!gobutton->isChecked());
