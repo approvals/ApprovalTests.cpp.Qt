@@ -18,8 +18,6 @@ add_library(
         samplewidgets02.h
         samplewidgets03.cpp
         samplewidgets03.h
-        samplewidgets04.cpp
-        samplewidgets04.h
         samplewidgets.ui
 )
 
