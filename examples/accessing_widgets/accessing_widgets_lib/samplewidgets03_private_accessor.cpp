@@ -1,4 +1,4 @@
-#include "samplewidgets03_private_accessort.h"
+#include "samplewidgets03_private_accessor.h"
 #include "ui_samplewidgets.h"
 
 SampleWidgets03::SampleWidgets03(QWidget* parent)

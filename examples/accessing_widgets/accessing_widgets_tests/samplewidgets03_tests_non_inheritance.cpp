@@ -1,6 +1,6 @@
 #include "Catch.hpp"
 
-#include "samplewidgets03_private_accessort.h"
+#include "samplewidgets03_private_accessor.h"
 
 #include <QToolButton>
 
