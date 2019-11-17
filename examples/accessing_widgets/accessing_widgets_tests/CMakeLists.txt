@@ -5,7 +5,7 @@ add_executable(
         main.cpp
         samplewidgets00_tests_no_fixture.cpp
         samplewidgets00_tests_with_fixture.cpp
-        samplewidgets02_tests.cpp
+        samplewidgets02_tests_inheritance.cpp
         samplewidgets03_tests_inheritance.cpp
         samplewidgets03_tests_non_inheritance.cpp
 )
