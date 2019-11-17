@@ -1,14 +1,14 @@
 #include "Catch.hpp"
 
-#include "samplewidgets01.h"
+#include "samplewidgets00.h"
 
 #include <QToolButton>
 
 //! Ui::SampleWidgets is a private data member - tests will use findChild*()
-class SampleWidgets01Fixture
+class SampleWidgets00Fixture
 {
 public:
-    SampleWidgets01 widget;
+    SampleWidgets00 widget;
 
     // The Ui is private, and the Go button is not in the public interface,
     // so we"cheat" and search for the contained widgets ourselves.
@@ -18,7 +18,7 @@ public:
     QToolButton* goButton()
     {
         auto gobutton = widget.findChild<QToolButton*>();
-        // Will give a run-time test failure if SampleWidgets01 no longer has
+        // Will give a run-time test failure if SampleWidgets00 no longer has
         // a QToolButton
         // But won't detect a change to use a QToolButton for a totally different
         // purpose
@@ -28,7 +28,7 @@ public:
 };
 
 TEST_CASE_METHOD(
-    SampleWidgets01Fixture, "SampleWidgets01 gobutton is initially unchecked")
+    SampleWidgets00Fixture, "SampleWidgets00 gobutton is initially unchecked")
 {
     auto gobutton = goButton();
     CHECK(!gobutton->isChecked());
