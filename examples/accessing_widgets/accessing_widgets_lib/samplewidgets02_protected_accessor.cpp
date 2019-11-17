@@ -1,4 +1,4 @@
-#include "samplewidgets02.h"
+#include "samplewidgets02_protected_accessor.h"
 #include "ui_samplewidgets.h"
 
 SampleWidgets02::SampleWidgets02(QWidget* parent)

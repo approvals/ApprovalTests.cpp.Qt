@@ -14,8 +14,8 @@ add_library(
         samplewidgets00.h
         samplewidgets01.cpp
         samplewidgets01.h
-        samplewidgets02.cpp
-        samplewidgets02.h
+        samplewidgets02_protected_accessor.cpp
+        samplewidgets02_protected_accessor.h
         samplewidgets03_private_accessort.cpp
         samplewidgets03_private_accessort.h
         samplewidgets.ui
