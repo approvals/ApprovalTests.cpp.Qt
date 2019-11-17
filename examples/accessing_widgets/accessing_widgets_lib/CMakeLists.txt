@@ -10,8 +10,8 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 add_library(
         ${PROJECT_NAME}
-        samplewidgets00.cpp
-        samplewidgets00.h
+        samplewidgets00_no_accessor.cpp
+        samplewidgets00_no_accessor.h
         samplewidgets02_protected_accessor.cpp
         samplewidgets02_protected_accessor.h
         samplewidgets03_private_accessort.cpp
