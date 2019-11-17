@@ -1,10 +1,10 @@
 #include <QApplication>
-#include "samplewidgets01.h"
+#include "samplewidgets00.h"
 int main(int argc, char** argv)
 {
     QApplication app(argc, argv);
 
-    SampleWidgets01 sampleWidgets;
+    SampleWidgets00 sampleWidgets;
     sampleWidgets.show();
     sampleWidgets.raise();
 
