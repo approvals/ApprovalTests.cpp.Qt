@@ -12,12 +12,16 @@ public:
 
     // The Ui is private, and the Go button is not in the public interface,
     // so we"cheat" and search for the contained widgets ourselves.
-    // NOT A RECOMMENDED PRACTICE!!
+    // NOT A RECOMMENDED PRACTICE, especially in production code!!
     // This makes for potential maintenance pain in future, if the widget
     // internals are modified.
-    QToolButton* goButton()
+    // We improve the maintenance situation slightly by looking for
+    // QAbstractButton instead of the more specific derived-class QToolButton.
+    // This means our test code will still work if the implementations is
+    // changed to use a different button type.
+    QAbstractButton* goButton()
     {
-        auto gobutton = widget.findChild<QToolButton*>();
+        auto gobutton = widget.findChild<QAbstractButton*>();
         // Will give a run-time test failure if SampleWidgets00 no longer has
         // a QToolButton
         // But won't detect a change to use a QToolButton for a totally different
