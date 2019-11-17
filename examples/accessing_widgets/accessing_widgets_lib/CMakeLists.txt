@@ -12,6 +12,8 @@ add_library(
         ${PROJECT_NAME}
         samplewidgets00_no_accessor.cpp
         samplewidgets00_no_accessor.h
+        samplewidgets01_public_accessor.cpp
+        samplewidgets01_public_accessor.h
         samplewidgets02_protected_accessor.cpp
         samplewidgets02_protected_accessor.h
         samplewidgets03_private_accessort.cpp
