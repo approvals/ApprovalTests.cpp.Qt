@@ -22,9 +22,7 @@ To change this file edit the source file and then execute ./run_markdown_templat
   * [Reference](#reference)
     * [Setting up your main](#setting-up-your-main)
     * [Verifying a QImage](#verifying-a-qimage)
-    * [Verifying a QTableView, e.g. QTableWidget](#verifying-a-qtableview-eg-qtablewidget)
-<!-- endtoc -->
-
+    * [Verifying a QTableView, e.g. QTableWidget](#verifying-a-qtableview-eg-qtablewidget)<!-- endtoc -->
 
 ## Purpose
 
@@ -64,7 +62,7 @@ You can download the [Starter Project](https://github.com/approvals/ApprovalTest
 #define APPROVALS_CATCH_QT
 #include "ApprovalTestsQt.hpp"
 ```
-<sup>[snippet source](/tests/Catch2_Tests/main.cpp#L1-L5) / [anchor](#snippet-catch_2_qt_main)</sup>
+<sup><a href='/tests/Catch2_Tests/main.cpp#L1-L5' title='File snippet `catch_2_qt_main` was extracted from'>snippet source</a> | <a href='#snippet-catch_2_qt_main' title='Navigate to start of snippet `catch_2_qt_main`'>anchor</a></sup>
 <!-- endsnippet -->
 
 ### Verifying a QImage
@@ -80,7 +78,7 @@ QImage image(10, 20, QImage::Format_RGB32);
 image.fill(Qt::red);
 ApprovalTestsQt::verifyQImage(image);
 ```
-<sup>[snippet source](/tests/Catch2_Tests/ApprovalsQtTests.cpp#L31-L35) / [anchor](#snippet-verify_qimage)</sup>
+<sup><a href='/tests/Catch2_Tests/ApprovalsQtTests.cpp#L31-L35' title='File snippet `verify_qimage` was extracted from'>snippet source</a> | <a href='#snippet-verify_qimage' title='Navigate to start of snippet `verify_qimage`'>anchor</a></sup>
 <!-- endsnippet -->
 
 ### Verifying a QTableView, e.g. QTableWidget
@@ -94,5 +92,5 @@ QTableWidget tableWidget;
 populateTable(tableWidget);
 ApprovalTestsQt::verifyQTableView(tableWidget);
 ```
-<sup>[snippet source](/tests/Catch2_Tests/ApprovalsQtTests.cpp#L44-L48) / [anchor](#snippet-verify_table_view)</sup>
+<sup><a href='/tests/Catch2_Tests/ApprovalsQtTests.cpp#L44-L48' title='File snippet `verify_table_view` was extracted from'>snippet source</a> | <a href='#snippet-verify_table_view' title='Navigate to start of snippet `verify_table_view`'>anchor</a></sup>
 <!-- endsnippet -->
