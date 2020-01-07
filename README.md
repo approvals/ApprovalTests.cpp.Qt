@@ -26,7 +26,7 @@ To change this file edit the source file and then execute ./run_markdown_templat
 
 ## Purpose
 
-To enable easy, convenient testing and [Approval Testing](https://github.com/approvals/ApprovalTests.cpp.Qt) of [Qt](https://www.qt.io)-based C++ code by using modern test frameworks.
+To enable easy, convenient testing and [Approval Testing](https://github.com/approvals/ApprovalTests.cpp) of [Qt](https://www.qt.io)-based C++ code by using modern test frameworks.
 
 Currently [Catch](https://github.com/catchorg/Catch2) is supported.
 
