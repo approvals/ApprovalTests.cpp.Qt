@@ -43,7 +43,9 @@ jobs:
         buildtype: [
           windows-latest,
           windows-latest (clangcl),
-          windows-2016,
+# TODO Fix windows-2016 build: Disabled due to:
+# Qt5Cored.lib(Qt5Cored.dll) : fatal error LNK1112: module machine type 'x64' conflicts with target machine type 'x86'
+#          windows-2016,
           ubuntu-latest,
           ubuntu-latest-ninja,
           macOS-latest,
