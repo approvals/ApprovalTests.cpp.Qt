@@ -9,6 +9,11 @@ To change this file edit the source file and then execute ./run_markdown_templat
 
 # ApprovalTests.cpp.Qt
 
+
+<!-- TODO Need the AppVeyor key for this repo from Llewellyn -->
+[![Build Status](https://travis-ci.com/approvals/ApprovalTests.cpp.Qt.svg?branch=master)](https://travis-ci.com/approvals/ApprovalTests.cpp.Qt/branches)  <!-- [![Build status](https://ci.appveyor.com/api/projects/status/xxxxxxxxx?svg=true)](https://ci.appveyor.com/project/isidore/approvaltests-cpp) --> 
+ [![Actions Status](https://github.com/approvals/ApprovalTests.cpp.Qt/workflows/build/badge.svg)](https://github.com/approvals/ApprovalTests.cpp.Qt/actions) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
 <a href="https://github.com/approvals/ApprovalTests.cpp.Qt/releases/download/v.0.0.1/ApprovalTestsQt.v.0.0.1.hpp">Download the latest version (v.0.0.1) of the **single header file** here.</a>
 
 <!-- toc -->
@@ -78,7 +83,7 @@ QImage image(10, 20, QImage::Format_RGB32);
 image.fill(Qt::red);
 ApprovalTestsQt::verifyQImage(image);
 ```
-<sup><a href='/tests/Catch2_Tests/ApprovalsQtTests.cpp#L31-L35' title='File snippet `verify_qimage` was extracted from'>snippet source</a> | <a href='#snippet-verify_qimage' title='Navigate to start of snippet `verify_qimage`'>anchor</a></sup>
+<sup><a href='/tests/Catch2_Tests/ApprovalsQtTests.cpp#L32-L36' title='File snippet `verify_qimage` was extracted from'>snippet source</a> | <a href='#snippet-verify_qimage' title='Navigate to start of snippet `verify_qimage`'>anchor</a></sup>
 <!-- endsnippet -->
 
 ### Verifying a QTableView, e.g. QTableWidget
@@ -92,5 +97,5 @@ QTableWidget tableWidget;
 populateTable(tableWidget);
 ApprovalTestsQt::verifyQTableView(tableWidget);
 ```
-<sup><a href='/tests/Catch2_Tests/ApprovalsQtTests.cpp#L44-L48' title='File snippet `verify_table_view` was extracted from'>snippet source</a> | <a href='#snippet-verify_table_view' title='Navigate to start of snippet `verify_table_view`'>anchor</a></sup>
+<sup><a href='/tests/Catch2_Tests/ApprovalsQtTests.cpp#L45-L49' title='File snippet `verify_table_view` was extracted from'>snippet source</a> | <a href='#snippet-verify_table_view' title='Navigate to start of snippet `verify_table_view`'>anchor</a></sup>
 <!-- endsnippet -->
