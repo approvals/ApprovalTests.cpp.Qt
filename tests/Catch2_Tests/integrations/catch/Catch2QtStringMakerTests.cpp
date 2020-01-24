@@ -19,8 +19,7 @@ TEST_CASE("StringMaker pretty-prints QDate")
 TEST_CASE("StringMaker pretty-prints QPoint")
 {
     const QPoint point(10, 327);
-    REQUIRE(Catch::StringMaker<QPoint>::convert(point) ==
-            "QPoint(10,327)");
+    REQUIRE(Catch::StringMaker<QPoint>::convert(point) == "QPoint(10,327)");
 }
 
 TEST_CASE("StringMaker pretty-prints QString")

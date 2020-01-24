@@ -13,9 +13,9 @@ namespace ApprovalTestsQt
     {
     public:
         explicit QTableViewWriter(const QTableView& tableWidget,
-            std::string fileExtensionWithDot = ".tsv")
-            : tableWidget_(tableWidget),
-              fileExtensionWithDot_(fileExtensionWithDot)
+                                  std::string fileExtensionWithDot = ".tsv")
+            : tableWidget_(tableWidget)
+            , fileExtensionWithDot_(fileExtensionWithDot)
         {
         }
 
@@ -56,7 +56,8 @@ namespace ApprovalTestsQt
             }
             else
             {
-                throw std::runtime_error("Unable to table write to file " + path);
+                throw std::runtime_error("Unable to table write to file " +
+                                         path);
             }
         }
 

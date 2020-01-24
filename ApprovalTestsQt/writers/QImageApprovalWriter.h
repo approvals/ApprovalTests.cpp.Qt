@@ -10,8 +10,8 @@ namespace ApprovalTestsQt
     class QImageApprovalWriter : public ApprovalTests::ApprovalWriter
     {
     public:
-        explicit QImageApprovalWriter(
-            QImage image, std::string fileExtensionWithDot = ".png")
+        explicit QImageApprovalWriter(QImage image,
+                                      std::string fileExtensionWithDot = ".png")
             : image_(image), fileExtensionWithDot_(fileExtensionWithDot)
         {
         }

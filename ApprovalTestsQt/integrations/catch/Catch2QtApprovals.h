@@ -21,7 +21,8 @@ int main(int argc, char* argv[])
     // character-based file comparison, which may fail for two
     // exactly equivalent .png files.
     auto pngComparatorDisposer =
-        ApprovalTests::FileApprover::registerComparatorForExtension(".png",
+        ApprovalTests::FileApprover::registerComparatorForExtension(
+            ".png",
             std::make_shared<ApprovalTestsQt::QImageApprovalComparator>());
 
     // your existing setup...
