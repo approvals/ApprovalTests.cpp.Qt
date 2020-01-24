@@ -1,0 +1,19 @@
+{
+  "ignorePatterns": [
+    {
+      "pattern": "^https://github.com/SimonCropp/MarkdownSnippets"
+    },
+    {
+      "pattern": "^/doc/README.md"
+    },
+    {
+      "pattern": "^https://github.com/approvals/ApprovalTests.cpp.Qt/actions"
+    }
+  ],
+  "replacementPatterns": [
+    {
+      "pattern": "^/",
+      "replacement": "https://github.com/approvals/ApprovalTests.cpp.Qt/blob/master/"
+    }
+    ]
+}

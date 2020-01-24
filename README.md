@@ -9,6 +9,11 @@ To change this file edit the source file and then execute ./run_markdown_templat
 
 # ApprovalTests.cpp.Qt
 
+
+<!-- TODO Need the AppVeyor key for this repo from Llewellyn -->
+[![Build Status](https://travis-ci.com/approvals/ApprovalTests.cpp.Qt.svg?branch=master)](https://travis-ci.com/approvals/ApprovalTests.cpp.Qt/branches)  <!-- [![Build status](https://ci.appveyor.com/api/projects/status/xxxxxxxxx?svg=true)](https://ci.appveyor.com/project/isidore/approvaltests-cpp) --> 
+ [![Actions Status](https://github.com/approvals/ApprovalTests.cpp.Qt/workflows/build/badge.svg)](https://github.com/approvals/ApprovalTests.cpp.Qt/actions) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
 <a href="https://github.com/approvals/ApprovalTests.cpp.Qt/releases/download/v.0.0.1/ApprovalTestsQt.v.0.0.1.hpp">Download the latest version (v.0.0.1) of the **single header file** here.</a>
 
 <!-- toc -->
@@ -22,13 +27,11 @@ To change this file edit the source file and then execute ./run_markdown_templat
   * [Reference](#reference)
     * [Setting up your main](#setting-up-your-main)
     * [Verifying a QImage](#verifying-a-qimage)
-    * [Verifying a QTableView, e.g. QTableWidget](#verifying-a-qtableview-eg-qtablewidget)
-<!-- endtoc -->
-
+    * [Verifying a QTableView, e.g. QTableWidget](#verifying-a-qtableview-eg-qtablewidget)<!-- endtoc -->
 
 ## Purpose
 
-To enable easy, convenient testing and [Approval Testing](https://github.com/approvals/ApprovalTests.cpp.Qt) of [Qt](https://www.qt.io)-based C++ code by using modern test frameworks.
+To enable easy, convenient testing and [Approval Testing](https://github.com/approvals/ApprovalTests.cpp) of [Qt](https://www.qt.io)-based C++ code by using modern test frameworks.
 
 Currently [Catch](https://github.com/catchorg/Catch2) is supported.
 
@@ -64,7 +67,7 @@ You can download the [Starter Project](https://github.com/approvals/ApprovalTest
 #define APPROVALS_CATCH_QT
 #include "ApprovalTestsQt.hpp"
 ```
-<sup>[snippet source](/tests/Catch2_Tests/main.cpp#L1-L5) / [anchor](#snippet-catch_2_qt_main)</sup>
+<sup><a href='/tests/Catch2_Tests/main.cpp#L1-L5' title='File snippet `catch_2_qt_main` was extracted from'>snippet source</a> | <a href='#snippet-catch_2_qt_main' title='Navigate to start of snippet `catch_2_qt_main`'>anchor</a></sup>
 <!-- endsnippet -->
 
 ### Verifying a QImage
@@ -80,7 +83,7 @@ QImage image(10, 20, QImage::Format_RGB32);
 image.fill(Qt::red);
 ApprovalTestsQt::verifyQImage(image);
 ```
-<sup>[snippet source](/tests/Catch2_Tests/ApprovalsQtTests.cpp#L31-L35) / [anchor](#snippet-verify_qimage)</sup>
+<sup><a href='/tests/Catch2_Tests/ApprovalsQtTests.cpp#L32-L36' title='File snippet `verify_qimage` was extracted from'>snippet source</a> | <a href='#snippet-verify_qimage' title='Navigate to start of snippet `verify_qimage`'>anchor</a></sup>
 <!-- endsnippet -->
 
 ### Verifying a QTableView, e.g. QTableWidget
@@ -94,5 +97,5 @@ QTableWidget tableWidget;
 populateTable(tableWidget);
 ApprovalTestsQt::verifyQTableView(tableWidget);
 ```
-<sup>[snippet source](/tests/Catch2_Tests/ApprovalsQtTests.cpp#L44-L48) / [anchor](#snippet-verify_table_view)</sup>
+<sup><a href='/tests/Catch2_Tests/ApprovalsQtTests.cpp#L45-L49' title='File snippet `verify_table_view` was extracted from'>snippet source</a> | <a href='#snippet-verify_table_view' title='Navigate to start of snippet `verify_table_view`'>anchor</a></sup>
 <!-- endsnippet -->
