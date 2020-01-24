@@ -26,7 +26,8 @@ public:
     using SampleWidgets03::goButton;
 };
 
-TEST_CASE_METHOD(SampleWidgets03FixtureInheritance, "SampleWidgets03 gobutton is initially unchecked - v1")
+TEST_CASE_METHOD(SampleWidgets03FixtureInheritance,
+                 "SampleWidgets03 gobutton is initially unchecked - v1")
 {
     auto gobutton = goButton();
     CHECK(!gobutton->isChecked());

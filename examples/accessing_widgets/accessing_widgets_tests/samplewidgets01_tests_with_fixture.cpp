@@ -17,7 +17,8 @@ public:
 };
 
 TEST_CASE_METHOD(
-    SampleWidgets01Fixture, "SampleWidgets01 gobutton is initially unchecked - with fixture")
+    SampleWidgets01Fixture,
+    "SampleWidgets01 gobutton is initially unchecked - with fixture")
 {
     auto gobutton = goButton();
     CHECK(!gobutton->isChecked());
