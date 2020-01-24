@@ -114,6 +114,9 @@ jobs:
       run: |
         echo Build space: ${{ env.BUILD_DIR_PATH }}
 
+    - name: install qt
+      uses: jurplel/install-qt-action@v2
+
     - name: make build space
       run: |
         mkdir ${{ env.BUILD_DIR_PATH }}
