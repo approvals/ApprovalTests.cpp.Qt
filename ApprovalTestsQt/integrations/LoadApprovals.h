@@ -5,11 +5,13 @@
 // #include "ApprovalTestsQt/integrations/LoadApprovals.h" instead
 
 // <SingleHpp unalterable>
+// clang-format off
 #if defined(APPROVALS_CATCH_QT)
-#define CATCH_CONFIG_RUNNER
-#include <Catch.hpp>
-#define APPROVALS_CATCH_EXISTING_MAIN
+    #define CATCH_CONFIG_RUNNER
+    #include <Catch.hpp>
+    #define APPROVALS_CATCH_EXISTING_MAIN
 #endif
+// clang-format on
 
 #include "ApprovalTests.hpp"
 // </SingleHpp>

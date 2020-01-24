@@ -1,0 +1,3 @@
+add_subdirectory(accessing_widgets_lib)
+add_subdirectory(accessing_widgets_tests)
+add_subdirectory(accessing_widgets_gui)
