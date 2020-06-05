@@ -1,25 +1,48 @@
-// Approval Tests version v.8.6.0
+// Approval Tests version v.8.7.0
 // More information at: https://github.com/approvals/ApprovalTests.cpp
 
 
 // ******************** From: ApprovalTests.hpp
-#ifndef APPROVALTESTS_CPP_APPROVALS_HPP
-#define APPROVALTESTS_CPP_APPROVALS_HPP
+#ifndef APPROVAL_TESTS_CPP_APPROVALS_HPP
+#define APPROVAL_TESTS_CPP_APPROVALS_HPP
 
 // This file is machine-generated. Do not edit.
 
 
+// ******************** From: ApprovalsMacroDefaults.h
+
+// clang-format off
+#if ! defined(APPROVAL_TESTS_SHOW_DEPRECATION_WARNINGS)
+#define       APPROVAL_TESTS_SHOW_DEPRECATION_WARNINGS 0
+#endif
+
+#if ! defined(APPROVAL_TESTS_HIDE_DEPRECATED_CODE)
+#define       APPROVAL_TESTS_HIDE_DEPRECATED_CODE 0
+#endif
+// clang-format on
+
 // ******************** From: ApprovalTestsVersion.h
 
-#define APPROVALTESTS_VERSION_MAJOR 8
-#define APPROVALTESTS_VERSION_MINOR 6
-#define APPROVALTESTS_VERSION_PATCH 0
-#define APPROVALTESTS_VERSION_STR "8.6.0"
 
-#define APPROVALTESTS_VERSION                                                            \
-    (APPROVALTESTS_VERSION_MAJOR * 10000 + APPROVALTESTS_VERSION_MINOR * 100 +           \
-     APPROVALTESTS_VERSION_PATCH)
+#define APPROVAL_TESTS_VERSION_MAJOR 8
+#define APPROVAL_TESTS_VERSION_MINOR 7
+#define APPROVAL_TESTS_VERSION_PATCH 0
+#define APPROVAL_TESTS_VERSION_STR "8.7.0"
 
+#define APPROVAL_TESTS_VERSION                                                           \
+    (APPROVAL_TESTS_VERSION_MAJOR * 10000 + APPROVAL_TESTS_VERSION_MINOR * 100 +         \
+     APPROVAL_TESTS_VERSION_PATCH)
+
+#if !APPROVAL_TESTS_HIDE_DEPRECATED_CODE
+// clang-format off
+// Deprecated, for regression only:
+#define APPROVALTESTS_VERSION       APPROVAL_TESTS_VERSION
+#define APPROVALTESTS_VERSION_MAJOR APPROVAL_TESTS_VERSION_MAJOR
+#define APPROVALTESTS_VERSION_MINOR APPROVAL_TESTS_VERSION_MINOR
+#define APPROVALTESTS_VERSION_PATCH APPROVAL_TESTS_VERSION_PATCH
+#define APPROVALTESTS_VERSION_STR   APPROVAL_TESTS_VERSION_STR
+// clang-format on
+#endif
 
 // ******************** From: Reporter.h
 
@@ -30,7 +53,6 @@
 
 namespace ApprovalTests
 {
-    // Reporters are called on test failure
     class Reporter
     {
     public:
@@ -48,7 +70,6 @@ namespace ApprovalTests
     } // namespace Detail
 }
 
-
 // ******************** From: QuietReporter.h
 
 
@@ -64,7 +85,6 @@ namespace ApprovalTests
         }
     };
 }
-
 
 // ******************** From: Blocker.h
 
@@ -84,85 +104,6 @@ namespace ApprovalTests
         virtual bool isBlockingOnThisMachine() const = 0;
     };
 }
-
-
-// ******************** From: StringUtils.h
-
-
-
-#include <string>
-#include <algorithm>
-#include <sstream>
-
-namespace ApprovalTests
-{
-    class StringUtils
-    {
-    public:
-        static std::string replaceAll(std::string inText,
-                                      const std::string& find,
-                                      const std::string& replaceWith)
-        {
-            size_t start_pos = 0;
-            while ((start_pos = inText.find(find, start_pos)) != std::string::npos)
-            {
-                inText.replace(start_pos, find.length(), replaceWith);
-                start_pos +=
-                    replaceWith
-                        .length(); // Handles case where 'to' is a substring of 'from'
-            }
-            return inText;
-        }
-
-        static bool contains(const std::string& inText, const std::string& find)
-        {
-            return inText.find(find, 0) != std::string::npos;
-        }
-
-        static std::string toLower(std::string inText)
-        {
-            std::string copy(inText);
-            std::transform(inText.begin(), inText.end(), copy.begin(), [](char c) {
-                return static_cast<char>(tolower(c));
-            });
-            return copy;
-        }
-
-        static bool endsWith(std::string value, std::string ending)
-        {
-            if (ending.size() > value.size())
-            {
-                return false;
-            }
-            return std::equal(ending.rbegin(), ending.rend(), value.rbegin());
-        }
-
-        template <typename T> static std::string toString(const T& contents)
-        {
-            std::stringstream s;
-            s << contents;
-            return s.str();
-        }
-    };
-}
-
-// ******************** From: Macros.h
-
-// Use this in places where we have parameters that are sometimes unused,
-// e.g. because of #if
-// See https://stackoverflow.com/a/1486931/104370
-#define APPROVAL_TESTS_UNUSED(expr)                                                      \
-    do                                                                                   \
-    {                                                                                    \
-        (void)(expr);                                                                    \
-    } while (0)
-
-#if __cplusplus >= 201703L
-#define APPROVAL_TESTS_NO_DISCARD [[nodiscard]]
-#else
-#define APPROVAL_TESTS_NO_DISCARD
-#endif
-
 
 // ******************** From: WinMinGWUtils.h
 
@@ -189,6 +130,49 @@ extern "C"
 
 #endif // APPROVAL_TESTS_MINGW
 
+// ******************** From: Macros.h
+
+
+// Use this in places where we have parameters that are sometimes unused,
+// e.g. because of #if
+// See https://stackoverflow.com/a/1486931/104370
+#define APPROVAL_TESTS_UNUSED(expr)                                                      \
+    do                                                                                   \
+    {                                                                                    \
+        (void)(expr);                                                                    \
+    } while (0)
+
+#if __cplusplus >= 201703L
+#define APPROVAL_TESTS_NO_DISCARD [[nodiscard]]
+#else
+#define APPROVAL_TESTS_NO_DISCARD
+#endif
+
+#if APPROVAL_TESTS_SHOW_DEPRECATION_WARNINGS
+#if (__cplusplus >= 201402L)
+#define APPROVAL_TESTS_DEPRECATED(text) [[deprecated(text)]]
+#define APPROVAL_TESTS_DEPRECATED_CPP11(text)
+#else
+#define APPROVAL_TESTS_DEPRECATED(text)
+#define APPROVAL_TESTS_DEPRECATED_CPP11(text)                                            \
+    MoreHelpMessages::deprecatedFunctionCalled(text, __FILE__, __LINE__);
+#endif
+#else
+#define APPROVAL_TESTS_DEPRECATED(text)
+#define APPROVAL_TESTS_DEPRECATED_CPP11(text)
+#endif
+
+#define APPROVAL_TESTS_DEPRECATED_USE_OPTIONS                                            \
+    APPROVAL_TESTS_DEPRECATED(                                                           \
+        "use Options(reporter) instead. More information at "                            \
+        "https://github.com/approvals/ApprovalTests.cpp/blob/master/doc/explanations/"   \
+        "WhyWeAreConvertingToOptions.md#how-to-update-calls-to-deprecated-code")
+
+#define APPROVAL_TESTS_DEPRECATED_USE_OPTIONS_CPP11                                      \
+    APPROVAL_TESTS_DEPRECATED_CPP11(                                                     \
+        "use Options(reporter) instead. More information at "                            \
+        "https://github.com/approvals/ApprovalTests.cpp/blob/master/doc/explanations/"   \
+        "WhyWeAreConvertingToOptions.md#how-to-update-calls-to-deprecated-code")
 
 // ******************** From: ApprovalWriter.h
 
@@ -203,7 +187,6 @@ namespace ApprovalTests
         virtual void cleanUpReceived(std::string receivedPath) const = 0;
     };
 }
-
 
 // ******************** From: StringWriter.h
 
@@ -343,6 +326,83 @@ namespace ApprovalTests
     };
 }
 
+// ******************** From: StringMaker.h
+
+#include <string>
+#include <sstream>
+
+namespace ApprovalTests
+{
+    class StringMaker
+    {
+    public:
+        template <typename T> static std::string toString(const T& contents)
+        {
+            std::stringstream s;
+            s << contents;
+            return s.str();
+        }
+    };
+}
+
+// ******************** From: StringUtils.h
+
+
+
+
+#include <string>
+#include <algorithm>
+#include <sstream>
+
+namespace ApprovalTests
+{
+    class StringUtils
+    {
+    public:
+        static std::string replaceAll(std::string inText,
+                                      const std::string& find,
+                                      const std::string& replaceWith)
+        {
+            size_t start_pos = 0;
+            while ((start_pos = inText.find(find, start_pos)) != std::string::npos)
+            {
+                inText.replace(start_pos, find.length(), replaceWith);
+                start_pos +=
+                    replaceWith
+                        .length(); // Handles case where 'to' is a substring of 'from'
+            }
+            return inText;
+        }
+
+        static bool contains(const std::string& inText, const std::string& find)
+        {
+            return inText.find(find, 0) != std::string::npos;
+        }
+
+        static std::string toLower(std::string inText)
+        {
+            std::string copy(inText);
+            std::transform(inText.begin(), inText.end(), copy.begin(), [](char c) {
+                return static_cast<char>(tolower(c));
+            });
+            return copy;
+        }
+
+        static bool endsWith(std::string value, std::string ending)
+        {
+            if (ending.size() > value.size())
+            {
+                return false;
+            }
+            return std::equal(ending.rbegin(), ending.rend(), value.rbegin());
+        }
+
+        template <typename T> static std::string toString(const T& contents)
+        {
+            return StringMaker::toString(contents);
+        }
+    };
+}
 
 // ******************** From: SystemUtils.h
 
@@ -571,7 +631,6 @@ namespace ApprovalTests
     };
 }
 
-
 // ******************** From: FileUtilsSystemSpecific.h
 
 
@@ -624,6 +683,20 @@ namespace ApprovalTests
     };
 }
 
+// ******************** From: ApprovalNamer.h
+
+#include <string>
+
+namespace ApprovalTests
+{
+    class ApprovalNamer
+    {
+    public:
+        virtual ~ApprovalNamer() = default;
+        virtual std::string getApprovedFile(std::string extensionWithDot) const = 0;
+        virtual std::string getReceivedFile(std::string extensionWithDot) const = 0;
+    };
+}
 
 // ******************** From: HelpMessages.h
 
@@ -698,23 +771,6 @@ namespace ApprovalTests
         }
     };
 }
-
-
-// ******************** From: ApprovalNamer.h
-
-#include <string>
-
-namespace ApprovalTests
-{
-    class ApprovalNamer
-    {
-    public:
-        virtual ~ApprovalNamer() = default;
-        virtual std::string getApprovedFile(std::string extensionWithDot) const = 0;
-        virtual std::string getReceivedFile(std::string extensionWithDot) const = 0;
-    };
-}
-
 
 // ******************** From: ApprovalTestNamer.h
 
@@ -906,7 +962,6 @@ namespace ApprovalTests
     };
 }
 
-
 // ******************** From: SectionNameDisposer.h
 
 
@@ -933,7 +988,6 @@ namespace ApprovalTests
         TestName& currentTest;
     };
 }
-
 
 // ******************** From: GoogleCustomizationsFactory.h
 
@@ -980,7 +1034,6 @@ namespace ApprovalTests
         }
     };
 }
-
 
 // ******************** From: CartesianProduct.h
 
@@ -1188,7 +1241,6 @@ namespace ApprovalTests
     } // namespace CartesianProduct
 } // namespace ApprovalTests
 
-
 // ******************** From: ExistingFile.h
 
 #include <string>
@@ -1219,6 +1271,33 @@ namespace ApprovalTests
     };
 }
 
+// ******************** From: MoreHelpMessages.h
+
+#include <string>
+
+namespace ApprovalTests
+{
+    class MoreHelpMessages
+    {
+    public:
+        static void deprecatedFunctionCalled(const std::string& message,
+                                             const std::string& file,
+                                             int lineNumber)
+        {
+            std::cout << "\n***************** Deprecation Warning: ***************\n"
+                      << "*\n"
+                      << "* " << message << '\n'
+                      << "*\n"
+                      << "* Deprecated method:\n"
+                      << "*    " << file << ":" << lineNumber << '\n'
+                      << "* Called from:\n"
+                      << "*    " << ApprovalTestNamer::getCurrentTest().getFileName()
+                      << '\n'
+                      << "*\n"
+                      << "******************************************************\n\n";
+        }
+    };
+}
 
 // ******************** From: ConvertForCygwin.h
 
@@ -1256,7 +1335,6 @@ namespace ApprovalTests
         }
     };
 }
-
 
 // ******************** From: DiffInfo.h
 
@@ -1346,7 +1424,6 @@ namespace ApprovalTests
     };
 }
 
-
 // ******************** From: CommandLauncher.h
 
 #include <string>
@@ -1363,7 +1440,6 @@ namespace ApprovalTests
         virtual std::string getCommandLine(const std::string& commandLine) const = 0;
     };
 }
-
 
 // ******************** From: CommandReporter.h
 
@@ -1535,7 +1611,6 @@ namespace ApprovalTests
     };
 }
 
-
 // ******************** From: DiffPrograms.h
 
 
@@ -1706,7 +1781,6 @@ namespace ApprovalTests
     }
 }
 
-
 // ******************** From: GenericDiffReporter.h
 
 #include <string>
@@ -1731,7 +1805,6 @@ namespace ApprovalTests
         }
     };
 }
-
 
 // ******************** From: FirstWorkingReporter.h
 
@@ -1774,7 +1847,6 @@ namespace ApprovalTests
         }
     };
 }
-
 
 // ******************** From: LinuxReporters.h
 
@@ -1877,7 +1949,6 @@ namespace ApprovalTests
         };
     }
 }
-
 
 // ******************** From: MacReporters.h
 
@@ -1982,7 +2053,6 @@ namespace ApprovalTests
         };
     }
 }
-
 
 // ******************** From: WindowsReporters.h
 
@@ -2155,7 +2225,6 @@ namespace ApprovalTests
     }
 }
 
-
 // ******************** From: DiffReporter.h
 
 
@@ -2172,7 +2241,6 @@ namespace ApprovalTests
         }
     };
 }
-
 
 // ******************** From: DefaultReporterFactory.h
 
@@ -2204,7 +2272,6 @@ namespace ApprovalTests
     };
 }
 
-
 // ******************** From: DefaultReporterDisposer.h
 
 
@@ -2229,26 +2296,6 @@ namespace ApprovalTests
         }
     };
 }
-
-
-// ******************** From: DefaultReporter.h
-
-
-#include <string>
-
-namespace ApprovalTests
-{
-    class DefaultReporter : public Reporter
-    {
-    public:
-        virtual bool report(std::string received, std::string approved) const override
-        {
-            return DefaultReporterFactory::getDefaultReporter()->report(received,
-                                                                        approved);
-        }
-    };
-}
-
 
 // ******************** From: SubdirectoryDisposer.h
 
@@ -2277,7 +2324,6 @@ namespace ApprovalTests
         }
     };
 }
-
 
 // ******************** From: DefaultNamerFactory.h
 
@@ -2315,7 +2361,6 @@ namespace ApprovalTests
     };
 }
 
-
 // ******************** From: ExistingFileNamer.h
 
 #include <utility>
@@ -2343,7 +2388,6 @@ namespace ApprovalTests
     };
 }
 
-
 // ******************** From: DefaultNamerDisposer.h
 
 #include <utility>
@@ -2370,6 +2414,198 @@ namespace ApprovalTests
     };
 }
 
+// ******************** From: Scrubbers.h
+
+#include <string>
+#include <functional>
+#include <iostream>
+#include <regex>
+
+namespace ApprovalTests
+{
+    using Scrubber = std::function<std::string(const std::string&)>;
+    namespace Scrubbers
+    {
+        inline std::string doNothing(const std::string& input)
+        {
+            return input;
+        }
+
+        inline std::string scrubGuid(const std::string& input)
+        {
+            static const std::regex regex("[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-["
+                                          "0-9a-fA-F]{4}-[0-9a-fA-F]{12}");
+
+            int matchNumber = 1;
+            auto result = input;
+            std::smatch m;
+            while (std::regex_search(result, m, regex))
+            {
+                auto guid_match = m.str();
+                auto replacement = "guid_" + std::to_string(matchNumber);
+                result = StringUtils::replaceAll(result, guid_match, replacement);
+                matchNumber += 1;
+            }
+            return result;
+        }
+    }
+}
+
+// ******************** From: DefaultReporter.h
+
+
+#include <string>
+
+namespace ApprovalTests
+{
+    class DefaultReporter : public Reporter
+    {
+    public:
+        virtual bool report(std::string received, std::string approved) const override
+        {
+            return DefaultReporterFactory::getDefaultReporter()->report(received,
+                                                                        approved);
+        }
+    };
+}
+
+// ******************** From: Options.h
+
+#include <utility>
+#include <exception>
+
+
+namespace ApprovalTests
+{
+    class Options
+    {
+    public:
+        class FileOptions
+        {
+            const Options* options_ = nullptr; // set in Options::fileOptions()
+            std::string fileExtensionWithDot_ = ".txt";
+            friend class Options;
+
+            FileOptions() = default;
+
+            explicit FileOptions(std::string fileExtensionWithDot)
+                : fileExtensionWithDot_(std::move(fileExtensionWithDot))
+            {
+            }
+
+            APPROVAL_TESTS_NO_DISCARD
+            FileOptions clone() const
+            {
+                // the returned options_ must be null
+                return FileOptions(fileExtensionWithDot_);
+            }
+
+        public:
+            APPROVAL_TESTS_NO_DISCARD
+            const std::string& getFileExtension() const
+            {
+                return fileExtensionWithDot_;
+            }
+
+            APPROVAL_TESTS_NO_DISCARD
+            Options withFileExtension(const std::string& fileExtensionWithDot) const
+            {
+                FileOptions newSelf(fileExtensionWithDot);
+                return options_->clone(newSelf);
+            }
+        };
+
+    private:
+        FileOptions fileOptions_;
+        Scrubber scrubber_ = Scrubbers::doNothing;
+        const Reporter& reporter_ = defaultReporter();
+
+        Options(FileOptions fileOptions, Scrubber scrubber, const Reporter& reporter)
+            : fileOptions_(std::move(fileOptions))
+            , scrubber_(std::move(scrubber))
+            , reporter_(reporter)
+        {
+        }
+
+        APPROVAL_TESTS_NO_DISCARD
+        Options clone(const FileOptions& fileOptions) const
+        {
+            // TODO error this can retain a previous Options* ???
+            return Options(fileOptions, scrubber_, reporter_);
+        }
+
+        static const Reporter& defaultReporter()
+        {
+            static DefaultReporter defaultReporter;
+            return defaultReporter;
+        }
+
+    public:
+        Options() = default;
+
+        explicit Options(Scrubber scrubber) : scrubber_(std::move(scrubber))
+        {
+        }
+
+        explicit Options(const Reporter& reporter) : reporter_(reporter)
+        {
+        }
+
+        APPROVAL_TESTS_NO_DISCARD
+        FileOptions fileOptions() const
+        {
+            if (fileOptions_.options_ != nullptr)
+            {
+                throw std::logic_error(
+                    "Incorrect assumption: A FileOptions has been re-used");
+            }
+            FileOptions copy = fileOptions_.clone();
+            copy.options_ = this;
+            return copy;
+        }
+
+        APPROVAL_TESTS_NO_DISCARD
+        Scrubber getScrubber() const
+        {
+            return scrubber_;
+        }
+
+        APPROVAL_TESTS_NO_DISCARD
+        std::string scrub(const std::string& input) const
+        {
+            return scrubber_(input);
+        }
+
+        APPROVAL_TESTS_NO_DISCARD
+        const Reporter& getReporter() const
+        {
+            return reporter_;
+        }
+
+        APPROVAL_TESTS_NO_DISCARD
+        Options withReporter(const Reporter& reporter) const
+        {
+            return Options(fileOptions_, scrubber_, reporter);
+        }
+
+        APPROVAL_TESTS_NO_DISCARD
+        Options withScrubber(Scrubber scrubber) const
+        {
+            return Options(fileOptions_, std::move(scrubber), reporter_);
+        }
+    };
+
+    namespace Detail
+    {
+        //! Helper to prevent compilation failure when types are wrongly treated as Option
+        //  or Reporter:
+        template <typename T, typename R = void>
+        using EnableIfNotOptionsOrReporter = typename std::enable_if<
+            (!std::is_same<Options, typename std::decay<T>::type>::value) &&
+                (!std::is_base_of<Reporter, typename std::decay<T>::type>::value),
+            R>::type;
+    } // namespace Detail
+}
 
 // ******************** From: CustomReporter.h
 
@@ -2410,7 +2646,6 @@ namespace ApprovalTests
         }
     };
 }
-
 
 // ******************** From: TextDiffReporter.h
 
@@ -2454,7 +2689,6 @@ namespace ApprovalTests
         }
     };
 } // namespace ApprovalTests
-
 
 // ******************** From: CIBuildOnlyReporter.h
 
@@ -2530,7 +2764,6 @@ namespace ApprovalTests
     };
 } // namespace ApprovalTests
 
-
 // ******************** From: DefaultFrontLoadedReporter.h
 
 
@@ -2544,7 +2777,6 @@ namespace ApprovalTests
         }
     };
 }
-
 
 // ******************** From: FrontLoadedReporterFactory.h
 
@@ -2576,7 +2808,6 @@ namespace ApprovalTests
     };
 }
 
-
 // ******************** From: FrontLoadedReporterDisposer.h
 
 
@@ -2601,7 +2832,6 @@ namespace ApprovalTests
         }
     };
 }
-
 
 // ******************** From: ApprovalException.h
 
@@ -2669,7 +2899,6 @@ namespace ApprovalTests
     };
 }
 
-
 // ******************** From: ApprovalComparator.h
 
 #include <string>
@@ -2685,7 +2914,6 @@ namespace ApprovalTests
                                            std::string approvedPath) const = 0;
     };
 }
-
 
 // ******************** From: TextFileComparator.h
 
@@ -2786,7 +3014,6 @@ namespace ApprovalTests
     };
 }
 
-
 // ******************** From: ComparatorFactory.h
 
 #include <memory>
@@ -2836,14 +3063,12 @@ namespace ApprovalTests
     };
 }
 
-
 // ******************** From: FileApprover.h
 
 #include <memory>
 
 namespace ApprovalTests
 {
-
     class FileApprover
     {
 
@@ -2852,6 +3077,18 @@ namespace ApprovalTests
 
         ~FileApprover() = default;
 
+        /*! \brief Register a custom comparater, which will be used to compare approved
+         *         and received files with the given extension.
+         *
+         * @param extensionWithDot A file extention, such as ".jpg"
+         * @param comparator <tt>std::shared_ptr</tt> to a ApprovalTests::ApprovalComparator
+         *                   instance
+         * @return A "Disposable" object. The caller should hold on to this object.
+         *         When it is destroyed, the customisation will be reversed.
+         *
+         * \see For more information, see
+         *      \userguide{CustomComparators,Custom Comparators}
+         */
         static ComparatorDisposer
         registerComparatorForExtension(const std::string& extensionWithDot,
                                        std::shared_ptr<ApprovalComparator> comparator)
@@ -2859,7 +3096,7 @@ namespace ApprovalTests
             return ComparatorFactory::registerComparator(extensionWithDot, comparator);
         }
 
-        //! This overload is an implementation detail. To add a new comparator, use registerComparator().
+        //! This overload is an implementation detail. To add a new comparator, use registerComparatorForExtension().
         static void verify(const std::string& receivedPath,
                            const std::string& approvedPath,
                            const ApprovalComparator& comparator)
@@ -2919,22 +3156,23 @@ namespace ApprovalTests
     };
 }
 
-
 // ******************** From: Approvals.h
-
 #include <string>
 #include <functional>
 #include <exception>
+#include <utility>
 
 
 namespace ApprovalTests
 {
-    class Approvals
+
+    // TCompileTimeOptions must have a type ToStringConverter, which must have a method toString()
+    template <typename TCompileTimeOptions> class TApprovals
     {
     private:
-        Approvals() = default;
+        TApprovals() = default;
 
-        ~Approvals() = default;
+        ~TApprovals() = default;
 
     public:
         static std::shared_ptr<ApprovalNamer> getDefaultNamer()
@@ -2942,24 +3180,19 @@ namespace ApprovalTests
             return DefaultNamerFactory::getDefaultNamer()();
         }
 
-        static void verify(std::string contents,
-                           const Reporter& reporter = DefaultReporter())
+        static void verify(const std::string& contents,
+                           const Options& options = Options())
         {
-            verifyWithExtension(contents, ".txt", reporter);
+            StringWriter writer(options.scrub(contents),
+                                options.fileOptions().getFileExtension());
+            FileApprover::verify(*getDefaultNamer(), writer, options.getReporter());
         }
 
-        static void verifyWithExtension(std::string contents,
-                                        const std::string& fileExtensionWithDot,
-                                        const Reporter& reporter = DefaultReporter())
-        {
-            StringWriter writer(contents, fileExtensionWithDot);
-            FileApprover::verify(*getDefaultNamer(), writer, reporter);
-        }
-
+        // Note that this overload ignores any scrubber in options
         static void verify(const ApprovalWriter& writer,
-                           const Reporter& reporter = DefaultReporter())
+                           const Options& options = Options())
         {
-            FileApprover::verify(*getDefaultNamer(), writer, reporter);
+            FileApprover::verify(*getDefaultNamer(), writer, options.getReporter());
         }
 
         template <typename T>
@@ -2968,48 +3201,25 @@ namespace ApprovalTests
                                     int>::type;
 
         template <typename T, typename = IsNotDerivedFromWriter<T>>
-        static void verify(const T& contents,
-                           const Reporter& reporter = DefaultReporter())
+        static void verify(const T& contents, const Options& options = Options())
         {
-            verify(StringUtils::toString(contents), reporter);
-        }
-
-        template <typename T, typename = IsNotDerivedFromWriter<T>>
-        static void verifyWithExtension(const T& contents,
-                                        const std::string& fileExtensionWithDot,
-                                        const Reporter& reporter = DefaultReporter())
-        {
-            verifyWithExtension(
-                StringUtils::toString(contents), fileExtensionWithDot, reporter);
+            verify(TCompileTimeOptions::ToStringConverter::toString(contents), options);
         }
 
         template <typename T,
                   typename Function,
                   typename = Detail::EnableIfNotDerivedFromReporter<Function>>
-        static void verify(const T& contents,
-                           Function converter,
-                           const Reporter& reporter = DefaultReporter())
+        static void
+        verify(const T& contents, Function converter, const Options& options = Options())
         {
             std::stringstream s;
             converter(contents, s);
-            verify(s.str(), reporter);
+            verify(s.str(), options);
         }
 
-        template <typename T,
-                  typename Function,
-                  typename = Detail::EnableIfNotDerivedFromReporter<Function>>
-        static void verifyWithExtension(const T& contents,
-                                        Function converter,
-                                        const std::string& fileExtensionWithDot,
-                                        const Reporter& reporter = DefaultReporter())
-        {
-            std::stringstream s;
-            converter(contents, s);
-            verifyWithExtension(s.str(), fileExtensionWithDot, reporter);
-        }
-
-        static void verifyExceptionMessage(std::function<void(void)> functionThatThrows,
-                                           const Reporter& reporter = DefaultReporter())
+        static void
+        verifyExceptionMessage(const std::function<void(void)>& functionThatThrows,
+                               const Options& options = Options())
         {
             std::string message = "*** no exception thrown ***";
             try
@@ -3020,16 +3230,16 @@ namespace ApprovalTests
             {
                 message = e.what();
             }
-            verify(message, reporter);
+            verify(message, options);
         }
 
         template <typename Iterator>
         static void verifyAll(
-            std::string header,
+            const std::string& header,
             const Iterator& start,
             const Iterator& finish,
             std::function<void(typename Iterator::value_type, std::ostream&)> converter,
-            const Reporter& reporter = DefaultReporter())
+            const Options& options = Options())
         {
             std::stringstream s;
             if (!header.empty())
@@ -3041,154 +3251,343 @@ namespace ApprovalTests
                 converter(*it, s);
                 s << '\n';
             }
-            verify(s.str(), reporter);
+            verify(s.str(), options);
         }
 
         template <typename Container>
         static void verifyAll(
-            std::string header,
+            const std::string& header,
             const Container& list,
             std::function<void(typename Container::value_type, std::ostream&)> converter,
-            const Reporter& reporter = DefaultReporter())
+            const Options& options = Options())
         {
             verifyAll<typename Container::const_iterator>(
-                header, list.begin(), list.end(), converter, reporter);
+                header, list.begin(), list.end(), converter, options);
         }
 
         template <typename T>
-        static void verifyAll(std::string header,
+        static void verifyAll(const std::string& header,
                               const std::vector<T>& list,
-                              const Reporter& reporter = DefaultReporter())
+                              const Options& options = Options())
         {
             int i = 0;
             verifyAll<std::vector<T>>(
                 header,
                 list,
-                [&](T e, std::ostream& s) { s << "[" << i++ << "] = " << e; },
-                reporter);
+                [&](T e, std::ostream& s) {
+                    s << "[" << i++
+                      << "] = " << TCompileTimeOptions::ToStringConverter::toString(e);
+                },
+                options);
         }
 
         template <typename T>
         static void verifyAll(const std::vector<T>& list,
-                              const Reporter& reporter = DefaultReporter())
+                              const Options& options = Options())
         {
-            verifyAll<T>("", list, reporter);
+            verifyAll<T>("", list, options);
         }
 
-        static void verifyExistingFile(const std::string filePath,
-                                       const Reporter& reporter = DefaultReporter())
+        // Note that this method ignores any scrubber in options
+        static void verifyExistingFile(const std::string& filePath,
+                                       const Options& options = Options())
         {
             ExistingFile writer(filePath);
             ExistingFileNamer namer(filePath);
-            FileApprover::verify(namer, writer, reporter);
+            FileApprover::verify(namer, writer, options.getReporter());
         }
 
+        /**@name Customising Approval Tests
+
+         These static methods customise various aspects
+         of Approval Tests behaviour.
+         */
+        ///@{
+
+        /// See \userguide{Configuration,using-sub-directories-for-approved-files,Using sub-directories for approved files}
         static SubdirectoryDisposer
-        useApprovalsSubdirectory(std::string subdirectory = "approval_tests")
+        useApprovalsSubdirectory(const std::string& subdirectory = "approval_tests")
         {
             return SubdirectoryDisposer(subdirectory);
         }
 
+        /// See \userguide{Reporters,registering-a-default-reporter,Registering a default reporter}
         static DefaultReporterDisposer
         useAsDefaultReporter(const std::shared_ptr<Reporter>& reporter)
         {
             return DefaultReporterDisposer(reporter);
         }
 
+        /// See \userguide{Reporters,front-loaded-reporters,Front Loaded Reporters}
         static FrontLoadedReporterDisposer
         useAsFrontLoadedReporter(const std::shared_ptr<Reporter>& reporter)
         {
             return FrontLoadedReporterDisposer(reporter);
         }
 
+        /// See \userguide{Namers,registering-a-custom-namer,Registering a Custom Namer}
         static DefaultNamerDisposer useAsDefaultNamer(NamerCreator namerCreator)
         {
-            return DefaultNamerDisposer(namerCreator);
+            return DefaultNamerDisposer(std::move(namerCreator));
         }
-    };
-}
+        ///@}
 
+#if !APPROVAL_TESTS_HIDE_DEPRECATED_CODE
+
+        APPROVAL_TESTS_DEPRECATED_USE_OPTIONS
+        static void verify(std::string contents, const Reporter& reporter)
+        {
+            APPROVAL_TESTS_DEPRECATED_USE_OPTIONS_CPP11
+            verify(contents, Options(reporter));
+        }
+
+        APPROVAL_TESTS_DEPRECATED_USE_OPTIONS
+        static void verifyWithExtension(std::string contents,
+                                        const std::string& fileExtensionWithDot,
+                                        const Reporter& reporter)
+        {
+            APPROVAL_TESTS_DEPRECATED_USE_OPTIONS_CPP11
+            verify(
+                contents,
+                Options(reporter).fileOptions().withFileExtension(fileExtensionWithDot));
+        }
+
+        APPROVAL_TESTS_DEPRECATED_USE_OPTIONS
+        static void verify(const ApprovalWriter& writer, const Reporter& reporter)
+        {
+            APPROVAL_TESTS_DEPRECATED_USE_OPTIONS_CPP11
+            verify(writer, Options(reporter));
+        }
+
+        template <typename T, typename = IsNotDerivedFromWriter<T>>
+        APPROVAL_TESTS_DEPRECATED_USE_OPTIONS static void verify(const T& contents,
+                                                                 const Reporter& reporter)
+        {
+            APPROVAL_TESTS_DEPRECATED_USE_OPTIONS_CPP11
+            verify(TCompileTimeOptions::ToStringConverter::toString(contents), reporter);
+        }
+
+        template <typename T, typename = IsNotDerivedFromWriter<T>>
+        APPROVAL_TESTS_DEPRECATED_USE_OPTIONS static void
+        verifyWithExtension(const T& contents,
+                            const std::string& fileExtensionWithDot,
+                            const Reporter& reporter)
+        {
+            APPROVAL_TESTS_DEPRECATED_USE_OPTIONS_CPP11
+            verify(
+                contents,
+                Options(reporter).fileOptions().withFileExtension(fileExtensionWithDot));
+        }
+
+        template <typename T,
+                  typename Function,
+                  typename = Detail::EnableIfNotDerivedFromReporter<Function>>
+        APPROVAL_TESTS_DEPRECATED_USE_OPTIONS static void
+        verify(const T& contents, Function converter, const Reporter& reporter)
+        {
+            APPROVAL_TESTS_DEPRECATED_USE_OPTIONS_CPP11
+            verify(contents, converter, Options(reporter));
+        }
+
+        template <typename T,
+                  typename Function,
+                  typename = Detail::EnableIfNotDerivedFromReporter<Function>>
+        APPROVAL_TESTS_DEPRECATED_USE_OPTIONS static void
+        verifyWithExtension(const T& contents,
+                            Function converter,
+                            const std::string& fileExtensionWithDot,
+                            const Reporter& reporter)
+        {
+            APPROVAL_TESTS_DEPRECATED_USE_OPTIONS_CPP11
+            verify(
+                contents,
+                converter,
+                Options(reporter).fileOptions().withFileExtension(fileExtensionWithDot));
+        }
+
+        APPROVAL_TESTS_DEPRECATED_USE_OPTIONS
+        static void verifyExceptionMessage(std::function<void(void)> functionThatThrows,
+                                           const Reporter& reporter)
+        {
+            APPROVAL_TESTS_DEPRECATED_USE_OPTIONS_CPP11
+            verifyExceptionMessage(functionThatThrows, Options(reporter));
+        }
+
+        template <typename Iterator>
+        APPROVAL_TESTS_DEPRECATED_USE_OPTIONS static void verifyAll(
+            std::string header,
+            const Iterator& start,
+            const Iterator& finish,
+            std::function<void(typename Iterator::value_type, std::ostream&)> converter,
+            const Reporter& reporter)
+        {
+            APPROVAL_TESTS_DEPRECATED_USE_OPTIONS_CPP11
+            verifyAll(header, start, finish, converter, Options(reporter));
+        }
+
+        template <typename Container>
+        APPROVAL_TESTS_DEPRECATED_USE_OPTIONS static void verifyAll(
+            std::string header,
+            const Container& list,
+            std::function<void(typename Container::value_type, std::ostream&)> converter,
+            const Reporter& reporter)
+        {
+            APPROVAL_TESTS_DEPRECATED_USE_OPTIONS_CPP11
+            verifyAll(header, list, converter, Options(reporter));
+        }
+
+        template <typename T>
+        APPROVAL_TESTS_DEPRECATED_USE_OPTIONS static void verifyAll(
+            std::string header, const std::vector<T>& list, const Reporter& reporter)
+        {
+            APPROVAL_TESTS_DEPRECATED_USE_OPTIONS_CPP11
+            verifyAll(header, list, Options(reporter));
+        }
+
+        template <typename T>
+        APPROVAL_TESTS_DEPRECATED_USE_OPTIONS static void
+        verifyAll(const std::vector<T>& list, const Reporter& reporter)
+        {
+            APPROVAL_TESTS_DEPRECATED_USE_OPTIONS_CPP11
+            verifyAll<T>(list, Options(reporter));
+        }
+
+        APPROVAL_TESTS_DEPRECATED_USE_OPTIONS
+        static void verifyExistingFile(const std::string filePath,
+                                       const Reporter& reporter)
+        {
+            APPROVAL_TESTS_DEPRECATED_USE_OPTIONS_CPP11
+            verifyExistingFile(filePath, Options(reporter));
+        }
+#endif
+    };
+
+#ifndef APPROVAL_TESTS_DEFAULT_STREAM_CONVERTER
+#define APPROVAL_TESTS_DEFAULT_STREAM_CONVERTER StringMaker
+#endif
+
+    // Warning: Do not use CompileTimeOptions directly.
+    // This interface is subject to change, as future
+    // compile-time options are added.
+    template <typename TToString> struct CompileTimeOptions
+    {
+        using ToStringConverter = TToString;
+        // more template types may be added to CompileTimeOptions in future, if we add
+        // more flexibility that requires compile-time configuration.
+    };
+
+    // Template parameter TToString must have a method toString()
+    // This interface will not change, as future compile-time options are added.
+    template <typename TToString>
+    struct ToStringCompileTimeOptions : CompileTimeOptions<TToString>
+    {
+    };
+
+    using Approvals =
+        TApprovals<ToStringCompileTimeOptions<APPROVAL_TESTS_DEFAULT_STREAM_CONVERTER>>;
+}
 
 // ******************** From: CombinationApprovals.h
 
 #include <type_traits>
+#include <utility>
 
 namespace ApprovalTests
 {
-    namespace CombinationApprovals
+    template <typename TCompileTimeOptions> class TCombinationApprovals
     {
-        namespace Detail
+    private:
+        // Write out second or subsequent input value, with preceding comma and space
+        struct print_input
         {
-
-            // Write out second or subsequent input value, with preceding comma and space
-            struct print_input
+            std::ostream& out;
+            template <class T> void operator()(const T& input)
             {
-                std::ostream& out;
-                template <class T> void operator()(const T& input)
-                {
-                    out << ", " << input;
-                }
-            };
+                out << ", " << TCompileTimeOptions::ToStringConverter::toString(input);
+            }
+        };
 
-            // Write out one row of output
-            template <class Converter> struct serialize
+        // Write out one row of output
+        template <class Converter> struct serialize
+        {
+            std::ostream& out;
+            Converter converter;
+            template <class T, class... Ts> void operator()(T&& input1_, Ts&&... inputs)
             {
-                std::ostream& out;
-                Converter converter;
-                template <class T, class... Ts>
-                void operator()(T&& input1_, Ts&&... inputs)
-                {
-                    // First value is printed without trailing comma
-                    out << "(" << input1_;
-                    // Remaining values are printed with prefix of a comma
-                    CartesianProduct::Detail::for_each(std::forward_as_tuple(inputs...),
-                                                       print_input{out});
-                    out << ") => " << converter(input1_, inputs...) << '\n';
-                }
-            };
-        } // namespace Detail
+                // First value is printed without trailing comma
+                out << "(" << TCompileTimeOptions::ToStringConverter::toString(input1_);
+                // Remaining values are printed with prefix of a comma
+                CartesianProduct::Detail::for_each(std::forward_as_tuple(inputs...),
+                                                   print_input{out});
+                out << ") => " << converter(input1_, inputs...) << '\n';
+            }
+        };
 
+    public:
         template <class Converter, class Container, class... Containers>
-        void verifyAllCombinations(const Reporter& reporter,
-                                   Converter&& converter,
-                                   const Container& input0,
-                                   const Containers&... inputs)
+        static void verifyAllCombinations(const Options& options,
+                                          Converter&& converter,
+                                          const Container& input0,
+                                          const Containers&... inputs)
         {
             std::stringstream s;
             CartesianProduct::cartesian_product(
-                Detail::serialize<Converter>{s, std::forward<Converter>(converter)},
+                serialize<Converter>{s, std::forward<Converter>(converter)},
                 input0,
                 inputs...);
-            Approvals::verify(s.str(), reporter);
+            Approvals::verify(s.str(), options);
         }
+
+#if !APPROVAL_TESTS_HIDE_DEPRECATED_CODE
+        template <class Converter, class Container, class... Containers>
+        static APPROVAL_TESTS_DEPRECATED_USE_OPTIONS void
+        verifyAllCombinations(const Reporter& reporter,
+                              Converter&& converter,
+                              const Container& input0,
+                              const Containers&... inputs)
+        {
+            APPROVAL_TESTS_DEPRECATED_USE_OPTIONS_CPP11
+            verifyAllCombinations(Options(reporter), converter, input0, inputs...);
+        }
+#endif
 
         template <class Converter, class... Containers>
-        ApprovalTests::Detail::EnableIfNotDerivedFromReporter<Converter>
-        verifyAllCombinations(Converter&& converter, const Containers&... inputs)
+        ApprovalTests::Detail::EnableIfNotOptionsOrReporter<
+            Converter> static verifyAllCombinations(Converter&& converter,
+                                                    const Containers&... inputs)
         {
             verifyAllCombinations(
-                DefaultReporter(), std::forward<Converter>(converter), inputs...);
+                Options(), std::forward<Converter>(converter), inputs...);
         }
+    };
 
-    } // namespace CombinationApprovals
+    using CombinationApprovals = TCombinationApprovals<
+        ToStringCompileTimeOptions<APPROVAL_TESTS_DEFAULT_STREAM_CONVERTER>>;
+
 } // namespace ApprovalTests
 
-
 // ******************** From: CheckFileMacroIsAbsolute.h
+
 
 // Maintenance note: the following help message must be short, and
 // not contain any newline characters, as their display looks messy
 // in some compiler outputs.
 //
 // This static_assert can be disabled by
-// defining APPROVALS_CATCH_DISABLE_FILE_MACRO_CHECK.
+// defining APPROVAL_TESTS_DISABLE_FILE_MACRO_CHECK.
 // This can be done on the CMake command line with:
-// -DCMAKE_CXX_FLAGS_INIT=-DAPPROVALS_CATCH_DISABLE_FILE_MACRO_CHECK
+// -DCMAKE_CXX_FLAGS_INIT=-DAPPROVAL_TESTS_DISABLE_FILE_MACRO_CHECK
 //
 // ApprovalTests will then check the validity of __FILE__
 // at run-time instead, for test frameworks that use it to
 // detect the source file name.
-#ifndef APPROVALS_CATCH_DISABLE_FILE_MACRO_CHECK
+#if !APPROVAL_TESTS_HIDE_DEPRECATED_CODE
+#if defined(APPROVALS_CATCH_DISABLE_FILE_MACRO_CHECK) // Deprecated
+#define APPROVAL_TESTS_DISABLE_FILE_MACRO_CHECK
+#endif
+#endif
+
+#ifndef APPROVAL_TESTS_DISABLE_FILE_MACRO_CHECK
 // clang-format off
 static_assert(
     (__FILE__[1] == ':') ||
@@ -3199,8 +3598,7 @@ static_assert(
 __FILE__
     // clang-format on
 );
-#endif // APPROVALS_CATCH_DISABLE_FILE_MACRO_CHECK
-
+#endif // APPROVAL_TESTS_DISABLE_FILE_MACRO_CHECK
 
 // ******************** From: BoostTestApprovals.h
 
@@ -3496,7 +3894,6 @@ namespace ApprovalTests
     };
 }
 
-
 // ******************** From: GoogleTestApprovals.h
 
 
@@ -3671,7 +4068,6 @@ namespace ApprovalTests
     };
 }
 
-
 // ******************** From: SeparateApprovedAndReceivedDirectoriesNamer.h
 
 
@@ -3714,7 +4110,6 @@ namespace ApprovalTests
     };
 }
 
-
 // ******************** From: AutoApproveIfMissingReporter.h
 
 
@@ -3734,7 +4129,6 @@ namespace ApprovalTests
         }
     };
 }
-
 
 // ******************** From: BlockingReporter.h
 
@@ -3781,7 +4175,6 @@ namespace ApprovalTests
     };
 }
 
-
 // ******************** From: CIBuildOnlyReporterUtils.h
 
 
@@ -3797,7 +4190,6 @@ namespace ApprovalTests
         }
     }
 } // namespace ApprovalTests
-
 
 // ******************** From: ClipboardReporter.h
 
@@ -3868,7 +4260,6 @@ namespace ApprovalTests
     };
 }
 
-
 // ******************** From: CombinationReporter.h
 
 #include <memory>
@@ -3902,7 +4293,6 @@ namespace ApprovalTests
         }
     };
 }
-
 
 // ******************** From: ExceptionCollector.h
 
@@ -3958,5 +4348,4 @@ namespace ApprovalTests
     };
 }
 
-
-#endif // APPROVALTESTS_CPP_APPROVALS_HPP
+#endif // APPROVAL_TESTS_CPP_APPROVALS_HPP
