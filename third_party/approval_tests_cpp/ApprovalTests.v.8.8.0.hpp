@@ -1,4 +1,4 @@
-// Approval Tests version v.8.7.0
+// Approval Tests version v.8.8.0
 // More information at: https://github.com/approvals/ApprovalTests.cpp
 
 
@@ -25,9 +25,9 @@
 
 
 #define APPROVAL_TESTS_VERSION_MAJOR 8
-#define APPROVAL_TESTS_VERSION_MINOR 7
+#define APPROVAL_TESTS_VERSION_MINOR 8
 #define APPROVAL_TESTS_VERSION_PATCH 0
-#define APPROVAL_TESTS_VERSION_STR "8.7.0"
+#define APPROVAL_TESTS_VERSION_STR "8.8.0"
 
 #define APPROVAL_TESTS_VERSION                                                           \
     (APPROVAL_TESTS_VERSION_MAJOR * 10000 + APPROVAL_TESTS_VERSION_MINOR * 100 +         \
@@ -1034,6 +1034,23 @@ namespace ApprovalTests
         }
     };
 }
+
+// ******************** From: FmtToString.h
+#ifdef FMT_VERSION
+namespace ApprovalTests
+{
+    class FmtToString
+    {
+    public:
+        template <typename T> static std::string toString(const T& printable)
+        {
+            (void)printable;
+            return fmt::to_string(printable);
+        }
+    };
+
+}
+#endif
 
 // ******************** From: CartesianProduct.h
 
@@ -3180,6 +3197,10 @@ namespace ApprovalTests
             return DefaultNamerFactory::getDefaultNamer()();
         }
 
+        /**@name Verifying single objects
+
+         See \userguide{TestingSingleObjects,Testing Single Objects}
+         */
         static void verify(const std::string& contents,
                            const Options& options = Options())
         {
@@ -3216,6 +3237,7 @@ namespace ApprovalTests
             converter(contents, s);
             verify(s.str(), options);
         }
+        ///@}
 
         static void
         verifyExceptionMessage(const std::function<void(void)>& functionThatThrows,
@@ -3233,6 +3255,11 @@ namespace ApprovalTests
             verify(message, options);
         }
 
+        /**@name Verifying containers of objects
+
+         See \userguide{TestingContainers.md,Testing Containers}
+         */
+        ///@{
         template <typename Iterator>
         static void verifyAll(
             const std::string& header,
@@ -3287,6 +3314,7 @@ namespace ApprovalTests
         {
             verifyAll<T>("", list, options);
         }
+        ///@}
 
         // Note that this method ignores any scrubber in options
         static void verifyExistingFile(const std::string& filePath,
@@ -3333,6 +3361,16 @@ namespace ApprovalTests
         ///@}
 
 #if !APPROVAL_TESTS_HIDE_DEPRECATED_CODE
+        /**@name Deprecated methods
+
+         These methods all pre-date the Options class, and will be removed in a future
+         release.
+
+         For help updating your code, see:
+            - \userguide{how_tos/ToggleDeprecatedCode,How to Toggle Enabling or Disabling of Deprecated Code}
+            - \userguide{explanations/WhyWeAreConvertingToOptions,how-to-update-calls-to-deprecated-code,How to Update Calls to Deprecated Code}
+         */
+        ///@{
 
         APPROVAL_TESTS_DEPRECATED_USE_OPTIONS
         static void verify(std::string contents, const Reporter& reporter)
@@ -3459,6 +3497,7 @@ namespace ApprovalTests
             APPROVAL_TESTS_DEPRECATED_USE_OPTIONS_CPP11
             verifyExistingFile(filePath, Options(reporter));
         }
+        ///@}
 #endif
     };
 
@@ -3524,6 +3563,10 @@ namespace ApprovalTests
         };
 
     public:
+        /**@name Verifying combinations of objects
+
+         See \userguide{TestingCombinations,Testing combinations}
+         */
         template <class Converter, class Container, class... Containers>
         static void verifyAllCombinations(const Options& options,
                                           Converter&& converter,
@@ -3538,19 +3581,6 @@ namespace ApprovalTests
             Approvals::verify(s.str(), options);
         }
 
-#if !APPROVAL_TESTS_HIDE_DEPRECATED_CODE
-        template <class Converter, class Container, class... Containers>
-        static APPROVAL_TESTS_DEPRECATED_USE_OPTIONS void
-        verifyAllCombinations(const Reporter& reporter,
-                              Converter&& converter,
-                              const Container& input0,
-                              const Containers&... inputs)
-        {
-            APPROVAL_TESTS_DEPRECATED_USE_OPTIONS_CPP11
-            verifyAllCombinations(Options(reporter), converter, input0, inputs...);
-        }
-#endif
-
         template <class Converter, class... Containers>
         ApprovalTests::Detail::EnableIfNotOptionsOrReporter<
             Converter> static verifyAllCombinations(Converter&& converter,
@@ -3559,6 +3589,31 @@ namespace ApprovalTests
             verifyAllCombinations(
                 Options(), std::forward<Converter>(converter), inputs...);
         }
+        ///@}
+
+#if !APPROVAL_TESTS_HIDE_DEPRECATED_CODE
+        /**@name Deprecated method
+
+         This method pre-dates the Options class, and will be removed in a future
+         release.
+
+         For help updating your code, see:
+            - \userguide{how_tos/ToggleDeprecatedCode,How to Toggle Enabling or Disabling of Deprecated Code}
+            - \userguide{explanations/WhyWeAreConvertingToOptions,how-to-update-calls-to-deprecated-code,How to Update Calls to Deprecated Code}
+         */
+        ///@{
+        template <class Converter, class Container, class... Containers>
+        APPROVAL_TESTS_DEPRECATED_USE_OPTIONS static void
+        verifyAllCombinations(const Reporter& reporter,
+                              Converter&& converter,
+                              const Container& input0,
+                              const Containers&... inputs)
+        {
+            APPROVAL_TESTS_DEPRECATED_USE_OPTIONS_CPP11
+            verifyAllCombinations(Options(reporter), converter, input0, inputs...);
+        }
+        ///@}
+#endif
     };
 
     using CombinationApprovals = TCombinationApprovals<
@@ -3848,6 +3903,15 @@ namespace ApprovalTests
 REGISTER_LISTENER("approvals", 0, ApprovalTests::DocTestApprovalListener);
 
 #endif // APPROVALS_DOCTEST
+
+// ******************** From: FmtApprovals.h
+#ifdef FMT_VERSION
+namespace ApprovalTests
+{
+    using FmtApprovals =
+        ApprovalTests::TApprovals<ApprovalTests::ToStringCompileTimeOptions<FmtToString>>;
+}
+#endif
 
 // ******************** From: GoogleConfiguration.h
 
