@@ -1,7 +1,7 @@
 #include <QColor>
 #include <QDate>
 #include <QPoint>
-#include <Catch.hpp>
+#include <catch2/catch.hpp>
 #include "ApprovalTestsQt/integrations/catch/Catch2QtStringMaker.h"
 
 TEST_CASE("StringMaker pretty-prints QColor")

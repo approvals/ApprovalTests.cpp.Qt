@@ -1,7 +1,7 @@
 // Demonstrate how to create a Catch main() for testing Qt GUI code
 
 #define CATCH_CONFIG_RUNNER
-#include <Catch.hpp>
+#include <catch2/catch.hpp>
 
 #include <QApplication>
 

@@ -1,5 +1,6 @@
-project(ApprovalTests CXX)
-set(CMAKE_CXX_STANDARD 11)
-add_library(${PROJECT_NAME} INTERFACE)
-target_include_directories(${PROJECT_NAME}
-        INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
+if(NOT TARGET ApprovalTests)
+    set(LIB_NAME ApprovalTests)
+    add_library(${LIB_NAME} INTERFACE)
+    target_include_directories(${LIB_NAME} INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
+    add_library(${LIB_NAME}::${LIB_NAME} ALIAS ${LIB_NAME})
+endif()

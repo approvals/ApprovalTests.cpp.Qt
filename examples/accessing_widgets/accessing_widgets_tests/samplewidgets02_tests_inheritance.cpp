@@ -1,4 +1,4 @@
-#include "Catch.hpp"
+#include <catch2/catch.hpp>
 
 #include "samplewidgets02_protected_accessor.h"
 
