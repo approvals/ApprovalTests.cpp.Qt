@@ -1,5 +1,6 @@
-// Approval Tests version v.8.0.0
+// Approval Tests version v.8.1.0
 // More information at: https://github.com/approvals/ApprovalTests.cpp
+
 #include <string>
 #include <algorithm>
 #include <sstream>
@@ -18,9 +19,27 @@
 #include <memory>
 #include <exception>
 #include <map>
+ // ******************** From: ApprovalTestsVersion.h
+#ifndef APPROVALTESTS_CPP_APPROVALTESTSVERSION_H
+#define APPROVALTESTS_CPP_APPROVALTESTSVERSION_H
+
+#define APPROVALTESTS_VERSION_MAJOR 8
+#define APPROVALTESTS_VERSION_MINOR 1
+#define APPROVALTESTS_VERSION_PATCH 0
+#define APPROVALTESTS_VERSION_STR "8.1.0"
+
+#define APPROVALTESTS_VERSION                                                  \
+    (APPROVALTESTS_VERSION_MAJOR * 10000 + APPROVALTESTS_VERSION_MINOR * 100 + \
+     APPROVALTESTS_VERSION_PATCH)
+
+#endif 
+
  // ******************** From: Blocker.h
 #ifndef APPROVALTESTS_CPP_BLOCKER_H
 #define APPROVALTESTS_CPP_BLOCKER_H
+
+
+
 
 namespace ApprovalTests
 {
@@ -2702,6 +2721,7 @@ namespace ApprovalTests
 #define APPROVALTESTS_CPP_APPROVALS_H
 
 
+
 namespace ApprovalTests
 {
     class Approvals
@@ -2979,15 +2999,15 @@ namespace ApprovalTests
 // at run-time instead, for test frameworks that use it to
 // detect the source file name.
 #ifndef APPROVALS_CATCH_DISABLE_FILE_MACRO_CHECK
-#ifdef _WIN32
-static_assert(__FILE__[1] == ':',
-#else
-static_assert(__FILE__[0] == '/',
-#endif
-              // clang-format off
+// clang-format off
+static_assert(
+    (__FILE__[1] == ':') ||
+    (__FILE__[0] == '/'),
               // begin-snippet: compiler_error_for_misconfigured_build
 "There seems to be a problem with your build configuration, probably with Ninja. "
-"Please visit https://github.com/approvals/ApprovalTests.cpp/blob/master/doc/TroubleshootingMisconfiguredBuild.md"
+"Please visit https://github.com/approvals/ApprovalTests.cpp/blob/master/doc/TroubleshootingMisconfiguredBuild.md "
+"The filename is: "
+__FILE__
               // end-snippet
               // clang-format on
 );
