@@ -1,4 +1,4 @@
-// Approval Tests version v.8.8.0
+// Approval Tests version v.8.9.0
 // More information at: https://github.com/approvals/ApprovalTests.cpp
 
 
@@ -25,9 +25,9 @@
 
 
 #define APPROVAL_TESTS_VERSION_MAJOR 8
-#define APPROVAL_TESTS_VERSION_MINOR 8
+#define APPROVAL_TESTS_VERSION_MINOR 9
 #define APPROVAL_TESTS_VERSION_PATCH 0
-#define APPROVAL_TESTS_VERSION_STR "8.8.0"
+#define APPROVAL_TESTS_VERSION_STR "8.9.0"
 
 #define APPROVAL_TESTS_VERSION                                                           \
     (APPROVAL_TESTS_VERSION_MAJOR * 10000 + APPROVAL_TESTS_VERSION_MINOR * 100 +         \
@@ -1695,6 +1695,11 @@ namespace ApprovalTests
                          "Code.app/Contents/Resources/app/bin/code",
                          "-d {Received} {Approved}",
                          Type::TEXT))
+
+            APPROVAL_TESTS_MACROS_ENTRY(CLION,
+                                        DiffInfo("clion",
+                                                 "nosplash diff {Received} {Approved}",
+                                                 Type::TEXT))
         }
 
         namespace Linux
@@ -1960,6 +1965,7 @@ namespace ApprovalTests
                       new MeldReporter(),
                       new SublimeMergeReporter(),
                       new KDiff3Reporter()
+                      // Note: ApprovalTests::Mac::CLionDiffReporter also works on Linux
                   })
             {
             }
@@ -2050,6 +2056,16 @@ namespace ApprovalTests
             }
         };
 
+        // Note that this will be found on Linux too.
+        // See https://github.com/approvals/ApprovalTests.cpp/issues/138 for limitations
+        class CLionDiffReporter : public GenericDiffReporter
+        {
+        public:
+            CLionDiffReporter() : GenericDiffReporter(DiffPrograms::Mac::CLION())
+            {
+            }
+        };
+
         class MacDiffReporter : public FirstWorkingReporter
         {
         public:
@@ -2063,7 +2079,8 @@ namespace ApprovalTests
                       new SublimeMergeReporter(),
                       new KDiff3Reporter(),
                       new TkDiffReporter(),
-                      new VisualStudioCodeReporter()
+                      new VisualStudioCodeReporter(),
+                      new CLionDiffReporter()
                   })
             {
             }
@@ -2437,6 +2454,7 @@ namespace ApprovalTests
 #include <functional>
 #include <iostream>
 #include <regex>
+#include <map>
 
 namespace ApprovalTests
 {
@@ -2448,22 +2466,64 @@ namespace ApprovalTests
             return input;
         }
 
+        using RegexMatch = std::sub_match<std::string::const_iterator>;
+        using RegexReplacer = std::function<std::string(const RegexMatch&)>;
+        inline std::string scrubRegex(const std::string& input,
+                                      const std::regex& regex,
+                                      const RegexReplacer& replaceFunction)
+        {
+            std::string result;
+            std::string remainder = input;
+            std::smatch m;
+            while (std::regex_search(remainder, m, regex))
+            {
+                auto match = m[0];
+                auto original_matched_text = match.str();
+                auto replacement = replaceFunction(match);
+                result += std::string(m.prefix()) + replacement;
+                remainder = m.suffix();
+            }
+            result += remainder;
+            return result;
+        }
+
+        inline Scrubber createRegexScrubber(const std::regex& regexPattern,
+                                            const RegexReplacer& replacer)
+        {
+            return [=](const std::string& input) {
+                return scrubRegex(input, regexPattern, replacer);
+            };
+        }
+
+        inline Scrubber createRegexScrubber(const std::regex& regexPattern,
+                                            const std::string& replacementText)
+        {
+            return createRegexScrubber(
+                regexPattern, [=](const RegexMatch&) { return replacementText; });
+        }
+
+        inline Scrubber createRegexScrubber(const std::string& regexString,
+                                            const std::string& replacementText)
+        {
+            return createRegexScrubber(std::regex(regexString), replacementText);
+        }
+
         inline std::string scrubGuid(const std::string& input)
         {
             static const std::regex regex("[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-["
                                           "0-9a-fA-F]{4}-[0-9a-fA-F]{12}");
 
-            int matchNumber = 1;
-            auto result = input;
-            std::smatch m;
-            while (std::regex_search(result, m, regex))
-            {
+            int matchNumber = 0;
+            std::map<std::string, int> matchIndices;
+            return scrubRegex(input, regex, [&](const RegexMatch& m) {
                 auto guid_match = m.str();
-                auto replacement = "guid_" + std::to_string(matchNumber);
-                result = StringUtils::replaceAll(result, guid_match, replacement);
-                matchNumber += 1;
-            }
-            return result;
+
+                if (matchIndices[guid_match] == 0)
+                {
+                    matchIndices[guid_match] = ++matchNumber;
+                }
+                return "guid_" + std::to_string(matchIndices[guid_match]);
+            });
         }
     }
 }
@@ -3864,11 +3924,20 @@ namespace ApprovalTests
             {
             }
 
+            std::string doctestToString(const doctest::String& string) const
+            {
+                return string.c_str();
+            }
+
+            std::string doctestToString(const char* string) const
+            {
+                return string;
+            }
+
             void test_case_start(const doctest::TestCaseData& testInfo) override
             {
-
                 currentTest.sections.emplace_back(testInfo.m_name);
-                currentTest.setFileName(testInfo.m_file);
+                currentTest.setFileName(doctestToString(testInfo.m_file));
                 ApprovalTestNamer::currentTest(&currentTest);
             }
 
@@ -3883,12 +3952,7 @@ namespace ApprovalTests
 
             void subcase_start(const doctest::SubcaseSignature& signature) override
             {
-
-#if DOCTEST_VERSION >= 20307
-                currentTest.sections.emplace_back(signature.m_name.c_str());
-#else
-                currentTest.sections.emplace_back(signature.m_name);
-#endif
+                currentTest.sections.emplace_back(doctestToString(signature.m_name));
             }
 
             void subcase_end() override
