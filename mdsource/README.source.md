@@ -4,8 +4,10 @@
 
 
 <!-- TODO Need the AppVeyor key for this repo from Llewellyn -->
-[![Build Status](https://travis-ci.com/approvals/ApprovalTests.cpp.Qt.svg?branch=master)](https://travis-ci.com/approvals/ApprovalTests.cpp.Qt/branches)  <!-- [![Build status](https://ci.appveyor.com/api/projects/status/xxxxxxxxx?svg=true)](https://ci.appveyor.com/project/isidore/approvaltests-cpp) --> 
- [![Actions Status](https://github.com/approvals/ApprovalTests.cpp.Qt/workflows/build/badge.svg)](https://github.com/approvals/ApprovalTests.cpp.Qt/actions) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Build Status](https://travis-ci.com/approvals/ApprovalTests.cpp.Qt.svg?branch=master)](https://travis-ci.com/approvals/ApprovalTests.cpp.Qt/branches)
+<!-- [![Build status](https://ci.appveyor.com/api/projects/status/xxxxxxxxx?svg=true)](https://ci.appveyor.com/project/isidore/approvaltests-cpp) --> 
+[![Actions Status](https://github.com/approvals/ApprovalTests.cpp.Qt/workflows/build/badge.svg)](https://github.com/approvals/ApprovalTests.cpp.Qt/actions)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 <a href="https://github.com/approvals/ApprovalTests.cpp.Qt/releases/download/v.0.0.1/ApprovalTestsQt.v.0.0.1.hpp">Download the latest version (v.0.0.1) of the **single header file** here.</a>
 
