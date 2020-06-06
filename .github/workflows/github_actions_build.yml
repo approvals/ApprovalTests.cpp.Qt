@@ -64,10 +64,12 @@ jobs:
           generator: '"Visual Studio 16 2019" -T "clangcl"'
           in_source_build: true
 
-        - buildtype: windows-2016
-          os: windows-2016
-          generator: '"Visual Studio 15 2017"'
-          in_source_build: true
+# TODO Fix windows-2016 build: Disabled due to:
+# Qt5Cored.lib(Qt5Cored.dll) : fatal error LNK1112: module machine type 'x64' conflicts with target machine type 'x86'
+#        - buildtype: windows-2016
+#          os: windows-2016
+#          generator: '"Visual Studio 15 2017"'
+#          in_source_build: true
 
         - buildtype: ubuntu-latest
           os: ubuntu-latest
