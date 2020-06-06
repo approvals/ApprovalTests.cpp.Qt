@@ -1,4 +1,4 @@
-// Approval Tests version v.8.9.0
+// Approval Tests version v.10.0.1
 // More information at: https://github.com/approvals/ApprovalTests.cpp
 
 
@@ -9,40 +9,16 @@
 // This file is machine-generated. Do not edit.
 
 
-// ******************** From: ApprovalsMacroDefaults.h
-
-// clang-format off
-#if ! defined(APPROVAL_TESTS_SHOW_DEPRECATION_WARNINGS)
-#define       APPROVAL_TESTS_SHOW_DEPRECATION_WARNINGS 0
-#endif
-
-#if ! defined(APPROVAL_TESTS_HIDE_DEPRECATED_CODE)
-#define       APPROVAL_TESTS_HIDE_DEPRECATED_CODE 0
-#endif
-// clang-format on
-
 // ******************** From: ApprovalTestsVersion.h
 
-
-#define APPROVAL_TESTS_VERSION_MAJOR 8
-#define APPROVAL_TESTS_VERSION_MINOR 9
-#define APPROVAL_TESTS_VERSION_PATCH 0
-#define APPROVAL_TESTS_VERSION_STR "8.9.0"
+#define APPROVAL_TESTS_VERSION_MAJOR 10
+#define APPROVAL_TESTS_VERSION_MINOR 0
+#define APPROVAL_TESTS_VERSION_PATCH 1
+#define APPROVAL_TESTS_VERSION_STR "10.0.1"
 
 #define APPROVAL_TESTS_VERSION                                                           \
     (APPROVAL_TESTS_VERSION_MAJOR * 10000 + APPROVAL_TESTS_VERSION_MINOR * 100 +         \
      APPROVAL_TESTS_VERSION_PATCH)
-
-#if !APPROVAL_TESTS_HIDE_DEPRECATED_CODE
-// clang-format off
-// Deprecated, for regression only:
-#define APPROVALTESTS_VERSION       APPROVAL_TESTS_VERSION
-#define APPROVALTESTS_VERSION_MAJOR APPROVAL_TESTS_VERSION_MAJOR
-#define APPROVALTESTS_VERSION_MINOR APPROVAL_TESTS_VERSION_MINOR
-#define APPROVALTESTS_VERSION_PATCH APPROVAL_TESTS_VERSION_PATCH
-#define APPROVALTESTS_VERSION_STR   APPROVAL_TESTS_VERSION_STR
-// clang-format on
-#endif
 
 // ******************** From: Reporter.h
 
@@ -59,15 +35,6 @@ namespace ApprovalTests
         virtual ~Reporter() = default;
         virtual bool report(std::string received, std::string approved) const = 0;
     };
-
-    namespace Detail
-    {
-        //! Helper to prevent compilation failure when types are wrongly treated as Reporter:
-        template <typename T, typename R = void>
-        using EnableIfNotDerivedFromReporter = typename std::enable_if<
-            !std::is_base_of<Reporter, typename std::decay<T>::type>::value,
-            R>::type;
-    } // namespace Detail
 }
 
 // ******************** From: QuietReporter.h
@@ -130,6 +97,10 @@ extern "C"
 
 #endif // APPROVAL_TESTS_MINGW
 
+// ******************** From: ApprovalsMacroDefaults.h
+
+// This file intentionally left blank.
+
 // ******************** From: Macros.h
 
 
@@ -148,7 +119,6 @@ extern "C"
 #define APPROVAL_TESTS_NO_DISCARD
 #endif
 
-#if APPROVAL_TESTS_SHOW_DEPRECATION_WARNINGS
 #if (__cplusplus >= 201402L)
 #define APPROVAL_TESTS_DEPRECATED(text) [[deprecated(text)]]
 #define APPROVAL_TESTS_DEPRECATED_CPP11(text)
@@ -157,22 +127,6 @@ extern "C"
 #define APPROVAL_TESTS_DEPRECATED_CPP11(text)                                            \
     MoreHelpMessages::deprecatedFunctionCalled(text, __FILE__, __LINE__);
 #endif
-#else
-#define APPROVAL_TESTS_DEPRECATED(text)
-#define APPROVAL_TESTS_DEPRECATED_CPP11(text)
-#endif
-
-#define APPROVAL_TESTS_DEPRECATED_USE_OPTIONS                                            \
-    APPROVAL_TESTS_DEPRECATED(                                                           \
-        "use Options(reporter) instead. More information at "                            \
-        "https://github.com/approvals/ApprovalTests.cpp/blob/master/doc/explanations/"   \
-        "WhyWeAreConvertingToOptions.md#how-to-update-calls-to-deprecated-code")
-
-#define APPROVAL_TESTS_DEPRECATED_USE_OPTIONS_CPP11                                      \
-    APPROVAL_TESTS_DEPRECATED_CPP11(                                                     \
-        "use Options(reporter) instead. More information at "                            \
-        "https://github.com/approvals/ApprovalTests.cpp/blob/master/doc/explanations/"   \
-        "WhyWeAreConvertingToOptions.md#how-to-update-calls-to-deprecated-code")
 
 // ******************** From: ApprovalWriter.h
 
@@ -2674,12 +2628,10 @@ namespace ApprovalTests
 
     namespace Detail
     {
-        //! Helper to prevent compilation failure when types are wrongly treated as Option
-        //  or Reporter:
+        //! Helper to prevent compilation failure when types are wrongly treated as Options
         template <typename T, typename R = void>
-        using EnableIfNotOptionsOrReporter = typename std::enable_if<
-            (!std::is_same<Options, typename std::decay<T>::type>::value) &&
-                (!std::is_base_of<Reporter, typename std::decay<T>::type>::value),
+        using EnableIfNotOptions = typename std::enable_if<
+            (!std::is_same<Options, typename std::decay<T>::type>::value),
             R>::type;
     } // namespace Detail
 }
@@ -3289,7 +3241,7 @@ namespace ApprovalTests
 
         template <typename T,
                   typename Function,
-                  typename = Detail::EnableIfNotDerivedFromReporter<Function>>
+                  typename = Detail::EnableIfNotOptions<Function>>
         static void
         verify(const T& contents, Function converter, const Options& options = Options())
         {
@@ -3419,146 +3371,6 @@ namespace ApprovalTests
             return DefaultNamerDisposer(std::move(namerCreator));
         }
         ///@}
-
-#if !APPROVAL_TESTS_HIDE_DEPRECATED_CODE
-        /**@name Deprecated methods
-
-         These methods all pre-date the Options class, and will be removed in a future
-         release.
-
-         For help updating your code, see:
-            - \userguide{how_tos/ToggleDeprecatedCode,How to Toggle Enabling or Disabling of Deprecated Code}
-            - \userguide{explanations/WhyWeAreConvertingToOptions,how-to-update-calls-to-deprecated-code,How to Update Calls to Deprecated Code}
-         */
-        ///@{
-
-        APPROVAL_TESTS_DEPRECATED_USE_OPTIONS
-        static void verify(std::string contents, const Reporter& reporter)
-        {
-            APPROVAL_TESTS_DEPRECATED_USE_OPTIONS_CPP11
-            verify(contents, Options(reporter));
-        }
-
-        APPROVAL_TESTS_DEPRECATED_USE_OPTIONS
-        static void verifyWithExtension(std::string contents,
-                                        const std::string& fileExtensionWithDot,
-                                        const Reporter& reporter)
-        {
-            APPROVAL_TESTS_DEPRECATED_USE_OPTIONS_CPP11
-            verify(
-                contents,
-                Options(reporter).fileOptions().withFileExtension(fileExtensionWithDot));
-        }
-
-        APPROVAL_TESTS_DEPRECATED_USE_OPTIONS
-        static void verify(const ApprovalWriter& writer, const Reporter& reporter)
-        {
-            APPROVAL_TESTS_DEPRECATED_USE_OPTIONS_CPP11
-            verify(writer, Options(reporter));
-        }
-
-        template <typename T, typename = IsNotDerivedFromWriter<T>>
-        APPROVAL_TESTS_DEPRECATED_USE_OPTIONS static void verify(const T& contents,
-                                                                 const Reporter& reporter)
-        {
-            APPROVAL_TESTS_DEPRECATED_USE_OPTIONS_CPP11
-            verify(TCompileTimeOptions::ToStringConverter::toString(contents), reporter);
-        }
-
-        template <typename T, typename = IsNotDerivedFromWriter<T>>
-        APPROVAL_TESTS_DEPRECATED_USE_OPTIONS static void
-        verifyWithExtension(const T& contents,
-                            const std::string& fileExtensionWithDot,
-                            const Reporter& reporter)
-        {
-            APPROVAL_TESTS_DEPRECATED_USE_OPTIONS_CPP11
-            verify(
-                contents,
-                Options(reporter).fileOptions().withFileExtension(fileExtensionWithDot));
-        }
-
-        template <typename T,
-                  typename Function,
-                  typename = Detail::EnableIfNotDerivedFromReporter<Function>>
-        APPROVAL_TESTS_DEPRECATED_USE_OPTIONS static void
-        verify(const T& contents, Function converter, const Reporter& reporter)
-        {
-            APPROVAL_TESTS_DEPRECATED_USE_OPTIONS_CPP11
-            verify(contents, converter, Options(reporter));
-        }
-
-        template <typename T,
-                  typename Function,
-                  typename = Detail::EnableIfNotDerivedFromReporter<Function>>
-        APPROVAL_TESTS_DEPRECATED_USE_OPTIONS static void
-        verifyWithExtension(const T& contents,
-                            Function converter,
-                            const std::string& fileExtensionWithDot,
-                            const Reporter& reporter)
-        {
-            APPROVAL_TESTS_DEPRECATED_USE_OPTIONS_CPP11
-            verify(
-                contents,
-                converter,
-                Options(reporter).fileOptions().withFileExtension(fileExtensionWithDot));
-        }
-
-        APPROVAL_TESTS_DEPRECATED_USE_OPTIONS
-        static void verifyExceptionMessage(std::function<void(void)> functionThatThrows,
-                                           const Reporter& reporter)
-        {
-            APPROVAL_TESTS_DEPRECATED_USE_OPTIONS_CPP11
-            verifyExceptionMessage(functionThatThrows, Options(reporter));
-        }
-
-        template <typename Iterator>
-        APPROVAL_TESTS_DEPRECATED_USE_OPTIONS static void verifyAll(
-            std::string header,
-            const Iterator& start,
-            const Iterator& finish,
-            std::function<void(typename Iterator::value_type, std::ostream&)> converter,
-            const Reporter& reporter)
-        {
-            APPROVAL_TESTS_DEPRECATED_USE_OPTIONS_CPP11
-            verifyAll(header, start, finish, converter, Options(reporter));
-        }
-
-        template <typename Container>
-        APPROVAL_TESTS_DEPRECATED_USE_OPTIONS static void verifyAll(
-            std::string header,
-            const Container& list,
-            std::function<void(typename Container::value_type, std::ostream&)> converter,
-            const Reporter& reporter)
-        {
-            APPROVAL_TESTS_DEPRECATED_USE_OPTIONS_CPP11
-            verifyAll(header, list, converter, Options(reporter));
-        }
-
-        template <typename T>
-        APPROVAL_TESTS_DEPRECATED_USE_OPTIONS static void verifyAll(
-            std::string header, const std::vector<T>& list, const Reporter& reporter)
-        {
-            APPROVAL_TESTS_DEPRECATED_USE_OPTIONS_CPP11
-            verifyAll(header, list, Options(reporter));
-        }
-
-        template <typename T>
-        APPROVAL_TESTS_DEPRECATED_USE_OPTIONS static void
-        verifyAll(const std::vector<T>& list, const Reporter& reporter)
-        {
-            APPROVAL_TESTS_DEPRECATED_USE_OPTIONS_CPP11
-            verifyAll<T>(list, Options(reporter));
-        }
-
-        APPROVAL_TESTS_DEPRECATED_USE_OPTIONS
-        static void verifyExistingFile(const std::string filePath,
-                                       const Reporter& reporter)
-        {
-            APPROVAL_TESTS_DEPRECATED_USE_OPTIONS_CPP11
-            verifyExistingFile(filePath, Options(reporter));
-        }
-        ///@}
-#endif
     };
 
 #ifndef APPROVAL_TESTS_DEFAULT_STREAM_CONVERTER
@@ -3642,38 +3454,13 @@ namespace ApprovalTests
         }
 
         template <class Converter, class... Containers>
-        ApprovalTests::Detail::EnableIfNotOptionsOrReporter<
-            Converter> static verifyAllCombinations(Converter&& converter,
-                                                    const Containers&... inputs)
+        ApprovalTests::Detail::EnableIfNotOptions<Converter> static verifyAllCombinations(
+            Converter&& converter, const Containers&... inputs)
         {
             verifyAllCombinations(
                 Options(), std::forward<Converter>(converter), inputs...);
         }
         ///@}
-
-#if !APPROVAL_TESTS_HIDE_DEPRECATED_CODE
-        /**@name Deprecated method
-
-         This method pre-dates the Options class, and will be removed in a future
-         release.
-
-         For help updating your code, see:
-            - \userguide{how_tos/ToggleDeprecatedCode,How to Toggle Enabling or Disabling of Deprecated Code}
-            - \userguide{explanations/WhyWeAreConvertingToOptions,how-to-update-calls-to-deprecated-code,How to Update Calls to Deprecated Code}
-         */
-        ///@{
-        template <class Converter, class Container, class... Containers>
-        APPROVAL_TESTS_DEPRECATED_USE_OPTIONS static void
-        verifyAllCombinations(const Reporter& reporter,
-                              Converter&& converter,
-                              const Container& input0,
-                              const Containers&... inputs)
-        {
-            APPROVAL_TESTS_DEPRECATED_USE_OPTIONS_CPP11
-            verifyAllCombinations(Options(reporter), converter, input0, inputs...);
-        }
-        ///@}
-#endif
     };
 
     using CombinationApprovals = TCombinationApprovals<
@@ -3682,7 +3469,6 @@ namespace ApprovalTests
 } // namespace ApprovalTests
 
 // ******************** From: CheckFileMacroIsAbsolute.h
-
 
 // Maintenance note: the following help message must be short, and
 // not contain any newline characters, as their display looks messy
@@ -3696,11 +3482,6 @@ namespace ApprovalTests
 // ApprovalTests will then check the validity of __FILE__
 // at run-time instead, for test frameworks that use it to
 // detect the source file name.
-#if !APPROVAL_TESTS_HIDE_DEPRECATED_CODE
-#if defined(APPROVALS_CATCH_DISABLE_FILE_MACRO_CHECK) // Deprecated
-#define APPROVAL_TESTS_DISABLE_FILE_MACRO_CHECK
-#endif
-#endif
 
 #ifndef APPROVAL_TESTS_DISABLE_FILE_MACRO_CHECK
 // clang-format off

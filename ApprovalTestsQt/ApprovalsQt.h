@@ -12,7 +12,8 @@ namespace ApprovalTestsQt
         const ApprovalTests::Reporter& reporter = ApprovalTests::DiffReporter())
     {
         QImageApprovalWriter image_writer(image);
-        ApprovalTests::Approvals::verify(image_writer, reporter);
+        ApprovalTests::Approvals::verify(image_writer,
+                                         ApprovalTests::Options(reporter));
     }
 
     inline void verifyQTableView(
@@ -20,7 +21,8 @@ namespace ApprovalTestsQt
         const ApprovalTests::Reporter& reporter = ApprovalTests::DiffReporter())
     {
         QTableViewWriter table_writer(tableWidget);
-        ApprovalTests::Approvals::verify(table_writer, reporter);
+        ApprovalTests::Approvals::verify(table_writer,
+                                         ApprovalTests::Options(reporter));
     }
 } // namespace ApprovalTestsQt
 
