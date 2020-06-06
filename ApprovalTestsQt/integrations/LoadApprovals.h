@@ -13,7 +13,7 @@
 #endif
 // clang-format on
 
-#include "ApprovalTests.hpp"
+#include <ApprovalTests.hpp>
 // </SingleHpp>
 
 #endif //APPROVALTESTS_CPP_QT_LOADAPPROVALS_H
