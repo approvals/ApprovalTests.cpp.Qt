@@ -1,0 +1,5 @@
+pyperclip
+GitPython
+approvaltests
+mypy
+pyyaml
