@@ -87,8 +87,7 @@ namespace ApprovalTestsQt
             }
             else
             {
-                throw std::runtime_error("Unable to table write to file " +
-                                         path);
+                throw std::runtime_error("Unable to table write to file " + path);
             }
         }
 
@@ -163,9 +162,9 @@ namespace ApprovalTestsQt
 #define APPROVAL_TESTS_QT_VERSION_PATCH 1
 #define APPROVAL_TESTS_QT_VERSION_STR "0.0.1"
 
-#define APPROVAL_TESTS_QT_VERSION                                              \
-    (APPROVAL_TESTS_QT_VERSION_MAJOR * 10000 +                                 \
-     APPROVAL_TESTS_QT_VERSION_MINOR * 100 + APPROVAL_TESTS_QT_VERSION_PATCH)
+#define APPROVAL_TESTS_QT_VERSION                                                        \
+    (APPROVAL_TESTS_QT_VERSION_MAJOR * 10000 + APPROVAL_TESTS_QT_VERSION_MINOR * 100 +   \
+     APPROVAL_TESTS_QT_VERSION_PATCH)
 
 // ******************** From: ApprovalsQt.h
 #ifndef APPROVALTESTS_CPP_QT_APPROVALSQT_H
@@ -174,17 +173,17 @@ namespace ApprovalTestsQt
 
 namespace ApprovalTestsQt
 {
-    inline void verifyQImage(
-        const QImage& image,
-        const ApprovalTests::Options& options = ApprovalTests::Options())
+    inline void
+    verifyQImage(const QImage& image,
+                 const ApprovalTests::Options& options = ApprovalTests::Options())
     {
         QImageApprovalWriter image_writer(image);
         ApprovalTests::Approvals::verify(image_writer, options);
     }
 
-    inline void verifyQTableView(
-        const QTableView& tableWidget,
-        const ApprovalTests::Options& options = ApprovalTests::Options())
+    inline void
+    verifyQTableView(const QTableView& tableWidget,
+                     const ApprovalTests::Options& options = ApprovalTests::Options())
     {
         QTableViewWriter table_writer(tableWidget);
         ApprovalTests::Approvals::verify(table_writer, options);
@@ -239,8 +238,7 @@ int main(int argc, char* argv[])
     // exactly equivalent .png files.
     auto pngComparatorDisposer =
         ApprovalTests::FileApprover::registerComparatorForExtension(
-            ".png",
-            std::make_shared<ApprovalTestsQt::QImageApprovalComparator>());
+            ".png", std::make_shared<ApprovalTestsQt::QImageApprovalComparator>());
 
     // your existing setup...
     int result = Catch::Session().run(argc, argv);
