@@ -22,8 +22,7 @@ int main(int argc, char* argv[])
     // exactly equivalent .png files.
     auto pngComparatorDisposer =
         ApprovalTests::FileApprover::registerComparatorForExtension(
-            ".png",
-            std::make_shared<ApprovalTestsQt::QImageApprovalComparator>());
+            ".png", std::make_shared<ApprovalTestsQt::QImageApprovalComparator>());
 
     // your existing setup...
     int result = Catch::Session().run(argc, argv);

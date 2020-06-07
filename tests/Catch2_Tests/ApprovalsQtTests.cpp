@@ -19,9 +19,7 @@ namespace
             for (int j = 0; j != columns; ++j)
             {
                 tableWidget.setItem(
-                    i,
-                    j,
-                    new QTableWidgetItem(QString::number((i + 1) * (j + 1))));
+                    i, j, new QTableWidgetItem(QString::number((i + 1) * (j + 1))));
             }
         }
     }

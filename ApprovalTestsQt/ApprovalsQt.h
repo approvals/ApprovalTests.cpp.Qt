@@ -7,17 +7,17 @@
 
 namespace ApprovalTestsQt
 {
-    inline void verifyQImage(
-        const QImage& image,
-        const ApprovalTests::Options& options = ApprovalTests::Options())
+    inline void
+    verifyQImage(const QImage& image,
+                 const ApprovalTests::Options& options = ApprovalTests::Options())
     {
         QImageApprovalWriter image_writer(image);
         ApprovalTests::Approvals::verify(image_writer, options);
     }
 
-    inline void verifyQTableView(
-        const QTableView& tableWidget,
-        const ApprovalTests::Options& options = ApprovalTests::Options())
+    inline void
+    verifyQTableView(const QTableView& tableWidget,
+                     const ApprovalTests::Options& options = ApprovalTests::Options())
     {
         QTableViewWriter table_writer(tableWidget);
         ApprovalTests::Approvals::verify(table_writer, options);
