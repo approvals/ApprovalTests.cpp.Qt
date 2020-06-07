@@ -5,6 +5,6 @@
 #define APPROVAL_TESTS_QT_VERSION_PATCH 1
 #define APPROVAL_TESTS_QT_VERSION_STR "0.0.1"
 
-#define APPROVAL_TESTS_QT_VERSION                                                           \
-    (APPROVAL_TESTS_QT_VERSION_MAJOR * 10000 + APPROVAL_TESTS_QT_VERSION_MINOR * 100 +         \
-     APPROVAL_TESTS_QT_VERSION_PATCH)
+#define APPROVAL_TESTS_QT_VERSION                                              \
+    (APPROVAL_TESTS_QT_VERSION_MAJOR * 10000 +                                 \
+     APPROVAL_TESTS_QT_VERSION_MINOR * 100 + APPROVAL_TESTS_QT_VERSION_PATCH)
