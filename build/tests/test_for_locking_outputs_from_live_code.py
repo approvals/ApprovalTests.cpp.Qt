@@ -1,10 +1,12 @@
 import unittest
 
 import sys
+
 sys.path.append('../../../ApprovalTests.cpp/build')
 
 from approvaltests.approvals import verify_file
 
+from scripts_qt.qt_project_details import qt_project_details
 from scripts.code_generation import CppGeneration
 from scripts.release_details import ReleaseDetails
 from scripts.version import Version
@@ -34,5 +36,5 @@ class TestForLocking(unittest.TestCase):
         old_version = Version(0, 0, 1)
         new_version = Version(0, 1, 0)
         deploy = False
-        release_details = ReleaseDetails(old_version, new_version, deploy)
+        release_details = ReleaseDetails(old_version, new_version, deploy, qt_project_details())
         return CppGeneration(release_details)
