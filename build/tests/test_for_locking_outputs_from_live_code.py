@@ -34,6 +34,9 @@ class TestForLocking(unittest.TestCase):
     def test_qt_project_details(self) -> None:
         verify_as_json(qt_project_details())
 
+    def test_release_details(self) -> None:
+        verify_as_json(self.get_prepare_release().details)
+
     def get_prepare_release(self) -> CppGeneration:
         set_home_directory()
         old_version = Version(0, 0, 1)

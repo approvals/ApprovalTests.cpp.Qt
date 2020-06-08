@@ -1,0 +1,33 @@
+{
+    "locations": {
+        "approval_tests_dir": "../ApprovalTestsQt",
+        "main_project_dir": "../../ApprovalTests.cpp.Qt",
+        "simulated_single_header_file_path": "../ApprovalTestsQt/ApprovalTestsQt.hpp",
+        "starter_project_dir": "../../ApprovalTests.cpp.Qt.StarterProject"
+    },
+    "new_release_notes_path": "../build/release_notes/relnotes_0.1.0.md",
+    "new_single_header": "ApprovalTests.v.0.1.0.hpp",
+    "new_version": {
+        "major": 0,
+        "minor": 1,
+        "patch": 0
+    },
+    "old_single_header": "ApprovalTests.v.0.0.1.hpp",
+    "old_version": {
+        "major": 0,
+        "minor": 0,
+        "patch": 1
+    },
+    "project_details": {
+        "conan_directory_name": "approvaltests.cpp.qt",
+        "github_project_name": "ApprovalTests.cpp.Qt",
+        "library_folder_name": "ApprovalTestsQt",
+        "macro_prefix": "APPROVAL_TESTS_QT",
+        "simulated_single_header_file": "ApprovalTestsQt.hpp",
+        "update_conan": false,
+        "update_documentation": false,
+        "version_header": "ApprovalTestsQtVersion.h"
+    },
+    "push_to_production": false,
+    "release_new_single_header": "../build/releases/ApprovalTests.v.0.1.0.hpp"
+}
