@@ -6,13 +6,13 @@
         "starter_project_dir": "../../ApprovalTests.cpp.Qt.StarterProject"
     },
     "new_release_notes_path": "../build/release_notes/relnotes_0.1.0.md",
-    "new_single_header": "ApprovalTests.v.0.1.0.hpp",
+    "new_single_header": "ApprovalTestsQt.v.0.1.0.hpp",
     "new_version": {
         "major": 0,
         "minor": 1,
         "patch": 0
     },
-    "old_single_header": "ApprovalTests.v.0.0.1.hpp",
+    "old_single_header": "ApprovalTestsQt.v.0.0.1.hpp",
     "old_version": {
         "major": 0,
         "minor": 0,
@@ -29,5 +29,5 @@
         "version_header": "ApprovalTestsQtVersion.h"
     },
     "push_to_production": false,
-    "release_new_single_header": "../build/releases/ApprovalTests.v.0.1.0.hpp"
+    "release_new_single_header": "../build/releases/ApprovalTestsQt.v.0.1.0.hpp"
 }
