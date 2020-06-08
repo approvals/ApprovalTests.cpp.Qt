@@ -4,7 +4,7 @@ import sys
 
 sys.path.append('../../../ApprovalTests.cpp/build')
 
-from approvaltests.approvals import verify_file
+from approvaltests.approvals import verify_file, verify_as_json
 
 from scripts_qt.qt_project_details import qt_project_details
 from scripts.code_generation import CppGeneration
@@ -30,6 +30,9 @@ class TestForLocking(unittest.TestCase):
         # The output of this depends on the current C++ code, so changes
         # over time. It is here to help when refactoring the release process.
         verify_file(output)
+
+    def test_qt_project_details(self) -> None:
+        verify_as_json(qt_project_details())
 
     def get_prepare_release(self) -> CppGeneration:
         set_home_directory()
