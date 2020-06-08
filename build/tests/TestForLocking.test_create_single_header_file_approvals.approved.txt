@@ -1,10 +1,10 @@
-// ApprovalTestsQt version v.0.1.0
-// More information at: https://github.com/approvals/ApprovalTests.cpp.Qt
+// Approval Tests version v.0.1.0
+// More information at: https://github.com/approvals/ApprovalTests.cpp
 
 
 // ******************** From: ApprovalTestsQt.hpp
-#ifndef APPROVAL_TESTS_CPP_QT_APPROVALS_HPP
-#define APPROVAL_TESTS_CPP_QT_APPROVALS_HPP
+#ifndef APPROVAL_TESTS_QT_CPP_APPROVALS_HPP
+#define APPROVAL_TESTS_QT_CPP_APPROVALS_HPP
 
 // This file is machine-generated. Do not edit.
 
@@ -299,4 +299,4 @@ namespace Catch
 
 #endif //APPROVALTESTS_CPP_QT_CATCH2QTSTRINGMAKER_H
 
-#endif // APPROVAL_TESTS_CPP_QT_APPROVALS_HPP
+#endif // APPROVAL_TESTS_QT_CPP_APPROVALS_HPP
