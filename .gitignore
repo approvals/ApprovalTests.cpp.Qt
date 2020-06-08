@@ -15,3 +15,4 @@ CMakeLists.txt.user
 .DS_Store
 [Oo]ut/build
 *.swp
+__pycache__/
