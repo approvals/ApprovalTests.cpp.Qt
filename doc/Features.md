@@ -15,10 +15,18 @@ To change this file edit the source file and then execute ./run_markdown_templat
 ## Contents
 
   * [v.x.y.z](#vxyz)
+  * [v.0.0.2](#v002)
+    * [ApprovalTests.cpp.v.10.0.1 (with Options)](#approvaltestscppv1001-with-options)
   * [v.0.0.1](#v001)
     * [First release.](#first-release)<!-- endtoc -->
 
 ## v.x.y.z
+
+## v.0.0.2
+
+### ApprovalTests.cpp.v.10.0.1 (with Options)
+
+ApprovalTests.cpp.v.10.0.1 is now supported.
 
 ## v.0.0.1
 

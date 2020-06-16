@@ -3,9 +3,7 @@
 * **Breaking changes**
     * None
 * **New features**
-    * Compatible with ApprovalTests.cpp v.10.0.1 (with Options)
-    * Add ability to detect library version in code (#4)
-    * Add simulated single header to allow building from clone or fork (#5)
+    * None
 * **Bug fixes**
     * None
 * **Other changes**

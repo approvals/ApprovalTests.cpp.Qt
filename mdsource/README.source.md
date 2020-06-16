@@ -8,7 +8,7 @@
 [![Actions Status](https://github.com/approvals/ApprovalTests.cpp.Qt/workflows/build/badge.svg)](https://github.com/approvals/ApprovalTests.cpp.Qt/actions)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-<a href="https://github.com/approvals/ApprovalTests.cpp.Qt/releases/download/v.0.0.1/ApprovalTestsQt.v.0.0.1.hpp">Download the latest version (v.0.0.1) of the **single header file** here.</a>
+<a href="https://github.com/approvals/ApprovalTests.cpp.Qt/releases/download/v.0.0.2/ApprovalTestsQt.v.0.0.2.hpp">Download the latest version (v.0.0.2) of the **single header file** here.</a>
 
 toc
 

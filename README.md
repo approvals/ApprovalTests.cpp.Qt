@@ -15,7 +15,7 @@ To change this file edit the source file and then execute ./run_markdown_templat
 [![Actions Status](https://github.com/approvals/ApprovalTests.cpp.Qt/workflows/build/badge.svg)](https://github.com/approvals/ApprovalTests.cpp.Qt/actions)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-<a href="https://github.com/approvals/ApprovalTests.cpp.Qt/releases/download/v.0.0.1/ApprovalTestsQt.v.0.0.1.hpp">Download the latest version (v.0.0.1) of the **single header file** here.</a>
+<a href="https://github.com/approvals/ApprovalTests.cpp.Qt/releases/download/v.0.0.2/ApprovalTestsQt.v.0.0.2.hpp">Download the latest version (v.0.0.2) of the **single header file** here.</a>
 
 <!-- toc -->
 ## Contents
@@ -84,7 +84,7 @@ QImage image(10, 20, QImage::Format_RGB32);
 image.fill(Qt::red);
 ApprovalTestsQt::verifyQImage(image);
 ```
-<sup><a href='/tests/Catch2_Tests/ApprovalsQtTests.cpp#L32-L36' title='File snippet `verify_qimage` was extracted from'>snippet source</a> | <a href='#snippet-verify_qimage' title='Navigate to start of snippet `verify_qimage`'>anchor</a></sup>
+<sup><a href='/tests/Catch2_Tests/ApprovalsQtTests.cpp#L30-L34' title='File snippet `verify_qimage` was extracted from'>snippet source</a> | <a href='#snippet-verify_qimage' title='Navigate to start of snippet `verify_qimage`'>anchor</a></sup>
 <!-- endsnippet -->
 
 ### Verifying a QTableView, e.g. QTableWidget
@@ -98,5 +98,5 @@ QTableWidget tableWidget;
 populateTable(tableWidget);
 ApprovalTestsQt::verifyQTableView(tableWidget);
 ```
-<sup><a href='/tests/Catch2_Tests/ApprovalsQtTests.cpp#L45-L49' title='File snippet `verify_table_view` was extracted from'>snippet source</a> | <a href='#snippet-verify_table_view' title='Navigate to start of snippet `verify_table_view`'>anchor</a></sup>
+<sup><a href='/tests/Catch2_Tests/ApprovalsQtTests.cpp#L43-L47' title='File snippet `verify_table_view` was extracted from'>snippet source</a> | <a href='#snippet-verify_table_view' title='Navigate to start of snippet `verify_table_view`'>anchor</a></sup>
 <!-- endsnippet -->
