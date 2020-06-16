@@ -1,4 +1,4 @@
-// Approval Tests version v.0.1.0
+// ApprovalTests.cpp.Qt version v.0.1.0
 // More information at: https://github.com/approvals/ApprovalTests.cpp.Qt
 
 
