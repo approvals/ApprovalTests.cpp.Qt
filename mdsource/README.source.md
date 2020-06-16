@@ -58,3 +58,7 @@ snippet: verify_qimage
 This takes QTableView, and saves its text contents in a tab-separated .tsv, for verification.
 
 snippet: verify_table_view
+
+## What's new?
+
+Check out the [Features](/doc/Features.md#top) page or [upcoming release notes](https://github.com/approvals/ApprovalTests.cpp.Qt/blob/master/build/relnotes_x.y.z.md) to see what we've been working on lately, or browse the [past release notes](https://github.com/approvals/ApprovalTests.cpp.Qt/releases).

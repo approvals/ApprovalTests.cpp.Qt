@@ -28,7 +28,8 @@ To change this file edit the source file and then execute ./run_markdown_templat
   * [Reference](#reference)
     * [Setting up your main](#setting-up-your-main)
     * [Verifying a QImage](#verifying-a-qimage)
-    * [Verifying a QTableView, e.g. QTableWidget](#verifying-a-qtableview-eg-qtablewidget)<!-- endtoc -->
+    * [Verifying a QTableView, e.g. QTableWidget](#verifying-a-qtableview-eg-qtablewidget)
+  * [What's new?](#whats-new)<!-- endtoc -->
 
 ## Purpose
 
@@ -100,3 +101,7 @@ ApprovalTestsQt::verifyQTableView(tableWidget);
 ```
 <sup><a href='/tests/Catch2_Tests/ApprovalsQtTests.cpp#L43-L47' title='File snippet `verify_table_view` was extracted from'>snippet source</a> | <a href='#snippet-verify_table_view' title='Navigate to start of snippet `verify_table_view`'>anchor</a></sup>
 <!-- endsnippet -->
+
+## What's new?
+
+Check out the [Features](/doc/Features.md#top) page or [upcoming release notes](https://github.com/approvals/ApprovalTests.cpp.Qt/blob/master/build/relnotes_x.y.z.md) to see what we've been working on lately, or browse the [past release notes](https://github.com/approvals/ApprovalTests.cpp.Qt/releases).
