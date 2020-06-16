@@ -1,5 +1,7 @@
 import sys
-
+# PyCharm suggestion:
+# To get PyCharm to work without errors, go to:
+#   Settings > Project Structure > Add Content Root, and add .../ApprovalTests.cpp/build
 
 def get_path_to_approvals_scripts() -> str:
     import os
