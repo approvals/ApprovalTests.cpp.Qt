@@ -3,7 +3,7 @@
 * **Breaking changes**
     * None
 * **New features**
-    * Compatible with ApprovalTests.cpp v.10.0.1 (with Options)
+    * None
 * **Bug fixes**
     * None
 * **Other changes**
