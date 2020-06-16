@@ -29,7 +29,7 @@
         "macro_prefix": "APPROVAL_TESTS_QT",
         "simulated_single_header_file": "ApprovalTestsQt.hpp",
         "update_conan": false,
-        "update_documentation": false,
+        "update_documentation": true,
         "version_header": "ApprovalTestsQtVersion.h"
     },
     "push_to_production": false,

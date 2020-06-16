@@ -9,6 +9,6 @@ def qt_project_details() -> ProjectDetails:
         version_header='ApprovalTestsQtVersion.h',
         macro_prefix='APPROVAL_TESTS_QT',
         conan_directory_name='approvaltests.cpp.qt',
-        update_documentation=False,
+        update_documentation=True,
         update_conan=False)
     return details
