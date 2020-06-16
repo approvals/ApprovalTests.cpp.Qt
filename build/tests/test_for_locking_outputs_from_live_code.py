@@ -1,8 +1,6 @@
 import unittest
 
-import sys
-
-sys.path.append('../../../ApprovalTests.cpp/build')
+import scripts_qt.include_approvals_path # Note This is used!
 
 from approvaltests.approvals import verify_file, verify_as_json
 

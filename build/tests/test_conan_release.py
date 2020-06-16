@@ -1,5 +1,7 @@
 import unittest
 
+import scripts_qt.include_approvals_path # Note This is used!
+
 from scripts.conan_release import PrepareConanRelease
 from scripts.version import Version
 from scripts_qt.qt_project_details import qt_project_details

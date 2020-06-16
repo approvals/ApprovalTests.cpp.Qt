@@ -1,10 +1,7 @@
 #! /usr/bin/env python3
 
-import sys
+import scripts_qt.include_approvals_path # Note This is used!
 
-
-sys.path.append('../../ApprovalTests.cpp/build')
-from scripts import version
 from scripts.prepare_release import build
 from scripts_qt.qt_project_details import qt_project_details
 
