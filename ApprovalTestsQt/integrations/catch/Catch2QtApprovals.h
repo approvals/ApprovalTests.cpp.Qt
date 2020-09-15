@@ -5,7 +5,6 @@
 
 #include "ApprovalTestsQt/integrations/LoadApprovals.h"
 #include <QApplication>
-#include <QApplication>
 #include "ApprovalTestsQt/comparators/QImageApprovalComparator.h"
 
 int main(int argc, char* argv[])
