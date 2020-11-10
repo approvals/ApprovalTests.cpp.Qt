@@ -5,7 +5,7 @@ add_executable(${PROJECT_NAME}
         TestNumbersInCatch2.cpp
         TestQStringInCatch2.cpp
         )
-find_package(Qt5 COMPONENTS Widgets Test REQUIRED)
+find_package(Qt5 COMPONENTS Widgets REQUIRED)
 target_link_libraries(${PROJECT_NAME} catch2 Qt5::Widgets)
 
 add_test(NAME ${PROJECT_NAME} COMMAND ${PROJECT_NAME})
