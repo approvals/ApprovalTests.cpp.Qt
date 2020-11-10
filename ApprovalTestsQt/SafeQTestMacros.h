@@ -8,7 +8,6 @@
 
 namespace qft
 {
-
     void sender(...);
 }
 
