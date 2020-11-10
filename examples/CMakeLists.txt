@@ -1,2 +1,3 @@
 add_subdirectory(accessing_widgets)
 add_subdirectory(vanilla_catch_qt_tests)
+add_subdirectory(vanilla_qt_tests)
