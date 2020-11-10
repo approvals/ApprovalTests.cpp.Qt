@@ -1,6 +1,7 @@
 #pragma once
 
 // TODO Find a away to prevent this being included before <QTest>
+// TODO Add detection of QVERIFY, QTRY_COMPARE and so on
 
 #include <type_traits>
 #include <QCoreApplication>
