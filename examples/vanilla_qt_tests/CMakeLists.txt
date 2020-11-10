@@ -1,1 +1,2 @@
+add_subdirectory(TestNumbers)
 add_subdirectory(TestQString)
