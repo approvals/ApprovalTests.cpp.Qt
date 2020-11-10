@@ -2,6 +2,7 @@ project(vanilla_catch_qt_tests)
 set(CMAKE_CXX_STANDARD 11)
 add_executable(${PROJECT_NAME}
         main.cpp
+        TestQStringInCatch2.cpp
         )
 find_package(Qt5 COMPONENTS Widgets Test REQUIRED)
 target_link_libraries(${PROJECT_NAME} catch2 Qt5::Widgets)
