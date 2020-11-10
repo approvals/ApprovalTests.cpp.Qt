@@ -1,4 +1,4 @@
-project(TestNumbers)
+project(vanilla_qt_tests_TestNumbers)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_AUTOMOC ON)
 add_executable(${PROJECT_NAME}
