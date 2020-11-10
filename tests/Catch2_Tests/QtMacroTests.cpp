@@ -8,7 +8,7 @@
 // of use of QCOMPARE outside QObject slots
 //#include "SafeQTestMacros.h"
 
-TEST_CASE("Demonstrate wrongly-passing QCOMPARE test"/*, "[!shouldfail]"*/)
+TEST_CASE("Demonstrate wrongly-passing QCOMPARE test" /*, "[!shouldfail]"*/)
 {
     // https://github.com/approvals/ApprovalTests.cpp.Qt/issues/6
     std::cout << "before QCOMPARE\n";
