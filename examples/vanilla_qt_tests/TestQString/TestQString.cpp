@@ -1,6 +1,6 @@
 // Based on https://doc.qt.io/qt-5/qttestlib-tutorial1-example.html
 
-#include <QtTest/QtTest>
+#include <QtTest>
 
 class TestQString : public QObject
 {
