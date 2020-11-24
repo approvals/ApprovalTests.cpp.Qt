@@ -19,5 +19,3 @@ void TestQString::toUpper()
 
 QTEST_MAIN(TestQString)
 #include "TestQString.moc"
-
-
