@@ -51,7 +51,8 @@ TEST_CASE("Demonstrate wrongly-passing QTRY_COMPARE test" /*, "[!shouldfail]"*/)
     std::cout << "after QTRY_COMPARE - this line will never be reached\n";
 }
 
-TEST_CASE("Demonstrate wrongly-passing QTRY_COMPARE_WITH_TIMEOUT test" /*, "[!shouldfail]"*/)
+TEST_CASE(
+    "Demonstrate wrongly-passing QTRY_COMPARE_WITH_TIMEOUT test" /*, "[!shouldfail]"*/)
 {
     // This takes 1.5 seconds to run
     std::cout << "before QTRY_COMPARE_WITH_TIMEOUT\n";
@@ -59,7 +60,8 @@ TEST_CASE("Demonstrate wrongly-passing QTRY_COMPARE_WITH_TIMEOUT test" /*, "[!sh
     std::cout << "after QTRY_COMPARE_WITH_TIMEOUT - this line will never be reached\n";
 }
 
-TEST_CASE("Demonstrate wrongly-passing QTRY_VERIFY_WITH_TIMEOUT test" /*, "[!shouldfail]"*/)
+TEST_CASE(
+    "Demonstrate wrongly-passing QTRY_VERIFY_WITH_TIMEOUT test" /*, "[!shouldfail]"*/)
 {
     // This takes 1.5 seconds to run
     std::cout << "before QTRY_VERIFY_WITH_TIMEOUT\n";
@@ -67,7 +69,8 @@ TEST_CASE("Demonstrate wrongly-passing QTRY_VERIFY_WITH_TIMEOUT test" /*, "[!sho
     std::cout << "after QTRY_VERIFY_WITH_TIMEOUT - this line will never be reached\n";
 }
 
-TEST_CASE("Demonstrate wrongly-passing QTRY_VERIFY2_WITH_TIMEOUT test" /*, "[!shouldfail]"*/)
+TEST_CASE(
+    "Demonstrate wrongly-passing QTRY_VERIFY2_WITH_TIMEOUT test" /*, "[!shouldfail]"*/)
 {
 #ifdef QTRY_VERIFY2_WITH_TIMEOUT
     // This takes 1.5 seconds to run
