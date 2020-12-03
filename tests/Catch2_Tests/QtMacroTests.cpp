@@ -69,8 +69,12 @@ TEST_CASE("Demonstrate wrongly-passing QTRY_VERIFY_WITH_TIMEOUT test" /*, "[!sho
 
 TEST_CASE("Demonstrate wrongly-passing QTRY_VERIFY2_WITH_TIMEOUT test" /*, "[!shouldfail]"*/)
 {
+#ifdef QTRY_VERIFY2_WITH_TIMEOUT
     // This takes 1.5 seconds to run
     std::cout << "before QTRY_VERIFY2_WITH_TIMEOUT\n";
     QTRY_VERIFY2_WITH_TIMEOUT(1 == 2, "1 != 2 - this should fail", 500);
     std::cout << "after QTRY_VERIFY2_WITH_TIMEOUT - this line will never be reached\n";
+#else
+    std::cout << "Macro QTRY_VERIFY2_WITH_TIMEOUT is not available";
+#endif
 }
