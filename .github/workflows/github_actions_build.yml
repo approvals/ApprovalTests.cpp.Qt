@@ -35,7 +35,7 @@ jobs:
 
   build:
     env:
-      BUILD_DIR_PATH: ${{ github.workspace }}/${{ matrix.relative_build_dir_path }}build_space
+      BUILD_PATH: ${{ github.workspace }}/${{ matrix.relative_build_dir_path }}build_space
     strategy:
       fail-fast: false
       matrix:
@@ -98,16 +98,16 @@ jobs:
 
     - name: configure
       run: |
-        mkdir ${{ env.BUILD_DIR_PATH }}
-        cd ${{ env.BUILD_DIR_PATH }}
+        mkdir ${{ env.BUILD_PATH }}
+        cd ${{ env.BUILD_PATH }}
         cmake --version
         cmake -G ${{ matrix.generator }} ${{ github.workspace }} -DCMAKE_BUILD_TYPE=Debug
     - name: build
       run: |
-        cd ${{ env.BUILD_DIR_PATH }}
+        cd ${{ env.BUILD_PATH }}
         cmake --build . --parallel 4
 # Not running tests for now: hangs forever on Windows, and doesn't find display on other platforms
 #    - name: test
 #      run: |
-#        cd ${{ env.BUILD_DIR_PATH }}
+#        cd ${{ env.BUILD_PATH }}
 #        ctest --verbose --parallel 4 -C Debug
