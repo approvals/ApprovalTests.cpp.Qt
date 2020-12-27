@@ -87,6 +87,7 @@ jobs:
           generator: '"Ninja" -DCMAKE_UNITY_BUILD=yes -DCMAKE_UNITY_BUILD_BATCH_SIZE=50 -DCMAKE_CXX_FLAGS_INIT=-DAPPROVAL_TESTS_DISABLE_FILE_MACRO_CHECK'
           relative_build_dir_path: ''
     runs-on: ${{ matrix.os }}
+    name: ${{ matrix.job-name }}
     steps:
     - uses: actions/checkout@master
     - uses: seanmiddleditch/gha-setup-ninja@v3
