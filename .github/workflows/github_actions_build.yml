@@ -14,7 +14,7 @@ on:
 
 jobs:
   clang-format:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@master
       - uses: DoozyX/clang-format-lint-action@v0.5
@@ -24,7 +24,7 @@ jobs:
           clangFormatVersion: 9
 
   markdown-link-check:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@master
       - uses: actions/setup-node@v1
@@ -59,13 +59,13 @@ jobs:
 #          generator: '"Visual Studio 15 2017"'
 #          relative_build_dir_path: ''
 
-        - job-name: ubuntu-latest
-          os: ubuntu-latest
+        - job-name: ubuntu-18.04
+          os: ubuntu-18.04
           generator: '"Unix Makefiles"'
           relative_build_dir_path: ''
 
-        - job-name: ubuntu-latest-ninja
-          os: ubuntu-latest
+        - job-name: ubuntu-18.04-ninja
+          os: ubuntu-18.04
           generator: '"Ninja"'
           relative_build_dir_path: '../'
 
