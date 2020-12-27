@@ -112,4 +112,4 @@ jobs:
 #    - name: test
 #      run: |
 #        cd ${{ env.BUILD_PATH }}
-#        ctest --verbose --parallel 4 -C Debug
+#        ctest --verbose --output-on-failure -C Debug
