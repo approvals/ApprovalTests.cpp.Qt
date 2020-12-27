@@ -113,7 +113,7 @@ jobs:
         mkdir ${{ env.BUILD_DIR_PATH }}
         cd ${{ env.BUILD_DIR_PATH }}
         cmake --version
-        cmake -G ${{ matrix.generator }} ${{ github.workspace }}
+        cmake -G ${{ matrix.generator }} ${{ github.workspace }} -DCMAKE_BUILD_TYPE=Debug
     - name: build
       run: |
         cd ${{ env.BUILD_DIR_PATH }}
