@@ -118,13 +118,15 @@ jobs:
         mkdir ${{ env.BUILD_DIR_PATH }}
     - name: cmake
       run: |
+        cd ${{ env.BUILD_DIR_PATH }}
         cmake --version
         cmake -G ${{ matrix.generator }} ${{ github.workspace }}
-      working-directory: ${{ env.BUILD_DIR_PATH }}
     - name: build
-      run: cmake --build .
-      working-directory: ${{ env.BUILD_DIR_PATH }}
+      run: |
+        cd ${{ env.BUILD_DIR_PATH }}
+        cmake --build .
 # Not running tests for now: hangs forever on Windows, and doesn't find display on other platforms
 #    - name: test
-#      run: ctest --verbose --parallel 4 -C Debug
-#      working-directory: ${{ env.BUILD_DIR_PATH }}
+#      run: |
+#        cd ${{ env.BUILD_DIR_PATH }}
+#        ctest --verbose --parallel 4 -C Debug
