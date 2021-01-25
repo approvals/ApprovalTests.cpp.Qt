@@ -10,7 +10,6 @@ To change this file edit the source file and then execute ./run_markdown_templat
 # ApprovalTests.cpp.Qt
 
 
-[![Build Status](https://travis-ci.com/approvals/ApprovalTests.cpp.Qt.svg?branch=master)](https://travis-ci.com/approvals/ApprovalTests.cpp.Qt/branches)
 [![Build status](https://ci.appveyor.com/api/projects/status/pf8et0nk1mdajskf/branch/master?svg=true)](https://ci.appveyor.com/project/isidore/approvaltests-cpp-qt/branch/master) 
 [![Actions Status](https://github.com/approvals/ApprovalTests.cpp.Qt/workflows/build/badge.svg)](https://github.com/approvals/ApprovalTests.cpp.Qt/actions)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
@@ -29,7 +28,7 @@ To change this file edit the source file and then execute ./run_markdown_templat
     * [Setting up your main](#setting-up-your-main)
     * [Verifying a QImage](#verifying-a-qimage)
     * [Verifying a QTableView, e.g. QTableWidget](#verifying-a-qtableview-eg-qtablewidget)
-  * [What's new?](#whats-new)<!-- endtoc -->
+  * [What's new?](#whats-new)<!-- endToc -->
 
 ## Purpose
 
@@ -63,14 +62,14 @@ You can download the [Starter Project](https://github.com/approvals/ApprovalTest
 ### Setting up your main
 
 <!-- snippet: catch_2_qt_main -->
-<a id='snippet-catch_2_qt_main'/></a>
+<a id='snippet-catch_2_qt_main'></a>
 ```cpp
 // main.cpp:
 #define APPROVALS_CATCH_QT
 #include "ApprovalTestsQt.hpp"
 ```
-<sup><a href='/tests/Catch2_Tests/main.cpp#L1-L5' title='File snippet `catch_2_qt_main` was extracted from'>snippet source</a> | <a href='#snippet-catch_2_qt_main' title='Navigate to start of snippet `catch_2_qt_main`'>anchor</a></sup>
-<!-- endsnippet -->
+<sup><a href='/tests/Catch2_Tests/main.cpp#L1-L5' title='Snippet source file'>snippet source</a> | <a href='#snippet-catch_2_qt_main' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
 
 ### Verifying a QImage
 
@@ -79,28 +78,28 @@ This takes a QImage, and saves this as a .png, and then verifies it by reading i
 In general, it's better to verify behaviour of objects rather than their appearance. However, if you do wish to test the contents of a QImage, this will work well.
 
 <!-- snippet: verify_qimage -->
-<a id='snippet-verify_qimage'/></a>
+<a id='snippet-verify_qimage'></a>
 ```cpp
 QImage image(10, 20, QImage::Format_RGB32);
 image.fill(Qt::red);
 ApprovalTestsQt::verifyQImage(image);
 ```
-<sup><a href='/tests/Catch2_Tests/ApprovalsQtTests.cpp#L30-L34' title='File snippet `verify_qimage` was extracted from'>snippet source</a> | <a href='#snippet-verify_qimage' title='Navigate to start of snippet `verify_qimage`'>anchor</a></sup>
-<!-- endsnippet -->
+<sup><a href='/tests/Catch2_Tests/ApprovalsQtTests.cpp#L30-L34' title='Snippet source file'>snippet source</a> | <a href='#snippet-verify_qimage' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
 
 ### Verifying a QTableView, e.g. QTableWidget
 
 This takes QTableView, and saves its text contents in a tab-separated .tsv, for verification.
 
 <!-- snippet: verify_table_view -->
-<a id='snippet-verify_table_view'/></a>
+<a id='snippet-verify_table_view'></a>
 ```cpp
 QTableWidget tableWidget;
 populateTable(tableWidget);
 ApprovalTestsQt::verifyQTableView(tableWidget);
 ```
-<sup><a href='/tests/Catch2_Tests/ApprovalsQtTests.cpp#L43-L47' title='File snippet `verify_table_view` was extracted from'>snippet source</a> | <a href='#snippet-verify_table_view' title='Navigate to start of snippet `verify_table_view`'>anchor</a></sup>
-<!-- endsnippet -->
+<sup><a href='/tests/Catch2_Tests/ApprovalsQtTests.cpp#L43-L47' title='Snippet source file'>snippet source</a> | <a href='#snippet-verify_table_view' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
 
 ## What's new?
 

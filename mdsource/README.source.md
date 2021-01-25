@@ -3,7 +3,6 @@
 # ApprovalTests.cpp.Qt
 
 
-[![Build Status](https://travis-ci.com/approvals/ApprovalTests.cpp.Qt.svg?branch=master)](https://travis-ci.com/approvals/ApprovalTests.cpp.Qt/branches)
 [![Build status](https://ci.appveyor.com/api/projects/status/pf8et0nk1mdajskf/branch/master?svg=true)](https://ci.appveyor.com/project/isidore/approvaltests-cpp-qt/branch/master) 
 [![Actions Status](https://github.com/approvals/ApprovalTests.cpp.Qt/workflows/build/badge.svg)](https://github.com/approvals/ApprovalTests.cpp.Qt/actions)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
