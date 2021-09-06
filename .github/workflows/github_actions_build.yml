@@ -4,24 +4,30 @@ on:
   push:
     branches:
       - '*'
-#      - '!compile_time_ninja_check_74'
   pull_request:
     branches:
       - '*'
-#      - '!compile_time_ninja_check_74'
   schedule:
     - cron: '16 0 * * 6'  # <https://crontab.guru/#16_0_*_*_6> - "At 00:16 on Saturday."
 
 jobs:
   clang-format:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@master
-      - uses: DoozyX/clang-format-lint-action@v0.5
+      - uses: DoozyX/clang-format-lint-action@v0.12
         with:
           source: '.'
           exclude: './third_party'
+          inplace: True
           clangFormatVersion: 9
+      - uses: EndBug/add-and-commit@v4
+        with:
+          author_name: Clang GitHub Action
+          author_email: actions@github.com
+          message: 'r Reformat with clang-format'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   markdown-link-check:
     runs-on: ubuntu-18.04
