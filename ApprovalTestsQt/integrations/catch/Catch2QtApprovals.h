@@ -6,6 +6,7 @@
 #include "ApprovalTestsQt/integrations/LoadApprovals.h"
 #include <QApplication>
 #include "ApprovalTestsQt/comparators/QImageApprovalComparator.h"
+#include "ApprovalTestsQt/ApprovalsQt.h"
 
 int main(int argc, char* argv[])
 {
@@ -14,6 +15,7 @@ int main(int argc, char* argv[])
     //  QWidget: Must construct a QApplication before a QWidget
     // So we follow the lead of the Qt Test framework and create it in main().
     QApplication app(argc, argv);
+
     ApprovalTestsQt::initializeQtApprovals();
 
     // your existing setup...
