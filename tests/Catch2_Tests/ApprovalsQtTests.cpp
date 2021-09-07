@@ -26,49 +26,10 @@ namespace
     }
 } // namespace
 
-
-class EmptyFileCreatorByType
-{
-public:
-    static std::map<std::string, ApprovalTests::EmptyFileCreator> creators_;
-
-    static void registerCreator(const std::string& extensionWithDot, ApprovalTests::EmptyFileCreator creator)
-    {
-        creators_[extensionWithDot] = std::move(creator);
-    }
-
-    static void createFile(const std::string& fileName)
-    {
-        for (const auto &creator : creators_)
-        {
-            if (ApprovalTests::StringUtils::endsWith(fileName, creator.first))
-            {
-                creator.second(fileName);
-                return;
-            }
-        }
-        std::string contents;
-        ApprovalTests::StringWriter s(contents);
-        s.write(fileName);
-    }
-};
-
-std::map<std::string, ApprovalTests::EmptyFileCreator> EmptyFileCreatorByType::creators_;
-
 TEST_CASE("It approves a QImage")
 {
     auto approved = ApprovalTests::Approvals::getDefaultNamer()->getApprovedFile(".png");
-    //remove(approved.c_str());
-
-    ApprovalTests::EmptyFileCreator pngCreator = [](std::string fileName)
-    {
-        QImage image(1, 1, QImage::Format_ARGB32);
-        image.fill(Qt::transparent);
-        ApprovalTestsQt::QImageApprovalWriter image_writer(image);
-        image_writer.write(fileName);
-    };
-    EmptyFileCreatorByType::registerCreator(".png", pngCreator);
-    auto disposer = ApprovalTests::FileUtils::useEmptyFileCreator(EmptyFileCreatorByType::createFile);
+//    remove(approved.c_str());
 
     // begin-snippet: verify_qimage
     QImage image(10, 20, QImage::Format_RGB32);

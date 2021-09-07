@@ -5,6 +5,7 @@
 #include "ApprovalTestsQt/writers/QImageApprovalWriter.h"
 #include "ApprovalTestsQt/writers/QTableViewWriter.h"
 #include "ApprovalTestsQt/comparators/QImageApprovalComparator.h"
+#include "EmptyFileCreatorByType.h"
 
 namespace ApprovalTestsQt
 {
@@ -18,6 +19,18 @@ namespace ApprovalTestsQt
         static auto pngComparatorDisposer =
             ApprovalTests::FileApprover::registerComparatorForExtension(
                 ".png", std::make_shared<ApprovalTestsQt::QImageApprovalComparator>());
+
+        ApprovalTests::EmptyFileCreator pngCreator = [](std::string fileName)
+        {
+            QImage image(1, 1, QImage::Format_ARGB32);
+            image.fill(Qt::transparent);
+            ApprovalTestsQt::QImageApprovalWriter image_writer(image);
+            image_writer.write(fileName);
+        };
+        ApprovalTestsQt::EmptyFileCreatorByType::registerCreator(".png", pngCreator);
+
+        static auto disposer = ApprovalTests::FileUtils::useEmptyFileCreator(
+            EmptyFileCreatorByType::createFile);
     }
 
     inline void
