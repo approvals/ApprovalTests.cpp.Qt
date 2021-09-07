@@ -4,9 +4,22 @@
 #include "ApprovalTestsQt/integrations/LoadApprovals.h"
 #include "ApprovalTestsQt/writers/QImageApprovalWriter.h"
 #include "ApprovalTestsQt/writers/QTableViewWriter.h"
+#include "ApprovalTestsQt/comparators/QImageApprovalComparator.h"
 
 namespace ApprovalTestsQt
 {
+
+    inline void initializeQtApprovals()
+    {
+        // When comparing PNG files, get Qt to read the two image files and
+        // compare the QImage objects, instead of using the built-in
+        // character-based file comparison, which may fail for two
+        // exactly equivalent .png files.
+        static auto pngComparatorDisposer =
+            ApprovalTests::FileApprover::registerComparatorForExtension(
+                ".png", std::make_shared<ApprovalTestsQt::QImageApprovalComparator>());
+    }
+
     inline void
     verifyQImage(const QImage& image,
                  const ApprovalTests::Options& options = ApprovalTests::Options())

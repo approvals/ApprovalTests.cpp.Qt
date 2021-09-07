@@ -14,14 +14,7 @@ int main(int argc, char* argv[])
     //  QWidget: Must construct a QApplication before a QWidget
     // So we follow the lead of the Qt Test framework and create it in main().
     QApplication app(argc, argv);
-
-    // When comparing PNG files, get Qt to read the two image files and
-    // compare the QImage objects, instead of using the built-in
-    // character-based file comparison, which may fail for two
-    // exactly equivalent .png files.
-    auto pngComparatorDisposer =
-        ApprovalTests::FileApprover::registerComparatorForExtension(
-            ".png", std::make_shared<ApprovalTestsQt::QImageApprovalComparator>());
+    ApprovalTestsQt::initializeQtApprovals();
 
     // your existing setup...
     int result = Catch::Session().run(argc, argv);
