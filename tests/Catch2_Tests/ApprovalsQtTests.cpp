@@ -29,12 +29,13 @@ namespace
 TEST_CASE("It approves a QImage")
 {
     auto approved = ApprovalTests::Approvals::getDefaultNamer()->getApprovedFile(".png");
-//    remove(approved.c_str());
+    //    remove(approved.c_str());
 
     // begin-snippet: verify_qimage
     QImage image(10, 20, QImage::Format_RGB32);
     image.fill(Qt::red);
-    ApprovalTestsQt::verifyQImage(image, ApprovalTests::Options(ApprovalTests::Mac::BeyondCompareReporter()));
+    ApprovalTestsQt::verifyQImage(
+        image, ApprovalTests::Options(ApprovalTests::Mac::BeyondCompareReporter()));
     // end-snippet
 }
 

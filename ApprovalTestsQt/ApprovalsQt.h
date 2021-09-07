@@ -20,8 +20,7 @@ namespace ApprovalTestsQt
             ApprovalTests::FileApprover::registerComparatorForExtension(
                 ".png", std::make_shared<ApprovalTestsQt::QImageApprovalComparator>());
 
-        ApprovalTests::EmptyFileCreator pngCreator = [](std::string fileName)
-        {
+        ApprovalTests::EmptyFileCreator pngCreator = [](std::string fileName) {
             QImage image(1, 1, QImage::Format_ARGB32);
             image.fill(Qt::transparent);
             ApprovalTestsQt::QImageApprovalWriter image_writer(image);
