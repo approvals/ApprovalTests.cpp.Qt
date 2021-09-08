@@ -11,4 +11,4 @@ Preparation:
 ## Notes
 
 * Markdownsnippets files here still have separate .source.md files, in mdsource directories
-* We can't remove .source.md files until we have removed dependency onan old version of build scripts in ApprovalTests.cpp
+* We can't remove .source.md files until we have removed dependency on an old version of build scripts in ApprovalTests.cpp
