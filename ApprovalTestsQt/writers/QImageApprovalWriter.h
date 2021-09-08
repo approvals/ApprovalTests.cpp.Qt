@@ -32,6 +32,14 @@ namespace ApprovalTestsQt
             remove(receivedPath.c_str());
         }
 
+        static void createEmptyImage(std::string fileName)
+        {
+            QImage image(1, 1, QImage::Format_ARGB32);
+            image.fill(Qt::transparent);
+            ApprovalTestsQt::QImageApprovalWriter image_writer(image);
+            image_writer.write(fileName);
+        }
+
     private:
         QImage image_;
         std::string fileExtensionWithDot_;
