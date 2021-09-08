@@ -36,6 +36,7 @@ You can download the [Starter Project](https://github.com/approvals/ApprovalTest
 ## Limitations
 
 * **IMPORTANT:** Do not use the [Qt Test macros](https://doc.qt.io/qt-5/qtest.html#macros), such as `QCOMPARE`, `QVERIFY`, `QTRY_COMPARE` and so on. **Currently, any test failures of all any of the Qt Test macros will be silently swallowed, and tests will spuriously pass.**
+* Currently, there are compile-time checks to prevent incorrect use of `QCOMPARE`, but not the others.
 * Please note that this is a very early implementation, and there is not yet any promise of a stable interface.
 
 ## Reference
