@@ -1,7 +1,7 @@
 {
   "ReadOnly": true,
   "TocLevel": 5,
-  "Exclude": [ "cmake-build", "build" ],
+  "ExcludeDirectories": [ "cmake-build", "build" ],
   "UrlsAsSnippets": [],
   "TocExcludes": [ "Exclude Heading1", "Exclude Heading2" ],
   "WriteHeader": true,
