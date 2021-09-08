@@ -5,6 +5,6 @@
 * **New features**
     * None
 * **Bug fixes**
-    * None
+    * Now creates valid image files for new image-based approval tests (#7)
 * **Other changes**
     * None
