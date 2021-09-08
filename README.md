@@ -84,7 +84,7 @@ QImage image(10, 20, QImage::Format_RGB32);
 image.fill(Qt::red);
 ApprovalTestsQt::verifyQImage(image);
 ```
-<sup><a href='/tests/Catch2_Tests/ApprovalsQtTests.cpp#L30-L34' title='Snippet source file'>snippet source</a> | <a href='#snippet-verify_qimage' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/tests/Catch2_Tests/ApprovalsQtTests.cpp#L31-L35' title='Snippet source file'>snippet source</a> | <a href='#snippet-verify_qimage' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 ### Verifying a QTableView, e.g. QTableWidget
@@ -98,7 +98,7 @@ QTableWidget tableWidget;
 populateTable(tableWidget);
 ApprovalTestsQt::verifyQTableView(tableWidget);
 ```
-<sup><a href='/tests/Catch2_Tests/ApprovalsQtTests.cpp#L43-L47' title='Snippet source file'>snippet source</a> | <a href='#snippet-verify_table_view' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/tests/Catch2_Tests/ApprovalsQtTests.cpp#L44-L48' title='Snippet source file'>snippet source</a> | <a href='#snippet-verify_table_view' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 ## What's new?
