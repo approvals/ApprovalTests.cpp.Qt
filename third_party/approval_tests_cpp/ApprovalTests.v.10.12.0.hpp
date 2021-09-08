@@ -1,4 +1,4 @@
-// ApprovalTests.cpp version v.10.11.0
+// ApprovalTests.cpp version v.10.12.0
 // More information at: https://github.com/approvals/ApprovalTests.cpp
 //
 // Copyright (c) 2021 Llewellyn Falco and Clare Macrae. All rights reserved.
@@ -26,9 +26,9 @@
 // ******************** From: ApprovalTestsVersion.h
 
 #define APPROVAL_TESTS_VERSION_MAJOR 10
-#define APPROVAL_TESTS_VERSION_MINOR 11
+#define APPROVAL_TESTS_VERSION_MINOR 12
 #define APPROVAL_TESTS_VERSION_PATCH 0
-#define APPROVAL_TESTS_VERSION_STR "10.11.0"
+#define APPROVAL_TESTS_VERSION_STR "10.12.0"
 
 #define APPROVAL_TESTS_VERSION                                                           \
     (APPROVAL_TESTS_VERSION_MAJOR * 10000 + APPROVAL_TESTS_VERSION_MINOR * 100 +         \
@@ -314,7 +314,9 @@ namespace ApprovalTests
         ApprovalTests::TestName::registerRootDirectoryFromMainFile(__FILE__);
 
 // ******************** From: EmptyFileCreatorFactory.h
+
 #include <functional>
+#include <string>
 
 namespace ApprovalTests
 {
@@ -3248,6 +3250,27 @@ namespace ApprovalTests
     };
 }
 
+// ******************** From: EmptyFileCreatorByType.h
+
+
+#include <map>
+#include <string>
+
+namespace ApprovalTests
+{
+    class EmptyFileCreatorByType
+    {
+    private:
+        static std::map<std::string, EmptyFileCreator> creators_;
+
+    public:
+        static void registerCreator(const std::string& extensionWithDot,
+                                    EmptyFileCreator creator);
+
+        static void createFile(const std::string& fileName);
+    };
+}
+
 // ******************** From: ExceptionCollector.h
 
 #include <sstream>
@@ -6008,6 +6031,48 @@ namespace ApprovalTests
     }
 }
 
+// ******************** From: EmptyFileCreatorByType.cpp
+
+namespace
+{
+    std::map<std::string, ApprovalTests::EmptyFileCreator>
+    defaultEmptyFileCreatorByTypeCreators()
+    {
+        std::map<std::string, ApprovalTests::EmptyFileCreator> creators;
+        ApprovalTests::EmptyFileCreator wibbleCreator = [](std::string fileName) {
+            ApprovalTests::StringWriter s("{}");
+            s.write(fileName);
+        };
+        creators[".json"] = wibbleCreator;
+        return creators;
+    }
+}
+
+namespace ApprovalTests
+{
+    std::map<std::string, ApprovalTests::EmptyFileCreator>
+        EmptyFileCreatorByType::creators_ = defaultEmptyFileCreatorByTypeCreators();
+
+    void EmptyFileCreatorByType::registerCreator(const std::string& extensionWithDot,
+                                                 EmptyFileCreator creator)
+    {
+        creators_[extensionWithDot] = std::move(creator);
+    }
+
+    void EmptyFileCreatorByType::createFile(const std::string& fileName)
+    {
+        for (const auto& creator : creators_)
+        {
+            if (StringUtils::endsWith(fileName, creator.first))
+            {
+                creator.second(fileName);
+                return;
+            }
+        }
+        EmptyFileCreatorFactory::defaultCreator(fileName);
+    }
+}
+
 // ******************** From: EmptyFileCreatorDisposer.cpp
 #include <sstream>
 
@@ -6037,8 +6102,7 @@ namespace ApprovalTests
     }
 
     EmptyFileCreator EmptyFileCreatorFactory::currentCreator =
-        EmptyFileCreatorFactory::defaultCreator;
-
+        EmptyFileCreatorByType::createFile;
 }
 
 // ******************** From: ExceptionCollector.cpp
