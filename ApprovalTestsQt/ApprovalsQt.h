@@ -5,7 +5,6 @@
 #include "ApprovalTestsQt/writers/QImageApprovalWriter.h"
 #include "ApprovalTestsQt/writers/QTableViewWriter.h"
 #include "ApprovalTestsQt/comparators/QImageApprovalComparator.h"
-#include "EmptyFileCreatorByType.h"
 
 namespace ApprovalTestsQt
 {
@@ -26,10 +25,10 @@ namespace ApprovalTestsQt
             ApprovalTestsQt::QImageApprovalWriter image_writer(image);
             image_writer.write(fileName);
         };
-        ApprovalTestsQt::EmptyFileCreatorByType::registerCreator(".png", pngCreator);
+        ApprovalTests::EmptyFileCreatorByType::registerCreator(".png", pngCreator);
 
         static auto disposer = ApprovalTests::FileUtils::useEmptyFileCreator(
-            EmptyFileCreatorByType::createFile);
+            ApprovalTests::EmptyFileCreatorByType::createFile);
     }
 
     inline void
