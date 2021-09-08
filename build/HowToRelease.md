@@ -5,7 +5,7 @@
 
 Preparation:
 
-- Check out revision `d45991b26d07ee391a90017c7c52301348ef48a6` of ApprovalTests, along side this project
+- Check out revision `d45991b26d07ee391a90017c7c52301348ef48a6` of [ApprovalTests.cpp](https://github.com/approvals/ApprovalTests.cpp), along side this project
 - Run the appropriate deploy_*_release.py
 
 ## Notes
