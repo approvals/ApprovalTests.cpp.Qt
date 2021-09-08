@@ -6,9 +6,10 @@
 #include "ApprovalTestsQt/integrations/LoadApprovals.h"
 #include "ApprovalTestsQt/writers/QTableViewWriter.h"
 #include "ApprovalTestsQt/writers/QImageApprovalWriter.h"
+#include "ApprovalTestsQt/comparators/QImageApprovalComparator.h"
 #include "ApprovalTestsQt/ApprovalTestsQtVersion.h"
 #include "ApprovalTestsQt/ApprovalsQt.h"
-#include "ApprovalTestsQt/comparators/QImageApprovalComparator.h"
+#include "ApprovalTestsQt/SafeQTestMacros.h"
 #include "ApprovalTestsQt/integrations/catch/Catch2QtApprovals.h"
 #include "ApprovalTestsQt/integrations/catch/Catch2QtStringMaker.h"
 

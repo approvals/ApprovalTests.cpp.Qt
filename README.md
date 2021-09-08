@@ -14,7 +14,7 @@ To change this file edit the source file and then execute ./run_markdown_templat
 [![Actions Status](https://github.com/approvals/ApprovalTests.cpp.Qt/workflows/build/badge.svg)](https://github.com/approvals/ApprovalTests.cpp.Qt/actions)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-<a href="https://github.com/approvals/ApprovalTests.cpp.Qt/releases/download/v.0.0.2/ApprovalTestsQt.v.0.0.2.hpp">Download the latest version (v.0.0.2) of the **single header file** here.</a>
+<a href="https://github.com/approvals/ApprovalTests.cpp.Qt/releases/download/v.0.0.3/ApprovalTestsQt.v.0.0.3.hpp">Download the latest version (v.0.0.3) of the **single header file** here.</a>
 
 <!-- toc -->
 ## Contents
@@ -55,6 +55,7 @@ You can download the [Starter Project](https://github.com/approvals/ApprovalTest
 ## Limitations
 
 * **IMPORTANT:** Do not use the [Qt Test macros](https://doc.qt.io/qt-5/qtest.html#macros), such as `QCOMPARE`, `QVERIFY`, `QTRY_COMPARE` and so on. **Currently, any test failures of all any of the Qt Test macros will be silently swallowed, and tests will spuriously pass.**
+* Currently, there are compile-time checks to prevent incorrect use of `QCOMPARE`, but not the others.
 * Please note that this is a very early implementation, and there is not yet any promise of a stable interface.
 
 ## Reference
