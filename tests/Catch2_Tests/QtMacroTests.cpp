@@ -6,10 +6,14 @@
 
 // Include "SafeQTestMacros.h" after <QTest> to enable compile-time prevention
 // of use of QCOMPARE outside QObject slots
-//#include "SafeQTestMacros.h"
+#include "SafeQTestMacros.h"
 
+#define ENABLE_CODE_THAT_SHOULD_FAIL_TO_COMPILE 0
+
+
+#if ENABLE_CODE_THAT_SHOULD_FAIL_TO_COMPILE
 // -----------------------------------------------------------------------------------------------
-// Simple checks
+// QCOMPARE-based tests
 
 TEST_CASE("Demonstrate wrongly-passing QCOMPARE test" /*, "[!shouldfail]"*/)
 {
@@ -18,6 +22,27 @@ TEST_CASE("Demonstrate wrongly-passing QCOMPARE test" /*, "[!shouldfail]"*/)
     QCOMPARE(1, 2); // this will return, silently, as called from outside a slot
     std::cout << "after QCOMPARE - this line will never be reached\n";
 }
+
+TEST_CASE("Demonstrate wrongly-passing QTRY_COMPARE test" /*, "[!shouldfail]"*/)
+{
+    // This takes 15 seconds to run
+    std::cout << "before QTRY_COMPARE\n";
+    QTRY_COMPARE(1, 2);
+    std::cout << "after QTRY_COMPARE - this line will never be reached\n";
+}
+
+TEST_CASE(
+    "Demonstrate wrongly-passing QTRY_COMPARE_WITH_TIMEOUT test" /*, "[!shouldfail]"*/)
+{
+    // This takes 1.5 seconds to run
+    std::cout << "before QTRY_COMPARE_WITH_TIMEOUT\n";
+    QTRY_COMPARE_WITH_TIMEOUT(1, 2, 500);
+    std::cout << "after QTRY_COMPARE_WITH_TIMEOUT - this line will never be reached\n";
+}
+#endif // ENABLE_CODE_THAT_SHOULD_FAIL_TO_COMPILE
+
+// -----------------------------------------------------------------------------------------------
+// Simple checks
 
 TEST_CASE("Demonstrate wrongly-passing QVERIFY test" /*, "[!shouldfail]"*/)
 {
@@ -42,23 +67,6 @@ TEST_CASE("Demonstrate wrongly-passing QVERIFY2 test" /*, "[!shouldfail]"*/)
 
 // -----------------------------------------------------------------------------------------------
 // QTRY_* checks
-
-TEST_CASE("Demonstrate wrongly-passing QTRY_COMPARE test" /*, "[!shouldfail]"*/)
-{
-    // This takes 15 seconds to run
-    std::cout << "before QTRY_COMPARE\n";
-    QTRY_COMPARE(1, 2);
-    std::cout << "after QTRY_COMPARE - this line will never be reached\n";
-}
-
-TEST_CASE(
-    "Demonstrate wrongly-passing QTRY_COMPARE_WITH_TIMEOUT test" /*, "[!shouldfail]"*/)
-{
-    // This takes 1.5 seconds to run
-    std::cout << "before QTRY_COMPARE_WITH_TIMEOUT\n";
-    QTRY_COMPARE_WITH_TIMEOUT(1, 2, 500);
-    std::cout << "after QTRY_COMPARE_WITH_TIMEOUT - this line will never be reached\n";
-}
 
 TEST_CASE(
     "Demonstrate wrongly-passing QTRY_VERIFY_WITH_TIMEOUT test" /*, "[!shouldfail]"*/)
