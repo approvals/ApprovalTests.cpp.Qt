@@ -10,7 +10,6 @@
 
 #define ENABLE_CODE_THAT_SHOULD_FAIL_TO_COMPILE 0
 
-
 #if ENABLE_CODE_THAT_SHOULD_FAIL_TO_COMPILE
 // -----------------------------------------------------------------------------------------------
 // QCOMPARE-based tests
