@@ -51,12 +51,12 @@ jobs:
         include:
         - job-name: windows-latest
           os: windows-latest
-          generator: '"Visual Studio 16 2019"'
+          generator: '"Visual Studio 17 2022"'
           relative_build_dir_path: ''
 
         - job-name: windows-latest (clangcl)
           os: windows-latest
-          generator: '"Visual Studio 16 2019" -T "clangcl"'
+          generator: '"Visual Studio 17 2022" -T "clangcl"'
           relative_build_dir_path: ''
 
 # TODO Fix windows-2016 build: Disabled due to:
