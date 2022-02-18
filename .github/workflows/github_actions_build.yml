@@ -9,6 +9,7 @@ on:
       - '*'
   schedule:
     - cron: '16 0 * * 6'  # <https://crontab.guru/#16_0_*_*_6> - "At 00:16 on Saturday."
+  workflow_dispatch:
 
 jobs:
   clang-format:
