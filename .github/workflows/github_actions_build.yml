@@ -30,17 +30,20 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  markdown-link-check:
-    runs-on: ubuntu-18.04
-    steps:
-      - uses: actions/checkout@master
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
-      - name: Install markdown-link-check
-        run: npm i -g markdown-link-check
-      - name: Run markdown-link-check on *.md files
-        run: ./scripts/check_links.sh
+# Commented out because it started failing on 2022-05-07
+# when the docs had not changed
+# https://github.com/approvals/ApprovalTests.cpp.Qt/actions/runs/2284909693
+#  markdown-link-check:
+#    runs-on: ubuntu-18.04
+#    steps:
+#      - uses: actions/checkout@master
+#      - uses: actions/setup-node@v1
+#        with:
+#          node-version: '12.x'
+#      - name: Install markdown-link-check
+#        run: npm i -g markdown-link-check
+#      - name: Run markdown-link-check on *.md files
+#        run: ./scripts/check_links.sh
 
   build:
     env:
